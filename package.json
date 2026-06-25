@@ -1,0 +1,28 @@
+{
+	"name": "story-bean",
+	"type": "module",
+	"private": true,
+	"version": "0.0.1.",
+	"description": "Story Bean is a social webapp where creative writers can work together and keep track of their writing.",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wolffiness/story-bean.git"
+	},
+	"author": "Wolffiness",
+	"license": "GPL-3.0-only",
+	"dependencies": {
+		"nuxt": "^4.4.8",
+		"vue": "^3.5.38",
+		"vue-router": "^5.1.0"
+	},
+	"devDependencies": {
+		"@nuxt/eslint": "^1.16.0"
+	}
+}
