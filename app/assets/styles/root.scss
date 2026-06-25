@@ -85,6 +85,7 @@ $xl: 75em;
 	--size-xl: calc(var(--size-h1) * var(--typescale));
 
 	// COLORS
+	color-scheme: light dark;
 	// Base
 	--text: light-dark(#241d17, #ede3da);
 	--bg: light-dark(#ede3da, #241d17);
