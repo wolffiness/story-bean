@@ -1,0 +1,50 @@
+@use '../root' as *;
+
+#hero {
+	background-color: var(--accent);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3em 0;
+	box-shadow: var(--shadow-md);
+
+	> div {
+		max-width: var(--max-width);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		img {
+			height: 5em;
+		}
+
+		h1,
+		p {
+			color: var(--bg);
+			text-align: center;
+		}
+
+		p {
+			font-size: var(--size-h5);
+		}
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 2em;
+
+			div:first-of-type {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5em;
+			}
+
+			div:last-of-type {
+				display: flex;
+				gap: 1em;
+			}
+		}
+	}
+}

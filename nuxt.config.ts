@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	compatibilityDate: "2025-07-15",
+	alias: {
+		'@': import.meta.dirname + '/',
+		'@img': import.meta.dirname + '/app/assets/img',
+	},
+	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
+	css: ['./app/assets/styles/global.scss'],
 })

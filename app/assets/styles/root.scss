@@ -1,0 +1,158 @@
+// BREAKPOINTS (For media queries)
+$xs: 30em;
+$sm: 36em;
+$md: 48em;
+$lg: 62em;
+$xl: 75em;
+
+:root {
+	// BREAKPOINTS (do not use SCSS vars, just keep them equal)
+	--xs: 22em; // min-width of page, not breakpoint
+	--sm: 36em;
+	--md: 48em;
+	--lg: 62em;
+	--xl: 75em;
+
+	--col: 4;
+	@media only screen and (min-width: $sm) {
+		--col: 8;
+	}
+
+	@media only screen and (min-width: $md) {
+		--col: 12;
+	}
+
+	--gutter: 1em;
+
+	// Size
+	--max-width: calc(100vw - (var(--margin) * 2));
+
+	@media only screen and (min-width: $sm) {
+		--max-width: calc(var(--sm) - (var(--margin) * 2));
+	}
+
+	@media only screen and (min-width: $md) {
+		--max-width: calc(var(--md) - (var(--margin) * 2));
+	}
+
+	@media only screen and (min-width: $lg) {
+		--max-width: calc(var(--lg) - (var(--margin) * 2));
+	}
+
+	@media only screen and (min-width: $xl) {
+		--max-width: calc(var(--xl) - (var(--margin) * 2));
+	}
+
+	// Box model
+	--margin: 2em;
+
+	@media only screen and (min-width: $xs) {
+		--margin: 4em;
+	}
+
+	// BORDER RADIUS
+	--border-rad: 5px;
+
+	// TRANSITION SPEED
+	--trans-speed: 200ms;
+
+	// TYPOGRAPHY
+	// Font family
+	--font-h:
+		'Libre Baskerville', Inter, Roboto, 'Helvetica Neue', 'Nimbus Sans', Arial,
+		system-ui, sans-serif;
+	--font-text:
+		'Quicksand', Inter, Roboto, 'Helvetica Neue', 'Nimbus Sans', Arial,
+		system-ui, sans-serif;
+
+	// Font size
+	--typescale: 1.33;
+
+	@media only screen and (min-width: $md) {
+		--typescale: 1.333;
+	}
+	--size-text: 16px;
+	--size-icon: 1.5em;
+
+	--size-sm: calc(var(--size-text) / var(--typescale));
+	--size-tiny: calc(var(--size-sm) / var(--typescale));
+
+	--size-h5: calc(var(--size-text) * var(--typescale));
+	--size-h4: calc(var(--size-h5) * var(--typescale));
+	--size-h3: calc(var(--size-h4) * var(--typescale));
+	--size-h2: calc(var(--size-h3) * var(--typescale));
+	--size-h1: calc(var(--size-h2) * var(--typescale));
+	--size-xl: calc(var(--size-h1) * var(--typescale));
+
+	// COLORS
+	// Base
+	--text: light-dark(#241d17, #ede3da);
+	--bg: light-dark(#ede3da, #241d17);
+	--primary: light-dark(#48301a, #e5ceb8);
+	--secondary: light-dark(#e6c299, #664219);
+	--accent: light-dark(#404f24, #404f24);
+
+	// UI States
+	// --disabled: #333234;
+	--danger: #4f2424;
+	// --warning: #e4d854;
+	// --success: #24591f;
+	// --info: #19437c;
+
+	// Shades
+	--l-increment: 5;
+
+	--text-muted: hsl(from var(--text) h calc(s - 20) calc(l - 20));
+
+	--bg-dark: hsl(from var(--bg) h s calc(l - var(--l-increment)));
+	--primary-dark: hsl(from var(--primary) h s calc(l - var(--l-increment)));
+	--secondary-dark: hsl(from var(--secondary) h s calc(l - var(--l-increment)));
+	--accent-dark: hsl(from var(--accent) h s calc(l - var(--l-increment)));
+
+	--bg-darkest: hsl(from var(--bg) h s calc(l - (var(--l-increment) * 2)));
+	--primary-darkest: hsl(
+		from var(--primary) h s calc(l - (var(--l-increment) * 2))
+	);
+	--secondary-darkest: hsl(
+		from var(--secondary) h s calc(l - (var(--l-increment) * 2))
+	);
+	--accent-darkest: hsl(
+		from var(--accent) h s calc(l - (var(--l-increment) * 2))
+	);
+
+	--bg-light: hsl(from var(--bg) h s calc(l + var(--l-increment)));
+	--primary-light: hsl(from var(--primary) h s calc(l + var(--l-increment)));
+	--secondary-light: hsl(
+		from var(--secondary) h s calc(l + var(--l-increment))
+	);
+	--accent-light: hsl(from var(--accent) h s calc(l + var(--l-increment)));
+
+	--bg-lightest: hsl(from var(--bg) h s calc(l + (var(--l-increment) * 2)));
+	--primary-lightest: hsl(
+		from var(--primary) h s calc(l + (var(--l-increment) * 2))
+	);
+	--secondary-lightest: hsl(
+		from var(--secondary) h s calc(l + (var(--l-increment) * 2))
+	);
+	--accent-lightest: hsl(
+		from var(--accent) h s calc(l + (var(--l-increment) * 2))
+	);
+
+	// GRADIENTS
+	--grad-prim-l-prim-d: linear-gradient(
+		var(--primary-light),
+		var(--primary-dark)
+	);
+
+	// SHADOWS
+	--shadow: #060504;
+	--shadow-color-30: color-mix(in srgb, var(--shadow) 30%, transparent);
+	--shadow-color-15: color-mix(in srgb, var(--shadow) 15%, transparent);
+
+	--shadow-sm:
+		0 2px 4px 0 var(--shadow-color-30), 0 4px 6px 0 var(--shadow-color-15);
+	--shadow-md:
+		0 6px 8px 0 var(--shadow-color-30), 0 8px 10px 0 var(--shadow-color-15);
+	--shadow-lg:
+		0 8px 10px 0 var(--shadow-color-30), 0 8px 12px 0 var(--shadow-color-15);
+}

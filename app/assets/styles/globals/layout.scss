@@ -1,0 +1,30 @@
+@use '../root' as *;
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: var(--font-text);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	font-family: var(--font-h);
+}
+
+p {
+	margin: 0;
+}
