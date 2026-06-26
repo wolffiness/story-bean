@@ -1,0 +1,39 @@
+@use '../root' as *;
+
+button {
+	font-family: var(--font-text);
+	font-size: var(--size-text);
+	border: var(--border-size) solid transparent;
+	border-radius: var(--border-sketch);
+	padding: 0.5em 1em;
+
+	transition: var(--transition);
+
+	a {
+		text-decoration: inherit;
+		color: inherit;
+	}
+}
+
+.btn-primary {
+	background-color: var(--primary);
+	border-color: var(--primary-dark);
+	color: var(--bg);
+	font-weight: bold;
+
+	&:hover {
+		background-color: var(--primary-dark);
+		box-shadow: var(--shadow-md);
+	}
+}
+
+.btn-secondary {
+	background-color: var(--secondary-30);
+	border-color: var(--secondary);
+	color: var(--text);
+
+	&:hover {
+		background-color: var(--secondary);
+		box-shadow: var(--shadow-sm);
+	}
+}

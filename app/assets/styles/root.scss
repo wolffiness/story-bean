@@ -50,11 +50,16 @@ $xl: 75em;
 		--margin: 4em;
 	}
 
-	// BORDER RADIUS
 	--border-rad: 5px;
+	--border-circle: 50%;
+	--border-sketch: var(--border-circle) var(--border-rad) var(--border-circle)
+		var(--border-rad) / var(--border-rad) var(--border-circle) var(--border-rad)
+		var(--border-circle);
+	--border-size: 3px;
 
 	// TRANSITION SPEED
 	--trans-speed: 200ms;
+	--transition: ease-in-out var(--trans-speed);
 
 	// TYPOGRAPHY
 	// Font family
@@ -94,7 +99,6 @@ $xl: 75em;
 	--accent: light-dark(#404f24, #404f24);
 
 	// UI States
-	// --disabled: #333234;
 	--danger: #4f2424;
 	// --warning: #e4d854;
 	// --success: #24591f;
@@ -102,51 +106,43 @@ $xl: 75em;
 
 	// Shades
 	--l-increment: 5;
+	--s-increment: 5;
 
-	--text-muted: hsl(from var(--text) h calc(s - 20) calc(l - 20));
+	--l-disabled: 20;
+	--s-disabled: 10;
 
-	--bg-dark: hsl(from var(--bg) h s calc(l - var(--l-increment)));
-	--primary-dark: hsl(from var(--primary) h s calc(l - var(--l-increment)));
-	--secondary-dark: hsl(from var(--secondary) h s calc(l - var(--l-increment)));
-	--accent-dark: hsl(from var(--accent) h s calc(l - var(--l-increment)));
+	@mixin color-shades($base) {
+		--#{$base}-disabled: hsl(
+			from var(--#{$base}) h calc(s - var(--s-disabled))
+				calc(l - var(--l-disabled))
+		);
+		--#{$base}-dark: hsl(
+			from var(--#{$base}) h calc(s - var(--s-increment))
+				calc(l - var(--l-increment))
+		);
+		--#{$base}-darkest: hsl(
+			from var(--#{$base}-dark) h calc(s - var(--s-increment))
+				calc(l - var(--l-increment))
+		);
+		--#{$base}-light: hsl(
+			from var(--#{$base}) h calc(s + var(--s-increment))
+				calc(l + var(--l-increment))
+		);
+		--#{$base}-lightest: hsl(
+			from var(--#{$base}-light) h calc(s + var(--s-increment))
+				calc(l + var(--l-increment))
+		);
+		--#{$base}-30: color-mix(in srgb, var(--#{$base}) 30%, transparent);
+	}
 
-	--bg-darkest: hsl(from var(--bg) h s calc(l - (var(--l-increment) * 2)));
-	--primary-darkest: hsl(
-		from var(--primary) h s calc(l - (var(--l-increment) * 2))
-	);
-	--secondary-darkest: hsl(
-		from var(--secondary) h s calc(l - (var(--l-increment) * 2))
-	);
-	--accent-darkest: hsl(
-		from var(--accent) h s calc(l - (var(--l-increment) * 2))
-	);
-
-	--bg-light: hsl(from var(--bg) h s calc(l + var(--l-increment)));
-	--primary-light: hsl(from var(--primary) h s calc(l + var(--l-increment)));
-	--secondary-light: hsl(
-		from var(--secondary) h s calc(l + var(--l-increment))
-	);
-	--accent-light: hsl(from var(--accent) h s calc(l + var(--l-increment)));
-
-	--bg-lightest: hsl(from var(--bg) h s calc(l + (var(--l-increment) * 2)));
-	--primary-lightest: hsl(
-		from var(--primary) h s calc(l + (var(--l-increment) * 2))
-	);
-	--secondary-lightest: hsl(
-		from var(--secondary) h s calc(l + (var(--l-increment) * 2))
-	);
-	--accent-lightest: hsl(
-		from var(--accent) h s calc(l + (var(--l-increment) * 2))
-	);
-
-	// GRADIENTS
-	--grad-prim-l-prim-d: linear-gradient(
-		var(--primary-light),
-		var(--primary-dark)
-	);
+	@include color-shades(text);
+	@include color-shades(bg);
+	@include color-shades(primary);
+	@include color-shades(secondary);
+	@include color-shades(accent);
 
 	// SHADOWS
-	--shadow: #060504;
+	--shadow: light-dark(var(--text-darkest), var(--bg-darkest));
 	--shadow-color-30: color-mix(in srgb, var(--shadow) 30%, transparent);
 	--shadow-color-15: color-mix(in srgb, var(--shadow) 15%, transparent);
 
