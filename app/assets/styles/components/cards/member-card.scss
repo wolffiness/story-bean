@@ -1,0 +1,9 @@
+@use '../../root' as *;
+
+.member-card {
+	background-color: var(--secondary-lightest);
+
+	> div {
+		border: var(--border-size) solid var(--bg);
+	}
+}

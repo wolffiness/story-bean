@@ -1,0 +1,13 @@
+@use '../root' as *;
+
+.bg {
+	background-color: var(--bg);
+}
+
+.bg-accent {
+	background-color: var(--accent);
+}
+
+.shadow-md {
+	box-shadow: var(--shadow-md);
+}

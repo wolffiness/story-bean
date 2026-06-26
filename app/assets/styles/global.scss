@@ -2,11 +2,20 @@
 @forward './root.scss';
 
 // GLOBALS
+@forward './globals/background.scss';
+@forward './globals/box-model.scss';
 @forward './globals/btn.scss';
+@forward './globals/flexbox.scss';
+@forward './globals/gap.scss';
+@forward './globals/grid.scss';
 @forward './globals/layout.scss';
+@forward './globals/text.scss';
 
 // PAGES
 @forward './pages/website.scss';
+
+// COMPONENTS
+@forward './components/cards/member-card.scss';
 
 // IMPORT ICONS
 @import url('https://fonts.googleapis.com/css2?family=Material+Icons&display=swap');

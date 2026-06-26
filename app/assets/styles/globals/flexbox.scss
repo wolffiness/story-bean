@@ -1,0 +1,22 @@
+@use '../root' as *;
+
+.d-flex {
+	display: flex;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.center {
+	justify-content: center;
+	align-items: center;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.align-center {
+	align-items: center;
+}

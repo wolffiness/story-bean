@@ -1,0 +1,13 @@
+@use '../root' as *;
+
+.d-grid {
+	display: grid;
+}
+
+.fr-2 {
+	grid-auto-columns: 1fr 1fr;
+}
+
+.grid-col-2 {
+	grid-column: 2;
+}

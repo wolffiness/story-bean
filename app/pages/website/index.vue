@@ -4,15 +4,20 @@ import Button from '~/components/ui/Button.vue'
 
 <template>
 	<main id="website">
-		<section id="hero">
-			<div>
+		<section
+			id="hero"
+			class="w-100 d-flex flex-col align-center shadow-md bg-accent"
+		>
+			<div class="w-max d-flex flex-col align-center">
 				<img src="@img/logo.svg" />
-				<div>
-					<div>
+
+				<div class="d-flex flex-col align-center gap-2">
+					<div class="d-flex flex-col gap-05">
 						<h1>Story Bean</h1>
 						<p>A virtual café to come together and write your stories.</p>
 					</div>
-					<div>
+
+					<div class="d-flex gap-1">
 						<Button linkPage="/website/signup" text="Sign up" type="primary" />
 						<Button linkPage="/website/login" text="Log in" type="secondary" />
 					</div>

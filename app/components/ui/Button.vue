@@ -5,7 +5,7 @@ const props = defineProps<{
 	type?: 'primary' | 'secondary' | 'tertiary'
 }>()
 
-const classes = `btn-${props.type}`
+const classes = props.type !== undefined ? `btn-${props.type}` : ''
 </script>
 
 <template>
