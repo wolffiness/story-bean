@@ -18,8 +18,13 @@ import Button from '~/components/ui/Button.vue'
 					</div>
 
 					<div class="d-flex gap-1">
-						<Button linkPage="/website/signup" text="Sign up" type="primary" />
-						<Button linkPage="/website/login" text="Log in" type="secondary" />
+						<Button type="primary">
+							<NuxtLink to="/website/signup">Sign up</NuxtLink>
+						</Button>
+
+						<Button type="secondary">
+							<NuxtLink to="/website/login">Log in</NuxtLink>
+						</Button>
 					</div>
 				</div>
 			</div>

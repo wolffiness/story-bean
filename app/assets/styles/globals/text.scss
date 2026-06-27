@@ -13,3 +13,22 @@ h6 {
 p {
 	margin: 0;
 }
+
+.icon {
+	// See https://developers.google.com/fonts/docs/material_symbols#use_in_web
+	font-family: 'Material Symbols Outlined';
+	font-weight: normal;
+	font-style: normal;
+	font-size: var(--size-icon);
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+
+	&:hover {
+		font-variation-settings: 'FILL' 1;
+	}
+}

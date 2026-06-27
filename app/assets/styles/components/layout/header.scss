@@ -1,8 +1,47 @@
 @use '../../root' as *;
 
 .sidebar {
+	--col-span: 3;
+	--1-col-width: calc(var(--max-width) / var(--col) - var(--gutter));
+	position: fixed;
 	grid-column: 1 / span calc(var(--col) / 4);
+	width: calc(
+		var(--1-col-width) * var(--col-span) + var(--gutter) * (var(--col-span) - 1)
+	);
 	background-color: var(--bg);
 	border: var(--border-size) solid var(--bg-dark);
 	border-radius: var(--border-sketch);
+	height: calc(100vh - 4em);
+
+	ul {
+		list-style-type: none;
+
+		.profile {
+			background-color: var(--bg-dark);
+
+			li {
+				transition: var(--transition);
+				overflow: hidden;
+				text-wrap: nowrap;
+				text-overflow: ellipsis;
+
+				&:hover {
+					background-color: var(--bg);
+				}
+
+				a {
+					img {
+						width: 2em;
+						aspect-ratio: 1 / 1;
+						border-radius: 50%;
+					}
+
+					span {
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+			}
+		}
+	}
 }

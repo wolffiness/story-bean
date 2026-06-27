@@ -25,12 +25,9 @@ const props = defineProps<{
 			</section>
 
 			<NuxtLink class="w-100" to="/">
-				<Button
-					class="w-100"
-					:text="props.button"
-					type="primary"
-					:formSubmit="false"
-				/>
+				<Button class="w-100" type="primary" :formSubmit="false">
+					{{ button }}
+				</Button>
 			</NuxtLink>
 		</form>
 	</MemberCard>

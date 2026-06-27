@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-	linkPage?: string
-	text?: string
-	type?: 'primary' | 'secondary' | 'tertiary'
+	type?: 'primary' | 'secondary' | 'tertiary' | 'icon'
 	formSubmit?: boolean
 }>()
 
@@ -11,11 +9,6 @@ const classes = props.type !== undefined ? `btn-${props.type}` : ''
 
 <template>
 	<button :class="classes" :type="formSubmit ? 'submit' : 'button'">
-		<template v-if="linkPage">
-			<NuxtLink :to="linkPage">
-				{{ text }}
-			</NuxtLink>
-		</template>
-		<template v-else>{{ text }}</template>
+		<slot></slot>
 	</button>
 </template>

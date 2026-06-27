@@ -22,8 +22,11 @@
 @forward './components/layout/page.scss';
 
 // IMPORT ICONS
-@import url('https://fonts.googleapis.com/css2?family=Material+Icons&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Icons+Outlined&display=swap');
+@font-face {
+	font-family: 'Material Symbols Outlined';
+	font-style: normal;
+	src: url(../font/MaterialSymbolsOutlined.woff2) format('woff');
+}
 
 // IMPORT FONTS
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&display=swap');
