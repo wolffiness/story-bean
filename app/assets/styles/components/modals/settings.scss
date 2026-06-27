@@ -21,7 +21,7 @@
 		grid-column: 1 / span calc(var(--col) / 4 + 1);
 		background-color: light-dark(var(--bg-dark), var(--bg-light));
 
-		padding: 2em 0 2em 2em;
+		padding: 2em 1em 2em 2em;
 	}
 
 	> section:last-of-type {
