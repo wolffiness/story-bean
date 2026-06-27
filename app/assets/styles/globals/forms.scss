@@ -1,0 +1,15 @@
+@use '../root' as *;
+
+input {
+	border: none;
+	border-radius: var(--border-circle);
+	background-color: var(--bg-lightest);
+	padding: 0.5em 1em;
+	font-family: var(--font-text);
+	font-size: var(--size-text);
+}
+
+label {
+	font-size: var(--size-sm);
+	font-weight: bold;
+}

@@ -4,6 +4,10 @@
 	display: grid;
 }
 
+.fr-col {
+	grid-template-columns: repeat(var(--col), 1fr);
+}
+
 .fr-2 {
 	grid-auto-columns: 1fr 1fr;
 }

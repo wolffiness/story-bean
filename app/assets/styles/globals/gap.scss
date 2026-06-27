@@ -1,5 +1,9 @@
 @use '../root' as *;
 
+.gap-gutter {
+	gap: var(--gutter);
+}
+
 .gap-2 {
 	gap: 2em;
 }
@@ -10,4 +14,8 @@
 
 .gap-05 {
 	gap: 0.5em;
+}
+
+.gap-025 {
+	gap: 0.25em;
 }
