@@ -7,21 +7,22 @@ const props = defineProps<{
 
 <template>
 	<dialog closedby="any" popover>
-		<div class="w-100 d-flex center gap-1">
-			<h3 class="flex-grow">
-				{{ title }}
-			</h3>
-			<form method="dialog">
+		<section class="d-flex flex-col gap-05">
+			<div>Account</div>
+		</section>
+
+		<section class="d-flex flex-col gap-1 align-center">
+			<form class="align-self-right" method="dialog">
 				<button class="btn-header">
 					<span :commandFor="props.modalId" command="close" class="icon">
 						close
 					</span>
 				</button>
 			</form>
-		</div>
 
-		<div class="w-100">
-			<slot></slot>
-		</div>
+			<div>
+				<h2>Account</h2>
+			</div>
+		</section>
 	</dialog>
 </template>

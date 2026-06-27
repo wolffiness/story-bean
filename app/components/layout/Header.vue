@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Modal from '../modals/Modal.vue'
+import Settings from '../modals/Settings.vue'
 import Button from '../ui/Button.vue'
 </script>
 
@@ -15,8 +15,9 @@ import Button from '../ui/Button.vue'
 						<li><span class="icon">dock_to_right</span></li>
 					</div>
 				</div>
+
 				<div class="profile p-05 d-flex gap-05 center">
-					<li class="h-100 flex-grow b-rad">
+					<li class="p-05 flex-grow b-rad">
 						<NuxtLink
 							class="h-100 d-flex gap-025 align-center"
 							:to="{ name: 'profile-id', params: { id: 1 } }"
@@ -25,6 +26,7 @@ import Button from '../ui/Button.vue'
 							<span>You</span>
 						</NuxtLink>
 					</li>
+
 					<div class="d-flex gap-025 center">
 						<Button type="icon" command="show-modal" commandFor="settings"
 							><span class="icon">settings</span></Button
@@ -34,5 +36,5 @@ import Button from '../ui/Button.vue'
 			</ul>
 		</nav>
 	</header>
-	<Modal title="Settings" id="settings" modalId="settings" />
+	<Settings id="settings" modalId="settings" />
 </template>

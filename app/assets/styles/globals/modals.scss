@@ -9,7 +9,6 @@ dialog {
 	padding: 2em;
 	flex-direction: column;
 	gap: 2em;
-	justify-content: center;
 	align-items: center;
 	width: calc(
 		var(--1-col-width) * var(--col-span) + var(--gutter) * (var(--col-span) - 1)
@@ -25,7 +24,7 @@ dialog {
 		opacity: 0.5;
 	}
 
-	.header button {
+	.btn-header {
 		display: flex;
 		justify-content: center;
 		align-items: center;

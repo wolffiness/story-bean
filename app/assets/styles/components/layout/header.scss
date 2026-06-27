@@ -9,7 +9,7 @@
 		var(--1-col-width) * var(--col-span) + var(--gutter) * (var(--col-span) - 1)
 	);
 	background-color: var(--bg);
-	border: var(--border-size) solid var(--bg-dark);
+	border: var(--border-size) solid light-dark(var(--bg-dark), var(--bg-light));
 	border-radius: var(--border-sketch);
 	height: calc(100vh - 4em);
 
@@ -17,7 +17,7 @@
 		list-style-type: none;
 
 		.profile {
-			background-color: var(--bg-dark);
+			background-color: light-dark(var(--bg-dark), var(--bg-light));
 
 			li {
 				transition: var(--transition);
@@ -26,7 +26,7 @@
 				text-overflow: ellipsis;
 
 				&:hover {
-					background-color: var(--bg);
+					background-color: light-dark(var(--bg), var(--bg-lightest));
 				}
 
 				a {
