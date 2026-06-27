@@ -11,6 +11,7 @@
 	gap: var(--gutter);
 	align-items: unset;
 	padding: 0;
+	overflow: hidden;
 
 	&[open] {
 		display: grid;
@@ -24,6 +25,7 @@
 	}
 
 	> section:last-of-type {
+		overflow: scroll;
 		grid-column: calc(var(--col) / 4 + 2) / span
 			calc(var(--col) - var(--col) / 4);
 

@@ -60,3 +60,21 @@ button {
 		box-shadow: var(--shadow-md);
 	}
 }
+
+.setting-category {
+	padding: 0.5em 1em;
+	border: none;
+	border-radius: var(--border-circle);
+	transition: var(--transition);
+	background-color: transparent;
+
+	&.active,
+	&:hover {
+		background-color: var(--bg);
+		box-shadow: var(--shadow-md);
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}

@@ -39,6 +39,10 @@
 			li:last-of-type button {
 				padding: 0;
 				background-color: transparent;
+
+				&:hover {
+					cursor: pointer;
+				}
 			}
 		}
 

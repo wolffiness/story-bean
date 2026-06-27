@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import SettingCategoriesAccount from '@/app/components/features/SettingCategories/SettingCategoriesAccount.vue'
+import { ref } from 'vue'
+
+const headings = ref<string[]>([])
+
 const props = defineProps<{
 	title?: string
 	modalId?: string
@@ -8,7 +13,15 @@ const props = defineProps<{
 <template>
 	<dialog closedby="any" popover>
 		<section class="d-flex flex-col gap-05">
-			<div>Account</div>
+			<div class="d-flex flex-col gap-025">
+				<button class="setting-category active d-flex gap-05 align-center">
+					<span class="icon">account_box</span>
+					<span>Account</span>
+				</button>
+				<ul class="d-flex flex-col gap-025 m-0 px-1 list-none">
+					<li v-for="heading in headings">{{ heading }}</li>
+				</ul>
+			</div>
 		</section>
 
 		<section class="d-flex flex-col gap-1 align-center">
@@ -20,9 +33,9 @@ const props = defineProps<{
 				</button>
 			</form>
 
-			<div>
-				<h2>Account</h2>
-			</div>
+			<form class="w-100 d-flex flex-col gap-2 align-center">
+				<SettingCategoriesAccount v-model:headings="headings" />
+			</form>
 		</section>
 	</dialog>
 </template>
