@@ -1,0 +1,6 @@
+@use '../../root' as *;
+
+.page main {
+	grid-column: calc(var(--col) / 4 + 1) / span
+		calc(var(--col) - (var(--col) / 4));
+}

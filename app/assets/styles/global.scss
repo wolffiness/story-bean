@@ -18,6 +18,9 @@
 // COMPONENTS
 @forward './components/cards/member-card.scss';
 
+@forward './components/layout/header.scss';
+@forward './components/layout/page.scss';
+
 // IMPORT ICONS
 @import url('https://fonts.googleapis.com/css2?family=Material+Icons&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Icons+Outlined&display=swap');

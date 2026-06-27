@@ -1,0 +1,8 @@
+@use '../../root' as *;
+
+.sidebar {
+	grid-column: 1 / span calc(var(--col) / 4);
+	background-color: var(--bg);
+	border: var(--border-size) solid var(--bg-dark);
+	border-radius: var(--border-sketch);
+}
