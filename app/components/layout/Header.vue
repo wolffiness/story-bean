@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Modal from '../modals/Modal.vue'
 import Button from '../ui/Button.vue'
 </script>
 
@@ -25,10 +26,13 @@ import Button from '../ui/Button.vue'
 						</NuxtLink>
 					</li>
 					<div class="d-flex gap-025 center">
-						<Button type="icon"><span class="icon">settings</span></Button>
+						<Button type="icon" command="show-modal" commandFor="settings"
+							><span class="icon">settings</span></Button
+						>
 					</div>
 				</div>
 			</ul>
 		</nav>
 	</header>
+	<Modal title="Settings" id="settings" modalId="settings" />
 </template>

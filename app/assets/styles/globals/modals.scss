@@ -1,0 +1,40 @@
+@use '../root' as *;
+
+dialog {
+	--col-span: calc(var(--col) / 2);
+	--1-col-width: calc(var(--max-width) / var(--col) - var(--gutter));
+	border: none;
+	background-color: var(--bg);
+	border-radius: var(--border-rad);
+	padding: 2em;
+	flex-direction: column;
+	gap: 2em;
+	justify-content: center;
+	align-items: center;
+	width: calc(
+		var(--1-col-width) * var(--col-span) + var(--gutter) * (var(--col-span) - 1)
+	);
+	box-shadow: var(--shadow-lg);
+
+	&[open] {
+		display: flex;
+	}
+
+	&::backdrop {
+		background-color: var(--shadow);
+		opacity: 0.5;
+	}
+
+	.header button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: none;
+		background: transparent;
+		padding: 0;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
