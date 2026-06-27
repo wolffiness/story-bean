@@ -1,18 +1,30 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 import Settings from '../modals/Settings.vue'
 import Button from '../ui/Button.vue'
+
+let isCollapsed = ref(false)
+
+function toggleCollapse() {
+	isCollapsed.value = isCollapsed.value ? false : true
+}
 </script>
 
 <template>
-	<header class="sidebar d-flex">
+	<header :class="`sidebar d-flex ${isCollapsed ? 'collapsed' : ''}`">
 		<nav class="w-100 d-flex">
 			<ul class="w-100 d-flex flex-col gap-2 justify-between p-0 m-0">
 				<div class="p-card d-flex flex-col gap-1">
-					<div class="d-flex gap-1 justify-between">
+					<div class="controls d-flex gap-1">
 						<li>
 							<NuxtLink to="/"><span class="icon">home</span></NuxtLink>
 						</li>
-						<li><span class="icon">dock_to_right</span></li>
+						<li>
+							<button @click="toggleCollapse">
+								<span class="icon">dock_to_right</span>
+							</button>
+						</li>
 					</div>
 				</div>
 

@@ -12,9 +12,35 @@
 	border: var(--border-size) solid light-dark(var(--bg-dark), var(--bg-light));
 	border-radius: var(--border-sketch);
 	height: calc(100vh - 4em);
+	transition: ease-in-out 300ms;
+
+	&.collapsed {
+		--col-span: 1;
+
+		.controls {
+			justify-content: center;
+
+			li:first-of-type {
+				display: none;
+			}
+		}
+
+		.profile {
+			display: none;
+		}
+	}
 
 	ul {
 		list-style-type: none;
+
+		.controls {
+			justify-content: space-between;
+
+			li:last-of-type button {
+				padding: 0;
+				background-color: transparent;
+			}
+		}
 
 		.profile {
 			background-color: light-dark(var(--bg-dark), var(--bg-light));
