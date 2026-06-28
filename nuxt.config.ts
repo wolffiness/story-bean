@@ -4,13 +4,34 @@ export default defineNuxtConfig({
 		'@': import.meta.dirname + '/',
 		'@img': import.meta.dirname + '/app/assets/img',
 	},
+
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
 	css: ['./app/assets/styles/global.scss'],
+
 	components: [
 		{
 			path: '~/components',
 			pathPrefix: false,
 		},
 	],
+
+	modules: ['@nuxtjs/supabase'],
+
+	supabase: {
+		url: process.env.NUXT_PUBLIC_SUPABASE_URL,
+		key: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+
+		redirectOptions: {
+			login: '/website',
+			callback: '/',
+		},
+	},
+
+	// runtimeConfig: {
+	// 	public: {
+	// 		supabaseUrl: process.env.SUPABASE_URL,
+	// 		supabaseKey: process.env.SUPABASE_KEY,
+	// 	},
+	// },
 })

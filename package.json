@@ -9,7 +9,8 @@
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare"
+		"postinstall": "nuxt prepare",
+		"update-types": "npx supabase gen types --lang=typescript --project-id \"akmcfrrwrektzkthwzsu\" > app/types/database.types.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -18,6 +19,8 @@
 	"author": "Wolffiness",
 	"license": "GPL-3.0-only",
 	"dependencies": {
+		"@nuxtjs/supabase": "^2.0.9",
+		"@supabase/supabase-js": "^2.108.2",
 		"nuxt": "^4.4.8",
 		"sass": "^1.101.0",
 		"vue": "^3.5.38",
@@ -25,6 +28,7 @@
 	},
 	"devDependencies": {
 		"@nuxt/eslint": "^1.16.0",
-		"prettier": "^3.8.4"
+		"prettier": "^3.8.4",
+		"supabase": "^2.108.0"
 	}
 }
