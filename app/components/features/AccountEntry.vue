@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import MemberCard from '~/components/cards/MemberCard.vue'
-import Button from '~/components/ui/Button.vue'
 
 const props = defineProps<{
 	h2?: string
-	button?: string
 }>()
 </script>
 
@@ -24,11 +22,7 @@ const props = defineProps<{
 				</section>
 			</section>
 
-			<NuxtLink class="w-100" to="/">
-				<Button class="w-100" type="primary" :formSubmit="false">
-					{{ button }}
-				</Button>
-			</NuxtLink>
+			<slot name="submit-btn"></slot>
 		</form>
 	</MemberCard>
 </template>
