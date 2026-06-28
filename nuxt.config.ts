@@ -24,14 +24,8 @@ export default defineNuxtConfig({
 
 		redirectOptions: {
 			login: '/website',
-			callback: '/',
+			callback: '/confirm',
+			exclude: ['/website/**'],
 		},
 	},
-
-	// runtimeConfig: {
-	// 	public: {
-	// 		supabaseUrl: process.env.SUPABASE_URL,
-	// 		supabaseKey: process.env.SUPABASE_KEY,
-	// 	},
-	// },
 })
