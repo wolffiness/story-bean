@@ -58,8 +58,8 @@ $xl: 75em;
 	--border-size: 3px;
 
 	// TRANSITION SPEED
-	--trans-speed: 200ms;
-	--transition: ease-in-out var(--trans-speed);
+	--trans-speed: 300ms;
+	--transition: var(--trans-speed) ease-in-out;
 
 	// TYPOGRAPHY
 	// Font family
