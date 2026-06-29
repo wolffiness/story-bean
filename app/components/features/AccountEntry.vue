@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import MemberCard from '~/components/cards/MemberCard.vue'
-
 const props = defineProps<{
 	h2?: string
 }>()

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import SettingInput from '@/app/components/ui/SettingInput.vue'
-
 const props = defineProps<{
 	headings?: string[]
 }>()

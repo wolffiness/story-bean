@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import Page from '~/components/layout/Page.vue'
-
 // const supabase = useSupabaseClient()
 
 // const test = ref([])

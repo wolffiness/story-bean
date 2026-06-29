@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import WebsiteHeader from '~/components/layout/WebsiteHeader.vue'
-import AccountEntry from '~/components/features/AccountEntry.vue'
-import Button from '~/components/ui/Button.vue'
-</script>
-
 <template>
 	<WebsiteHeader />
 

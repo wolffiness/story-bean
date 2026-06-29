@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import SettingCategoriesAccount from '@/app/components/features/SettingCategories/SettingCategoriesAccount.vue'
-import { ref } from 'vue'
-
 const headings = ref<string[]>([])
 
 const props = defineProps<{

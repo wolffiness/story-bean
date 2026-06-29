@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-import Settings from '../modals/Settings.vue'
-import Button from '../ui/Button.vue'
-
 let isCollapsed = ref(false)
 
 function toggleCollapse() {
