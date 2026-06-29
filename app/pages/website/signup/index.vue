@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+	layout: 'website',
+})
+
 const supabase = useSupabaseClient()
 const email = ref('')
 const username = ref('')

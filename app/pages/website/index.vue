@@ -1,3 +1,9 @@
+<script setup lang="ts">
+definePageMeta({
+	layout: 'website',
+})
+</script>
+
 <template>
 	<main id="website">
 		<section
