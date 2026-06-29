@@ -1,14 +1,13 @@
 <script setup lang="ts">
 const props = defineProps<{
-	type?: 'primary' | 'secondary' | 'tertiary' | 'icon'
-	formSubmit?: boolean
+	btnType?: 'primary' | 'secondary' | 'tertiary' | 'icon'
 }>()
 
-const classes = props.type !== undefined ? `btn-${props.type}` : ''
+const classes = props.btnType !== undefined ? `btn-${props.btnType}` : ''
 </script>
 
 <template>
-	<button :class="classes" :type="formSubmit ? 'submit' : 'button'">
+	<button :class="classes">
 		<slot></slot>
 	</button>
 </template>

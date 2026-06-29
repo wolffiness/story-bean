@@ -14,11 +14,11 @@
 					</div>
 
 					<div class="d-flex gap-1">
-						<Button type="primary">
+						<Button btnType="primary">
 							<NuxtLink to="/website/signup">Sign up</NuxtLink>
 						</Button>
 
-						<Button type="secondary">
+						<Button btnType="secondary">
 							<NuxtLink to="/website/login">Log in</NuxtLink>
 						</Button>
 					</div>

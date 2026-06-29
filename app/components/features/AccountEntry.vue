@@ -1,12 +1,16 @@
 <script setup lang="ts">
 const props = defineProps<{
 	h2?: string
+	submitFunction?: () => void
 }>()
 </script>
 
 <template>
 	<MemberCard class="aspect">
-		<form class="w-100 h-100 d-flex flex-col center gap-2">
+		<form
+			@submit.prevent="submitFunction"
+			class="w-100 h-100 d-flex flex-col center gap-2"
+		>
 			<section class="flex-grow d-grid fr-2 gap-1">
 				<section class="d-flex flex-col center gap-1">
 					<img src="@img/logo.svg" height="64" />

@@ -4,8 +4,6 @@ const email = ref('')
 const password = ref('')
 
 const logIn = async () => {
-	console.log(email.value)
-	console.log(password.value)
 	const { error } = await supabase.auth.signInWithPassword({
 		email: email.value,
 		password: password.value,
@@ -22,7 +20,11 @@ const logIn = async () => {
 
 	<main id="sign-up">
 		<div class="w-page d-grid fr-col gap-gutter">
-			<AccountEntry class="set-width" h2="Welcome back!">
+			<AccountEntry
+				class="set-width"
+				h2="Welcome back!"
+				:submitFunction="logIn"
+			>
 				<template v-slot:input-1>
 					<div class="d-flex flex-col gap-025">
 						<label for="username">E-mail / Username</label>
@@ -43,12 +45,7 @@ const logIn = async () => {
 				</template>
 
 				<template v-slot:submit-btn>
-					<Button
-						@click="logIn"
-						class="w-100"
-						type="primary"
-						:formSubmit="false"
-					>
+					<Button type="submit" class="w-100" btnType="primary">
 						Log in
 					</Button>
 				</template>

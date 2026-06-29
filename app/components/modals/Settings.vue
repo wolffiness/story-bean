@@ -5,6 +5,16 @@ const props = defineProps<{
 	title?: string
 	modalId?: string
 }>()
+
+const supabase = useSupabaseClient()
+
+const signOut = async () => {
+	const { error } = await supabase.auth.signOut()
+
+	if (error) console.log(error)
+
+	location.reload()
+}
 </script>
 
 <template>
@@ -18,6 +28,15 @@ const props = defineProps<{
 				<ul class="d-flex flex-col gap-025 m-0 px-1 list-none">
 					<li v-for="heading in headings">{{ heading }}</li>
 				</ul>
+			</div>
+			<div class="d-flex flex-col gap-025">
+				<button
+					@click="signOut"
+					class="setting-category d-flex gap-05 align-center"
+				>
+					<span class="icon">account_box</span>
+					<span>Log out</span>
+				</button>
 			</div>
 		</section>
 

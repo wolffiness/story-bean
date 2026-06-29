@@ -35,7 +35,7 @@ function toggleCollapse() {
 					</li>
 
 					<div class="d-flex gap-025 center">
-						<Button type="icon" command="show-modal" commandFor="settings"
+						<Button btnType="icon" command="show-modal" commandFor="settings"
 							><span class="icon">settings</span></Button
 						>
 					</div>
