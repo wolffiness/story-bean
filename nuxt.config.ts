@@ -2,12 +2,12 @@
 export default defineNuxtConfig({
 	alias: {
 		'@': import.meta.dirname + '/',
-		'@img': import.meta.dirname + '/app/assets/img',
+		'@img': import.meta.dirname + '/assets/img',
 	},
 
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
-	css: ['./app/assets/styles/global.scss'],
+	css: [import.meta.dirname + '/assets/styles/global.scss'],
 
 	components: [
 		{
