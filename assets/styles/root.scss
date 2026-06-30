@@ -105,6 +105,9 @@ $xl: 75em;
 	// --info: #19437c;
 
 	// Shades
+	--clamp-low: 5;
+	--clamp-high: 95;
+
 	--l-increment: 5;
 	--s-increment: 5;
 
@@ -113,24 +116,29 @@ $xl: 75em;
 
 	@mixin color-shades($base) {
 		--#{$base}-disabled: hsl(
-			from var(--#{$base}) h calc(s - var(--s-disabled))
-				calc(l - var(--l-disabled))
+			from var(--#{$base}) h
+				clamp(var(--clamp-low), calc(s - var(--s-disabled)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l - var(--l-disabled)), var(--clamp-high))
 		);
 		--#{$base}-dark: hsl(
-			from var(--#{$base}) h calc(s - var(--s-increment))
-				calc(l - var(--l-increment))
+			from var(--#{$base}) h
+				clamp(var(--clamp-low), calc(s - var(--s-increment)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l - var(--l-increment)), var(--clamp-high))
 		);
 		--#{$base}-darkest: hsl(
-			from var(--#{$base}-dark) h calc(s - var(--s-increment))
-				calc(l - var(--l-increment))
+			from var(--#{$base}-dark) h
+				clamp(var(--clamp-low), calc(s - var(--s-increment)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l - var(--l-increment)), var(--clamp-high))
 		);
 		--#{$base}-light: hsl(
-			from var(--#{$base}) h calc(s + var(--s-increment))
-				calc(l + var(--l-increment))
+			from var(--#{$base}) h
+				clamp(var(--clamp-low), calc(s + var(--s-increment)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l + var(--l-increment)), var(--clamp-high))
 		);
 		--#{$base}-lightest: hsl(
-			from var(--#{$base}-light) h calc(s + var(--s-increment))
-				calc(l + var(--l-increment))
+			from var(--#{$base}-light) h
+				clamp(var(--clamp-low), calc(s + var(--s-increment)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l + var(--l-increment)), var(--clamp-high))
 		);
 		--#{$base}-30: color-mix(in srgb, var(--#{$base}) 30%, transparent);
 	}

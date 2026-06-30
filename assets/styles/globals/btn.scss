@@ -17,10 +17,6 @@ button {
 	&:hover {
 		cursor: pointer;
 	}
-
-	&:disabled {
-		background-color: var(--bg-disabled);
-	}
 }
 
 .btn-primary {
@@ -32,6 +28,11 @@ button {
 	&:hover {
 		background-color: var(--primary-dark);
 		box-shadow: var(--shadow-md);
+	}
+
+	&:disabled {
+		background-color: var(--primary-disabled);
+		border-color: var(--primary-darkest);
 	}
 }
 
