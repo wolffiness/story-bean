@@ -17,6 +17,10 @@ button {
 	&:hover {
 		cursor: pointer;
 	}
+
+	&:disabled {
+		background-color: var(--bg-disabled);
+	}
 }
 
 .btn-primary {

@@ -1,5 +1,6 @@
 export const useAccount = () => {
 	const supabase = useSupabaseClient()
+	const { submitMsgs } = useFormValidation()
 
 	const signUp = async (email: string, password: string) => {
 		const { error } = await supabase.auth.signUp({
@@ -10,7 +11,7 @@ export const useAccount = () => {
 			},
 		})
 
-		if (error) console.log(error.message)
+		if (error) submitMsgs([error.message])
 	}
 
 	const logIn = async (email: string, password: string) => {

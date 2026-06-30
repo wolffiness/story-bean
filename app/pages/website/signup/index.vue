@@ -4,23 +4,12 @@ definePageMeta({
 })
 
 const { signUp } = useAccount()
+const { feedback } = useFormValidation()
 const email = ref('')
 const password = ref('')
-const defaultError = {
-	email: {
-		hasError: false,
-		msg: '',
-	},
-	password: {
-		hasError: false,
-		msg: '',
-	},
-	btn: {
-		hasError: false,
-		msg: '',
-	},
-}
-const errorMsg = ref(defaultError)
+const submitDisabled = computed(() =>
+	!email.value || !password.value ? true : false,
+)
 </script>
 
 <template>
@@ -42,7 +31,9 @@ const errorMsg = ref(defaultError)
 							name="email"
 							placeholder="storybean@protonmail.com"
 						/>
-						<p v-if="errorMsg.email.hasError">{{ errorMsg.email.msg }}</p>
+						<p v-if="feedback.email && feedback.email.hasError">
+							{{ feedback.email.msg }}
+						</p>
 					</div>
 				</template>
 
@@ -50,15 +41,24 @@ const errorMsg = ref(defaultError)
 					<div class="d-flex flex-col gap-025">
 						<label for="password">Password</label>
 						<input v-model="password" type="password" name="password" />
-						<p v-if="errorMsg.password.hasError">{{ errorMsg.password.msg }}</p>
+						<p v-if="feedback.password && feedback.password.hasError">
+							{{ feedback.password.msg }}
+						</p>
 					</div>
 				</template>
 
 				<template v-slot:submit-btn>
-					<Button type="submit" class="w-100" btnType="primary">
+					<Button
+						type="submit"
+						class="w-100"
+						btnType="primary"
+						:disabled="submitDisabled"
+					>
 						Create account
 					</Button>
-					<p v-if="errorMsg.btn.hasError">{{ errorMsg.btn.msg }}</p>
+					<p v-if="feedback.main && feedback.main.hasError">
+						{{ feedback.main.msg }}
+					</p>
 				</template>
 			</AccountEntry>
 		</div>
