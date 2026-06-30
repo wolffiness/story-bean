@@ -12,23 +12,60 @@ export type Database = {
   __InternalSupabase: {
     PostgrestVersion: "14.5"
   }
+  graphql_public: {
+    Tables: {
+      [_ in never]: never
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      graphql: {
+        Args: {
+          extensions?: Json
+          operationName?: string
+          query?: string
+          variables?: Json
+        }
+        Returns: Json
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
   public: {
     Tables: {
-      test: {
+      profiles: {
         Row: {
+          bio: string | null
           created_at: string
-          id: number
-          text: string | null
+          display_name: string | null
+          pronouns: string | null
+          updated_at: string | null
+          user_id: string
+          username: string
         }
         Insert: {
+          bio?: string | null
           created_at?: string
-          id?: number
-          text?: string | null
+          display_name?: string | null
+          pronouns?: string | null
+          updated_at?: string | null
+          user_id: string
+          username: string
         }
         Update: {
+          bio?: string | null
           created_at?: string
-          id?: number
-          text?: string | null
+          display_name?: string | null
+          pronouns?: string | null
+          updated_at?: string | null
+          user_id?: string
+          username?: string
         }
         Relationships: []
       }
@@ -166,6 +203,9 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
+  graphql_public: {
+    Enums: {},
+  },
   public: {
     Enums: {},
   },
