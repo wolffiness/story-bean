@@ -6,15 +6,7 @@ const props = defineProps<{
 	modalId?: string
 }>()
 
-const supabase = useSupabaseClient()
-
-const signOut = async () => {
-	const { error } = await supabase.auth.signOut()
-
-	if (error) console.log(error)
-
-	location.reload()
-}
+const { logOut } = useAccount()
 </script>
 
 <template>
@@ -31,7 +23,7 @@ const signOut = async () => {
 			</div>
 			<div class="d-flex flex-col gap-025">
 				<button
-					@click="signOut"
+					@click="logOut"
 					class="setting-category d-flex gap-05 align-center"
 				>
 					<span class="icon">account_box</span>

@@ -3,20 +3,9 @@ definePageMeta({
 	layout: 'website',
 })
 
-const supabase = useSupabaseClient()
+const { logIn } = useAccount()
 const email = ref('')
 const password = ref('')
-
-const logIn = async () => {
-	const { error } = await supabase.auth.signInWithPassword({
-		email: email.value,
-		password: password.value,
-	})
-
-	if (error) console.log(error)
-
-	await navigateTo('/')
-}
 </script>
 
 <template>
@@ -27,7 +16,7 @@ const logIn = async () => {
 			<AccountEntry
 				class="set-width"
 				h2="Welcome back!"
-				:submitFunction="logIn"
+				:submit-function="() => logIn(email, password)"
 			>
 				<template v-slot:input-1>
 					<div class="d-flex flex-col gap-025">

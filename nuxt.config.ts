@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	modules: ['@nuxtjs/supabase', '@vueuse/nuxt'],
+
 	alias: {
-		'@': import.meta.dirname + '/',
+		assets: import.meta.dirname + '/',
 		'@img': import.meta.dirname + '/assets/img',
 	},
 
@@ -15,8 +17,6 @@ export default defineNuxtConfig({
 			pathPrefix: false,
 		},
 	],
-
-	modules: ['@nuxtjs/supabase'],
 
 	supabase: {
 		url: process.env.NUXT_PUBLIC_SUPABASE_URL,
