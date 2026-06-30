@@ -28,7 +28,7 @@ export const useFormValidation = () => {
 			case log.includes('email rate limit exceeded'):
 				feedback.value.email = {
 					hasError: true,
-					msg: 'Too many emails have been send lately, rate limit will reset the next hour.',
+					msg: 'Story Bean is a free service and runs for free to avoid the need to monetize it. Unfortunately this means we can only send 2 emails per hour, please be patient for the rate limit to reset and try again. We apologize for the inconvenience.',
 				}
 				break
 			case log.includes('Signup requires a valid password'):
