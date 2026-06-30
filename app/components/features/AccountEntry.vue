@@ -11,6 +11,8 @@ const props = defineProps<{
 			@submit.prevent="submitFunction"
 			class="w-100 h-100 d-flex flex-col center gap-2"
 		>
+			<slot name="main-feedback"></slot>
+
 			<section class="flex-grow d-grid fr-2 gap-1">
 				<section class="d-flex flex-col center gap-1">
 					<img src="@img/logo.svg" height="64" />

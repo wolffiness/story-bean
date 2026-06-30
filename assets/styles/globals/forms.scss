@@ -13,3 +13,20 @@ label {
 	font-size: var(--size-sm);
 	font-weight: bold;
 }
+
+.form-feedback {
+	background-color: var(--error-lightest);
+	padding: 0.25em 0.5em;
+	border-radius: var(--border-circle);
+	color: light-dark(var(--bg), var(--text));
+	font-size: var(--size-sm);
+	font-weight: bold;
+
+	.icon {
+		font-size: var(--size-text);
+
+		&:hover {
+			cursor: auto;
+		}
+	}
+}

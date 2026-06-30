@@ -18,8 +18,9 @@ const submitDisabled = computed(() =>
 	<main id="sign-up">
 		<div class="w-page d-grid fr-col gap-gutter">
 			<p v-if="verificationEmail">
-				Almost there! We've sent a verfication email to {{ verificationEmail }}.
-				If you don't see it, you may need to
+				Almost there! We've sent a verfication email to
+				<strong>{{ verificationEmail }}</strong
+				>. If you don't see it, you may need to
 				<strong>check your spam</strong> folder.
 			</p>
 
@@ -28,28 +29,55 @@ const submitDisabled = computed(() =>
 				h2="Come on in!"
 				:submit-function="() => signUp(email, password)"
 			>
+				<template v-slot:main-feedback>
+					<p
+						v-if="feedback.main && feedback.main.hasError"
+						class="form-feedback d-flex gap-025 align-center"
+					>
+						<span class="icon">error</span>
+						<span> {{ feedback.main.msg }}</span>
+					</p>
+				</template>
+
 				<template v-slot:input-1>
-					<div class="d-flex flex-col gap-025">
+					<div class="w-100 d-flex flex-col gap-025">
 						<label for="email">E-mail</label>
+						<p
+							v-if="feedback.email && feedback.email.hasError"
+							class="form-feedback d-flex gap-025 align-center"
+						>
+							<span class="icon">error</span>
+							<span> {{ feedback.email.msg }}</span>
+						</p>
 						<input
 							v-model="email"
 							type="email"
+							id="email"
 							name="email"
 							placeholder="storybean@protonmail.com"
+							required
 						/>
-						<p v-if="feedback.email && feedback.email.hasError">
-							{{ feedback.email.msg }}
-						</p>
 					</div>
 				</template>
 
 				<template v-slot:input-3>
-					<div class="d-flex flex-col gap-025">
+					<div class="w-100 d-flex flex-col gap-025">
 						<label for="password">Password</label>
-						<input v-model="password" type="password" name="password" />
-						<p v-if="feedback.password && feedback.password.hasError">
-							{{ feedback.password.msg }}
+						<p
+							v-if="feedback.password && feedback.password.hasError"
+							class="form-feedback d-flex gap-025 align-center"
+						>
+							<span class="icon">error</span>
+							<span> {{ feedback.password.msg }}</span>
 						</p>
+
+						<input
+							v-model="password"
+							type="password"
+							id="password"
+							name="password"
+							required
+						/>
 					</div>
 				</template>
 
@@ -62,9 +90,6 @@ const submitDisabled = computed(() =>
 					>
 						Create account
 					</Button>
-					<p v-if="feedback.main && feedback.main.hasError">
-						{{ feedback.main.msg }}
-					</p>
 				</template>
 			</AccountEntry>
 		</div>

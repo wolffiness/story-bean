@@ -99,7 +99,7 @@ $xl: 75em;
 	--accent: light-dark(#404f24, #404f24);
 
 	// UI States
-	--danger: #4f2424;
+	--error: #4f2424;
 	// --warning: #e4d854;
 	// --success: #24591f;
 	// --info: #19437c;
@@ -148,6 +148,7 @@ $xl: 75em;
 	@include color-shades(primary);
 	@include color-shades(secondary);
 	@include color-shades(accent);
+	@include color-shades(error);
 
 	// SHADOWS
 	--shadow: light-dark(var(--text-darkest), var(--bg-darkest));
