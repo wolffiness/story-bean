@@ -3,7 +3,7 @@ definePageMeta({
 	layout: 'website',
 })
 
-const { signUp } = useAccount()
+const { verificationEmail, signUp } = useAccount()
 const { feedback } = useFormValidation()
 const email = ref('')
 const password = ref('')
@@ -17,6 +17,12 @@ const submitDisabled = computed(() =>
 
 	<main id="sign-up">
 		<div class="w-page d-grid fr-col gap-gutter">
+			<p v-if="verificationEmail">
+				Almost there! We've sent a verfication email to {{ verificationEmail }}.
+				If you don't see it, you may need to
+				<strong>check your spam</strong> folder.
+			</p>
+
 			<AccountEntry
 				class="set-width"
 				h2="Come on in!"

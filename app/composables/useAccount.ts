@@ -2,8 +2,13 @@ export const useAccount = () => {
 	const supabase = useSupabaseClient()
 	const { submitMsgs } = useFormValidation()
 
+	const verificationEmail = useState<string | null>(
+		'verification_email',
+		() => null,
+	)
+
 	const signUp = async (email: string, password: string) => {
-		const { error } = await supabase.auth.signUp({
+		const { data, error } = await supabase.auth.signUp({
 			email: email,
 			password: password,
 			options: {
@@ -11,7 +16,11 @@ export const useAccount = () => {
 			},
 		})
 
-		if (error) submitMsgs([error.message])
+		if (error) return submitMsgs([error.message])
+
+		if (data.user) return (verificationEmail.value = data.user.email ?? email)
+
+		submitMsgs(['Something went wrong when signing up.'])
 	}
 
 	const logIn = async (email: string, password: string) => {
@@ -37,6 +46,7 @@ export const useAccount = () => {
 	}
 
 	return {
+		verificationEmail,
 		signUp,
 		logIn,
 		logOut,
