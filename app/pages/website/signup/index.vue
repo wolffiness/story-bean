@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 const { verificationEmail, signUp } = useAccount()
-const { feedback } = useFormValidation()
+const { feedback, updateFeedback } = useFormValidation()
 const email = ref('')
 const password = ref('')
 const submitDisabled = computed(() =>
@@ -30,55 +30,57 @@ const submitDisabled = computed(() =>
 				:submit-function="() => signUp(email, password)"
 			>
 				<template v-slot:main-feedback>
-					<p
-						v-if="feedback.main && feedback.main.hasError"
-						class="form-feedback d-flex gap-025 align-center"
-					>
+					<p v-if="feedback.main && feedback.main.msg" class="form-feedback">
 						<span class="icon">error</span>
-						<span> {{ feedback.main.msg }}</span>
+						<span v-html="feedback.main.msg"></span>
 					</p>
 				</template>
 
 				<template v-slot:input-1>
-					<div class="w-100 d-flex flex-col gap-025">
+					<fieldset class="w-100 d-flex flex-col gap-025">
 						<label for="email">E-mail</label>
-						<p
-							v-if="feedback.email && feedback.email.hasError"
-							class="form-feedback d-flex gap-025 align-center"
-						>
-							<span class="icon">error</span>
-							<span> {{ feedback.email.msg }}</span>
-						</p>
 						<input
 							v-model="email"
 							type="email"
 							id="email"
 							name="email"
 							placeholder="storybean@protonmail.com"
+							@blur="updateFeedback"
 							required
 						/>
-					</div>
-				</template>
 
-				<template v-slot:input-3>
-					<div class="w-100 d-flex flex-col gap-025">
-						<label for="password">Password</label>
 						<p
-							v-if="feedback.password && feedback.password.hasError"
-							class="form-feedback d-flex gap-025 align-center"
+							v-if="feedback.email && feedback.email.msg"
+							class="form-feedback"
 						>
 							<span class="icon">error</span>
-							<span> {{ feedback.password.msg }}</span>
+							<span v-html="feedback.email.msg"></span>
 						</p>
+					</fieldset>
+				</template>
+
+				<template v-slot:input-2>
+					<fieldset class="w-100 d-flex flex-col gap-025">
+						<label for="password">Password</label>
 
 						<input
 							v-model="password"
+							:class="{ 'user-invalid': !!feedback.password?.msg }"
 							type="password"
 							id="password"
 							name="password"
+							@blur="updateFeedback"
 							required
 						/>
-					</div>
+
+						<p
+							v-if="feedback.password && feedback.password.msg"
+							class="form-feedback"
+						>
+							<span class="icon">error</span>
+							<span v-html="feedback.password.msg"></span>
+						</p>
+					</fieldset>
 				</template>
 
 				<template v-slot:submit-btn>

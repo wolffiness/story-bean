@@ -1,54 +1,52 @@
+import feedbackConfig from './../config/form.json'
+
 export const useFormValidation = () => {
+	const feedbackKeys = ['email', 'password', 'main']
 	type FeedbackKeys = 'email' | 'password' | 'main'
 
 	type Feedback = {
 		[key in FeedbackKeys]?: {
-			hasError: boolean
-			msg: string
+			msg: string | null
 		}
 	}
 	let feedback = useState<Feedback>('feedback', () => ({}))
+
+	const updateFeedback = (e: Event) => {
+		const input = e.target as HTMLInputElement
+
+		if (input.validationMessage && feedbackKeys.includes(input.id)) {
+			feedback.value[input.id as FeedbackKeys] = {
+				msg: input.validationMessage,
+			}
+		} else if (feedbackKeys.includes(input.id)) {
+			feedback.value[input.id as FeedbackKeys] = {
+				msg: null,
+			}
+		}
+	}
 
 	const supaLogTranslation = (log: string) => {
 		feedback.value = {}
 
 		switch (true) {
 			case log.includes('Anonymous sign-ins are disabled'):
-				feedback.value.email = {
-					hasError: true,
-					msg: 'Please provide your e-mail.',
-				}
+				feedback.value.email = { msg: feedbackConfig['no-email'] }
 				break
 			case log.includes('Email address'):
-				feedback.value.email = {
-					hasError: true,
-					msg: 'Please provide a valid e-mail address.',
-				}
+				feedback.value.email = { msg: feedbackConfig['invalid-email'] }
 				break
 			case log.includes('email rate limit exceeded'):
-				feedback.value.main = {
-					hasError: true,
-					msg: 'Story Bean is a free service and runs for free to avoid the need to monetize it. Unfortunately this means we can only send 2 emails per hour, please be patient for the rate limit to reset and try again. We apologize for the inconvenience.',
-				}
+				feedback.value.main = { msg: feedbackConfig['limit-rate'] }
 				break
 			case log.includes('Signup requires a valid password'):
-				feedback.value.password = {
-					hasError: true,
-					msg: 'Please provide a password.',
-				}
+				feedback.value.password = { msg: feedbackConfig['no-password'] }
 				break
 			case log.includes('Password should contain'):
-				feedback.value.password = {
-					hasError: true,
-					msg: 'Make sure your password meets the minimum requirements: 8 characters long, 1 lowercase letter, 1 uppercase letter, 1 digit, and 1 symbol.',
-				}
+				feedback.value.password = { msg: feedbackConfig['invalid-password'] }
 				break
 
 			default:
-				feedback.value.main = {
-					hasError: true,
-					msg: `Unknown error: ${log}`,
-				}
+				feedback.value.main = { msg: `Unknown error: ${log}` }
 				break
 		}
 	}
@@ -62,6 +60,7 @@ export const useFormValidation = () => {
 
 	return {
 		feedback,
+		updateFeedback,
 		submitMsgs,
 	}
 }

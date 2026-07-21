@@ -19,7 +19,7 @@ const password = ref('')
 				:submit-function="() => logIn(email, password)"
 			>
 				<template v-slot:input-1>
-					<div class="d-flex flex-col gap-025">
+					<fieldset class="d-flex flex-col gap-025">
 						<label for="username">E-mail / Username</label>
 						<input
 							v-model="email"
@@ -27,14 +27,14 @@ const password = ref('')
 							name="username"
 							placeholder="storybean@protonmail.com"
 						/>
-					</div>
+					</fieldset>
 				</template>
 
 				<template v-slot:input-2>
-					<div class="d-flex flex-col gap-025">
+					<fieldset class="d-flex flex-col gap-025">
 						<label for="email">Password</label>
 						<input v-model="password" type="password" name="password" />
-					</div>
+					</fieldset>
 				</template>
 
 				<template v-slot:submit-btn>
