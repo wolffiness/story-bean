@@ -1,8 +1,8 @@
-import feedbackConfig from './../config/form.json'
+import feedbackConfig from '~/config/form.json'
+import type { FeedbackKeys } from '~/types/form'
 
 export const useFormValidation = () => {
 	const feedbackKeys = ['email', 'password', 'main']
-	type FeedbackKeys = 'email' | 'password' | 'main'
 
 	type Feedback = {
 		[key in FeedbackKeys]?: {

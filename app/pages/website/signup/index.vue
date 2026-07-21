@@ -37,50 +37,26 @@ const submitDisabled = computed(() =>
 				</template>
 
 				<template v-slot:input-1>
-					<fieldset class="w-100 d-flex flex-col gap-025">
-						<label for="email">E-mail</label>
-						<input
-							v-model="email"
-							type="email"
-							id="email"
-							name="email"
-							placeholder="storybean@protonmail.com"
-							@blur="updateFeedback"
-							required
-						/>
-
-						<p
-							v-if="feedback.email && feedback.email.msg"
-							class="form-feedback"
-						>
-							<span class="icon">error</span>
-							<span v-html="feedback.email.msg"></span>
-						</p>
-					</fieldset>
+					<FormField
+						type="email"
+						id="email"
+						placeholder="storybean@protonmail.com"
+						v-model="email"
+						:required="true"
+						label="E-mail"
+						feedbackKey="email"
+					/>
 				</template>
 
 				<template v-slot:input-2>
-					<fieldset class="w-100 d-flex flex-col gap-025">
-						<label for="password">Password</label>
-
-						<input
-							v-model="password"
-							:class="{ 'user-invalid': !!feedback.password?.msg }"
-							type="password"
-							id="password"
-							name="password"
-							@blur="updateFeedback"
-							required
-						/>
-
-						<p
-							v-if="feedback.password && feedback.password.msg"
-							class="form-feedback"
-						>
-							<span class="icon">error</span>
-							<span v-html="feedback.password.msg"></span>
-						</p>
-					</fieldset>
+					<FormField
+						type="password"
+						id="password"
+						v-model="password"
+						:required="true"
+						label="Password"
+						feedbackKey="password"
+					/>
 				</template>
 
 				<template v-slot:submit-btn>
