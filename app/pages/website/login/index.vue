@@ -4,8 +4,12 @@ definePageMeta({
 })
 
 const { logIn } = useAccount()
+const { feedback } = useFormValidation()
 const email = ref('')
 const password = ref('')
+const submitDisabled = computed(() =>
+	!email.value || !password.value ? true : false,
+)
 </script>
 
 <template>
@@ -18,27 +22,43 @@ const password = ref('')
 				h2="Welcome back!"
 				:submit-function="() => logIn(email, password)"
 			>
+				<template v-slot:main-feedback>
+					<p v-if="feedback.main && feedback.main.msg" class="form-feedback">
+						<span class="icon">error</span>
+						<span v-html="feedback.main.msg"></span>
+					</p>
+				</template>
+
 				<template v-slot:input-1>
-					<fieldset class="d-flex flex-col gap-025">
-						<label for="username">E-mail / Username</label>
-						<input
-							v-model="email"
-							type="text"
-							name="username"
-							placeholder="storybean@protonmail.com"
-						/>
-					</fieldset>
+					<FormField
+						type="email"
+						id="email"
+						placeholder="storybean@protonmail.com"
+						v-model="email"
+						:required="true"
+						label="E-mail"
+						feedbackKey="email"
+					/>
 				</template>
 
 				<template v-slot:input-2>
-					<fieldset class="d-flex flex-col gap-025">
-						<label for="email">Password</label>
-						<input v-model="password" type="password" name="password" />
-					</fieldset>
+					<FormField
+						type="password"
+						id="password"
+						v-model="password"
+						:required="true"
+						label="Password"
+						feedbackKey="password"
+					/>
 				</template>
 
 				<template v-slot:submit-btn>
-					<Button type="submit" class="w-100" btnType="primary">
+					<Button
+						type="submit"
+						class="w-100"
+						btnType="primary"
+						:disabled="submitDisabled"
+					>
 						Log in
 					</Button>
 				</template>
