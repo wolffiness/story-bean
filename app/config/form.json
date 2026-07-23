@@ -3,5 +3,5 @@
 	"invalid-email": "Please provide a valid e-mail address.",
 	"limit-rate": "Story Bean is a free service and runs for free to avoid the need to monetize it. Unfortunately this means we can only send 2 emails per hour, please be patient for the rate limit to reset and try again. We apologize for the inconvenience.",
 	"no-password": "Please provide a password.",
-	"invalid-password": "Make sure your password meets the minimum requirements:<br /><ul><li>8 characters long.</li><li>1 lowercase letter.</li><li>1 uppercase letter.</li><li>1 digit.</li><li>1 symbol.</li></ul>"
+	"invalid-password": "Make sure your password meets the minimum requirements:<br /><ul><li>8 characters long.</li><li>1 lowercase letter.</li><li>1 uppercase letter.</li><li>1 digit.</li><li>1 symbol. (@, $, !, %, *, ?, &)</li></ul>"
 }

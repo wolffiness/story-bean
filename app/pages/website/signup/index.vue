@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 const { verificationEmail, signUp } = useAccount()
-const { feedback, updateFeedback } = useFormValidation()
+const { feedback } = useFormValidation()
 const email = ref('')
 const password = ref('')
 const submitDisabled = computed(() =>

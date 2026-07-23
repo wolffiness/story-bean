@@ -22,7 +22,6 @@ const props = defineProps<{
 				<section class="grid-col-2 d-flex flex-col center gap-05">
 					<slot name="input-1"></slot>
 					<slot name="input-2"></slot>
-					<slot name="input-3"></slot>
 				</section>
 			</section>
 

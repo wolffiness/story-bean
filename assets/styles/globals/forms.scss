@@ -35,6 +35,7 @@ label {
 	border-radius: var(--border-rad);
 	color: light-dark(var(--bg), var(--text));
 	font-size: var(--size-sm);
+	box-shadow: var(--shadow-sm);
 
 	.icon {
 		font-size: var(--size-text);

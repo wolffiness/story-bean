@@ -18,7 +18,24 @@ export const useFormValidation = () => {
 			feedback.value[input.id as FeedbackKeys] = {
 				msg: input.validationMessage,
 			}
-		} else if (feedbackKeys.includes(input.id)) {
+
+			return
+		}
+
+		if (input.type == 'password') {
+			const val = input.value
+			const passwordRegex =
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/g
+
+			if (!val.match(passwordRegex)) {
+				feedback.value[input.id as FeedbackKeys] = {
+					msg: feedbackConfig['invalid-password'],
+				}
+				return
+			}
+		}
+
+		if (feedbackKeys.includes(input.id)) {
 			feedback.value[input.id as FeedbackKeys] = {
 				msg: null,
 			}
