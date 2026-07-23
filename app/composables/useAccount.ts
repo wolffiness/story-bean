@@ -24,15 +24,15 @@ export const useAccount = () => {
 	}
 
 	const logIn = async (email: string, password: string) => {
-		const { error } = await supabase.auth.signInWithPassword({
+		const { data, error } = await supabase.auth.signInWithPassword({
 			email: email,
 			password: password,
 		})
 
-		if (error) {
-			console.log(error)
-			return
-		}
+		console.log(data)
+		console.log(data.user)
+
+		if (error) return submitMsgs([error.message])
 
 		await navigateTo('/')
 	}

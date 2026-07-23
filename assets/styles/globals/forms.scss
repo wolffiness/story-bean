@@ -36,6 +36,7 @@ label {
 	color: light-dark(var(--bg), var(--text));
 	font-size: var(--size-sm);
 	box-shadow: var(--shadow-sm);
+	width: fit-content;
 
 	.icon {
 		font-size: var(--size-text);

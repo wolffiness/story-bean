@@ -52,9 +52,13 @@ export const useFormValidation = () => {
 			case log.includes('Email address'):
 				feedback.value.email = { msg: feedbackConfig['invalid-email'] }
 				break
+			case log.includes('Email not confirmed'):
+				feedback.value.email = { msg: feedbackConfig['unverified-email'] }
+				break
 			case log.includes('email rate limit exceeded'):
 				feedback.value.main = { msg: feedbackConfig['limit-rate'] }
 				break
+
 			case log.includes('Signup requires a valid password'):
 				feedback.value.password = { msg: feedbackConfig['no-password'] }
 				break
@@ -62,6 +66,9 @@ export const useFormValidation = () => {
 				feedback.value.password = { msg: feedbackConfig['invalid-password'] }
 				break
 
+			case log.includes('Invalid login credentials'):
+				feedback.value.main = { msg: feedbackConfig['invalid-credentials'] }
+				break
 			default:
 				feedback.value.main = { msg: `Unknown error: ${log}` }
 				break

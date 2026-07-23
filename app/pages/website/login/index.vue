@@ -20,49 +20,11 @@ const submitDisabled = computed(() =>
 			<AccountEntry
 				class="set-width"
 				h2="Welcome back!"
-				:submit-function="() => logIn(email, password)"
-			>
-				<template v-slot:main-feedback>
-					<p v-if="feedback.main && feedback.main.msg" class="form-feedback">
-						<span class="icon">error</span>
-						<span v-html="feedback.main.msg"></span>
-					</p>
-				</template>
-
-				<template v-slot:input-1>
-					<FormField
-						type="email"
-						id="email"
-						placeholder="storybean@protonmail.com"
-						v-model="email"
-						:required="true"
-						label="E-mail"
-						feedbackKey="email"
-					/>
-				</template>
-
-				<template v-slot:input-2>
-					<FormField
-						type="password"
-						id="password"
-						v-model="password"
-						:required="true"
-						label="Password"
-						feedbackKey="password"
-					/>
-				</template>
-
-				<template v-slot:submit-btn>
-					<Button
-						type="submit"
-						class="w-100"
-						btnType="primary"
-						:disabled="submitDisabled"
-					>
-						Log in
-					</Button>
-				</template>
-			</AccountEntry>
+				submitBtn="Log in"
+				:submit-function="
+					(email: string, password: string) => logIn(email, password)
+				"
+			/>
 		</div>
 	</main>
 </template>
