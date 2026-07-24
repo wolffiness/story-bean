@@ -3,6 +3,7 @@ const props = defineProps<{
 	h2?: string
 	submitFunction?: (email: string, password: string) => void
 	submitBtn?: string
+	excludePasswordEval?: boolean
 }>()
 
 const { feedback } = useFormValidation()
@@ -47,6 +48,7 @@ const submitDisabled = computed(() =>
 						:required="true"
 						label="Password"
 						feedbackKey="password"
+						:excludePasswordEval="excludePasswordEval"
 					/>
 				</section>
 			</section>

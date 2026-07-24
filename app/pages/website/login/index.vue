@@ -18,6 +18,7 @@ const { logIn } = useAccount()
 				:submit-function="
 					(email: string, password: string) => logIn(email, password)
 				"
+				:excludePasswordEval="true"
 			/>
 		</div>
 	</main>

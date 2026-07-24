@@ -33,6 +33,17 @@ export const useFormValidation = () => {
 		}
 
 		if (input.type == 'password') {
+			if (
+				!input.dataset.passwordEval ||
+				input.dataset.passwordEval == 'false'
+			) {
+				feedback.value[input.id as FeedbackKeys] = {
+					msg: null,
+				}
+
+				return
+			}
+
 			const val = input.value
 			const passwordRegex =
 				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/g

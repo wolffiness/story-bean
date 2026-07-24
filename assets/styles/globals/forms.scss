@@ -43,7 +43,7 @@ label {
 		box-shadow: unset;
 	}
 
-	.rule-invalid {
+	&:not(.password-feedback) .rule-invalid {
 		font-weight: unset;
 		color: var(--text);
 	}

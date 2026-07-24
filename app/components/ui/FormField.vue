@@ -12,12 +12,13 @@ const props = defineProps<{
 	required?: boolean
 	label?: string
 	feedbackKey: FeedbackKeys
+	excludePasswordEval?: boolean
 }>()
 
 const model = defineModel<string>()
 
 const handleChange = (e: Event) => {
-	if (props.type == 'password') {
+	if (props.type == 'password' && !props.excludePasswordEval) {
 		handleValidatePassword(e)
 	}
 }
@@ -36,6 +37,9 @@ const handleChange = (e: Event) => {
 			@input="handleChange"
 			:required="required"
 			:class="{ 'user-invalid': !!feedback[feedbackKey]?.msg }"
+			:data-password-eval="
+				type == 'password' && excludePasswordEval ? false : true
+			"
 		/>
 
 		<!-- Form validation -->
