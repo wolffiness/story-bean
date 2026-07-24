@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/supabase', '@vueuse/nuxt'],
+	modules: ['@nuxtjs/supabase', '@vueuse/nuxt', '@nuxtjs/turnstile'],
 
 	alias: {
 		assets: import.meta.dirname + '/',
@@ -27,5 +27,9 @@ export default defineNuxtConfig({
 			callback: '/confirm',
 			exclude: ['/website/**'],
 		},
+	},
+
+	turnstile: {
+		siteKey: '0x4AAAAAAD9AYQBVkGCdLQ3R',
 	},
 })
