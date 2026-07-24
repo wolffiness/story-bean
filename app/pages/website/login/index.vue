@@ -4,12 +4,6 @@ definePageMeta({
 })
 
 const { logIn } = useAccount()
-const { feedback } = useFormValidation()
-const email = ref('')
-const password = ref('')
-const submitDisabled = computed(() =>
-	!email.value || !password.value ? true : false,
-)
 </script>
 
 <template>

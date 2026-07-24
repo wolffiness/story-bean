@@ -2,7 +2,8 @@
 import type { HTMLInputTypeAttribute } from '~/types/form'
 import type { FeedbackKeys } from '~/types/form'
 
-const { feedback, updateFeedback } = useFormValidation()
+const { feedback, updateFeedback, passwordFeedback, handleValidatePassword } =
+	useFormValidation()
 
 const props = defineProps<{
 	type: HTMLInputTypeAttribute
@@ -14,10 +15,16 @@ const props = defineProps<{
 }>()
 
 const model = defineModel<string>()
+
+const handleChange = (e: Event) => {
+	if (props.type == 'password') {
+		handleValidatePassword(e)
+	}
+}
 </script>
 
 <template>
-	<fieldset class="w-100 d-flex flex-col gap-025">
+	<fieldset class="w-100 d-flex flex-col gap-05">
 		<label v-if="label" :for="id">{{ label }}</label>
 		<input
 			v-model="model"
@@ -26,16 +33,29 @@ const model = defineModel<string>()
 			:name="id"
 			:placeholder="placeholder"
 			@blur="updateFeedback"
+			@input="handleChange"
 			:required="required"
 			:class="{ 'user-invalid': !!feedback[feedbackKey]?.msg }"
 		/>
 
-		<p
-			v-if="feedback[feedbackKey] && feedback[feedbackKey]?.msg"
-			class="form-feedback"
-		>
-			<span class="icon">error</span>
-			<span v-html="feedback[feedbackKey]?.msg"></span>
-		</p>
+		<!-- Form validation -->
+		<section>
+			<p
+				v-if="feedback[feedbackKey] && feedback[feedbackKey]?.msg"
+				class="form-feedback"
+			>
+				<span class="icon">error</span>
+				<span v-html="feedback[feedbackKey]?.msg"></span>
+			</p>
+
+			<p
+				v-if="
+					passwordFeedback[feedbackKey] && passwordFeedback[feedbackKey]?.msg
+				"
+				class="form-feedback password-feedback"
+			>
+				<span v-html="passwordFeedback[feedbackKey]?.msg"></span>
+			</p>
+		</section>
 	</fieldset>
 </template>

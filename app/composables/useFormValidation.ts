@@ -9,10 +9,20 @@ export const useFormValidation = () => {
 			msg: string | null
 		}
 	}
+	type msgInput = {
+		[key in FeedbackKeys]?: string
+	}
 	let feedback = useState<Feedback>('feedback', () => ({}))
+	let passwordFeedback = useState<Feedback>('passwordFeedback', () => ({}))
 
 	const updateFeedback = (e: Event) => {
 		const input = e.target as HTMLInputElement
+
+		if (passwordFeedback.value.password?.msg !== null) {
+			passwordFeedback.value.password = {
+				msg: null,
+			}
+		}
 
 		if (input.validationMessage && feedbackKeys.includes(input.id)) {
 			feedback.value[input.id as FeedbackKeys] = {
@@ -29,7 +39,7 @@ export const useFormValidation = () => {
 
 			if (!val.match(passwordRegex)) {
 				feedback.value[input.id as FeedbackKeys] = {
-					msg: feedbackConfig['invalid-password'],
+					msg: `${feedbackConfig['invalid-password'].split('<ul>')[0]}${validatePassword(val)}`,
 				}
 				return
 			}
@@ -42,7 +52,60 @@ export const useFormValidation = () => {
 		}
 	}
 
-	const supaLogTranslation = (log: string) => {
+	const handleValidatePassword = (e: Event) => {
+		const input = e.target as HTMLInputElement
+		if (input.type !== 'password') return
+		const val = input.value
+
+		feedback.value[input.id as FeedbackKeys] = {
+			msg: null,
+		}
+
+		passwordFeedback.value.password = {
+			msg: validatePassword(val),
+		}
+	}
+
+	const validatePassword = (val: string) => {
+		const textSplit = feedbackConfig['invalid-password'].split('<ul>')
+		const criteria = textSplit[1]?.split('<li>')
+		const validation: Array<string> = []
+
+		criteria?.forEach((rule: string) => {
+			switch (true) {
+				case rule.includes('8 characters long'):
+					validation.push(
+						`${checkCriteria(val, /[A-Za-z\d@$!%*?&]{8,}/g)}${rule}`,
+					)
+
+					break
+				case rule.includes('1 lowercase letter'):
+					validation.push(`${checkCriteria(val, /[a-z]/g)}${rule}`)
+					break
+				case rule.includes('1 uppercase letter'):
+					validation.push(`${checkCriteria(val, /[A-Z]/g)}${rule}`)
+					break
+				case rule.includes('1 digit'):
+					validation.push(`${checkCriteria(val, /[1-9]/g)}${rule}`)
+					break
+				case rule.includes('1 symbol'):
+					validation.push(`${checkCriteria(val, /[@$!%*?&]/g)}${rule}`)
+					break
+			}
+		})
+
+		return `<ul>${validation.join('')}`
+	}
+
+	const checkCriteria = (val: string, match: RegExp) => {
+		if (val.match(match)) {
+			return "<li class='rule-valid'>"
+		}
+
+		return "<li class='rule-invalid'>"
+	}
+
+	const supaLogTranslation = (log: string, input: msgInput | undefined) => {
 		feedback.value = {}
 
 		switch (true) {
@@ -63,7 +126,13 @@ export const useFormValidation = () => {
 				feedback.value.password = { msg: feedbackConfig['no-password'] }
 				break
 			case log.includes('Password should contain'):
-				feedback.value.password = { msg: feedbackConfig['invalid-password'] }
+				if (input?.password) {
+					feedback.value.password = {
+						msg: `${feedbackConfig['invalid-password'].split('<ul>')[0]}${validatePassword(input?.password)}`,
+					}
+				} else {
+					feedback.value.password = { msg: feedbackConfig['invalid-password'] }
+				}
 				break
 
 			case log.includes('Invalid login credentials'):
@@ -75,16 +144,18 @@ export const useFormValidation = () => {
 		}
 	}
 
-	const submitMsgs = (logs: Array<string>) => {
+	const submitMsgs = (logs: Array<string>, input?: msgInput) => {
 		logs.forEach((log) => {
-			console.log(log)
-			supaLogTranslation(log)
+			console.error(log)
+			supaLogTranslation(log, input)
 		})
 	}
 
 	return {
 		feedback,
 		updateFeedback,
+		passwordFeedback,
+		handleValidatePassword,
 		submitMsgs,
 	}
 }

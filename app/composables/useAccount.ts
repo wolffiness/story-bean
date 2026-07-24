@@ -8,6 +8,11 @@ export const useAccount = () => {
 	)
 
 	const signUp = async (email: string, password: string) => {
+		const input = {
+			email: email,
+			password: password,
+		}
+
 		const { data, error } = await supabase.auth.signUp({
 			email: email,
 			password: password,
@@ -16,7 +21,7 @@ export const useAccount = () => {
 			},
 		})
 
-		if (error) return submitMsgs([error.message])
+		if (error) return submitMsgs([error.message], input)
 
 		if (data.user) return (verificationEmail.value = data.user.email ?? email)
 
