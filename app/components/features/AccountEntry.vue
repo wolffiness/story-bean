@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
 	h2?: string
-	submitFunction?: (email: string, password: string) => void
+	submitFunction?: (email: string, password: string, token: string) => void
 	submitBtn?: string
 	excludePasswordEval?: boolean
 }>()
@@ -9,6 +9,7 @@ const props = defineProps<{
 const { feedback } = useFormValidation()
 const email = ref('')
 const password = ref('')
+const token = ref('')
 const submitDisabled = computed(() =>
 	!email.value || !password.value ? true : false,
 )
@@ -19,7 +20,7 @@ const submitDisabled = computed(() =>
 		<form
 			@submit.prevent="
 				() => {
-					if (submitFunction) submitFunction(email, password)
+					if (submitFunction) submitFunction(email, password, token)
 				}
 			"
 			class="w-100 h-100 d-flex flex-col center gap-2"
@@ -50,6 +51,17 @@ const submitDisabled = computed(() =>
 						feedbackKey="password"
 						:excludePasswordEval="excludePasswordEval"
 					/>
+
+					<section class="w-100 d-flex flex-col gap-05">
+						<NuxtTurnstile v-model="token" />
+						<p
+							v-if="feedback.captcha && feedback.captcha.msg"
+							class="form-feedback"
+						>
+							<span class="icon">error</span>
+							<span v-html="feedback.captcha.msg"></span>
+						</p>
+					</section>
 				</section>
 			</section>
 

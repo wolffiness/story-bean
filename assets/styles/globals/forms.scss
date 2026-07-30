@@ -38,6 +38,10 @@ label {
 	box-shadow: var(--shadow-sm);
 	width: fit-content;
 
+	span:last-of-type::first-letter {
+		text-transform: capitalize;
+	}
+
 	&.password-feedback {
 		background-color: light-dark(var(--bg), var(--text-dark));
 		box-shadow: unset;

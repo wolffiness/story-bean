@@ -22,4 +22,4 @@ export type HTMLInputTypeAttribute =
 	| 'url'
 	| 'week'
 
-export type FeedbackKeys = 'email' | 'password' | 'main'
+export type FeedbackKeys = 'email' | 'password' | 'main' | 'captcha'

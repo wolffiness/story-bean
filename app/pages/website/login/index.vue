@@ -16,7 +16,8 @@ const { logIn } = useAccount()
 				h2="Welcome back!"
 				submitBtn="Log in"
 				:submit-function="
-					(email: string, password: string) => logIn(email, password)
+					(email: string, password: string, token: string) =>
+						logIn(email, password, token)
 				"
 				:excludePasswordEval="true"
 			/>

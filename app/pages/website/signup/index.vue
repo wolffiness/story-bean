@@ -23,7 +23,8 @@ const { verificationEmail, signUp } = useAccount()
 				h2="Come on in!"
 				submitBtn="Create account"
 				:submit-function="
-					(email: string, password: string) => signUp(email, password)
+					(email: string, password: string, token: string) =>
+						signUp(email, password, token)
 				"
 			/>
 		</div>

@@ -2,7 +2,7 @@ import feedbackConfig from '~/config/form.json'
 import type { FeedbackKeys } from '~/types/form'
 
 export const useFormValidation = () => {
-	const feedbackKeys = ['email', 'password', 'main']
+	const feedbackKeys = ['email', 'password', 'main', 'captcha']
 
 	type Feedback = {
 		[key in FeedbackKeys]?: {
@@ -143,6 +143,12 @@ export const useFormValidation = () => {
 					}
 				} else {
 					feedback.value.password = { msg: feedbackConfig['invalid-password'] }
+				}
+				break
+
+			case log.includes('captcha protection'):
+				feedback.value.captcha = {
+					msg: `${log.replace('captcha protection: ', '')}`,
 				}
 				break
 

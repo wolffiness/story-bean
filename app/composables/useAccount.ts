@@ -7,10 +7,11 @@ export const useAccount = () => {
 		() => null,
 	)
 
-	const signUp = async (email: string, password: string) => {
+	const signUp = async (email: string, password: string, token: string) => {
 		const input = {
 			email: email,
 			password: password,
+			options: { token },
 		}
 
 		const { data, error } = await supabase.auth.signUp({
@@ -28,14 +29,17 @@ export const useAccount = () => {
 		submitMsgs(['Something went wrong when signing up.'])
 	}
 
-	const logIn = async (email: string, password: string) => {
-		const { data, error } = await supabase.auth.signInWithPassword({
+	const logIn = async (
+		email: string,
+		password: string,
+		token?: string | undefined,
+	) => {
+		console.log(token)
+		const { error } = await supabase.auth.signInWithPassword({
 			email: email,
 			password: password,
+			options: { captchaToken: token },
 		})
-
-		console.log(data)
-		console.log(data.user)
 
 		if (error) return submitMsgs([error.message])
 

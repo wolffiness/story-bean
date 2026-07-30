@@ -30,6 +30,9 @@ export default defineNuxtConfig({
 	},
 
 	turnstile: {
-		siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
+		siteKey:
+			process.env.NODE_ENV == 'production'
+				? process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY
+				: process.env.TEST_NUXT_PUBLIC_TURNSTILE_SITE_KEY,
 	},
 })
