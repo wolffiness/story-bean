@@ -42,7 +42,7 @@ const { logOut } = useAccount()
 			</form>
 
 			<form class="w-100 d-flex flex-col gap-2 align-center">
-				<SettingCategoriesAccount v-model:headings="headings" />
+				<SettingsCategoriesAccount v-model:headings="headings" />
 			</form>
 		</section>
 	</dialog>
