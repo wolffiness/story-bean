@@ -147,6 +147,10 @@ export const useFormValidation = () => {
 				break
 
 			case log.includes('captcha protection'):
+				if (log.includes('no captcha_token found')) {
+					feedback.value.captcha = { msg: feedbackConfig['no-captcha'] }
+					break
+				}
 				feedback.value.captcha = {
 					msg: `${log.replace('captcha protection: ', '')}`,
 				}

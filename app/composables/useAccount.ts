@@ -11,16 +11,10 @@ export const useAccount = () => {
 		const input = {
 			email: email,
 			password: password,
-			options: { token },
+			options: { emailRedirectTo: `/confirm`, captchaToken: token },
 		}
 
-		const { data, error } = await supabase.auth.signUp({
-			email: email,
-			password: password,
-			options: {
-				emailRedirectTo: `/confirm`,
-			},
-		})
+		const { data, error } = await supabase.auth.signUp(input)
 
 		if (error) return submitMsgs([error.message], input)
 
@@ -34,12 +28,13 @@ export const useAccount = () => {
 		password: string,
 		token?: string | undefined,
 	) => {
-		console.log(token)
-		const { error } = await supabase.auth.signInWithPassword({
+		const input = {
 			email: email,
 			password: password,
 			options: { captchaToken: token },
-		})
+		}
+
+		const { error } = await supabase.auth.signInWithPassword(input)
 
 		if (error) return submitMsgs([error.message])
 

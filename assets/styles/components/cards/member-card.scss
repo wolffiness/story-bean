@@ -16,9 +16,9 @@
 		transform: rotate(-25deg);
 	}
 
-	&.aspect {
-		aspect-ratio: 2 / 1;
-	}
+	// &.aspect {
+	// 	aspect-ratio: 2 / 1;
+	// }
 
 	&.set-width {
 		grid-column: 2 / span calc(var(--col) - 2);
