@@ -20,13 +20,13 @@ definePageMeta({
 					</div>
 
 					<div class="d-flex gap-1">
-						<Button btnType="primary">
+						<UiButton btnType="primary">
 							<NuxtLink to="/website/signup">Sign up</NuxtLink>
-						</Button>
+						</UiButton>
 
-						<Button btnType="secondary">
+						<UiButton btnType="secondary">
 							<NuxtLink to="/website/login">Log in</NuxtLink>
-						</Button>
+						</UiButton>
 					</div>
 				</div>
 			</div>

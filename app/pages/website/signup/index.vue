@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-	<WebsiteHeader />
+	<LayoutWebsiteHeader />
 
 	<main id="sign-up">
 		<div class="w-page d-grid fr-col gap-gutter">

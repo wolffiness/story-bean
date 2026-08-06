@@ -35,13 +35,13 @@ function toggleCollapse() {
 					</li>
 
 					<div class="d-flex gap-025 center">
-						<Button btnType="icon" command="show-modal" commandFor="settings"
-							><span class="icon">settings</span></Button
+						<UiButton btnType="icon" command="show-modal" commandFor="settings"
+							><span class="icon">settings</span></UiButton
 						>
 					</div>
 				</div>
 			</ul>
 		</nav>
 	</header>
-	<Settings id="settings" modalId="settings" />
+	<ModalsSettings id="settings" modalId="settings" />
 </template>

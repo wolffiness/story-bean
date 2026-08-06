@@ -16,7 +16,7 @@ const submitDisabled = computed(() =>
 </script>
 
 <template>
-	<MemberCard class="aspect">
+	<CardsMember class="aspect">
 		<form
 			@submit.prevent="
 				() => {
@@ -32,7 +32,7 @@ const submitDisabled = computed(() =>
 				</section>
 
 				<section class="grid-col-2 d-flex flex-col center gap-05">
-					<FormField
+					<UiInputForm
 						type="email"
 						id="email"
 						placeholder="storybean@protonmail.com"
@@ -42,7 +42,7 @@ const submitDisabled = computed(() =>
 						feedbackKey="email"
 					/>
 
-					<FormField
+					<UiInputForm
 						type="password"
 						id="password"
 						v-model="password"
@@ -71,15 +71,15 @@ const submitDisabled = computed(() =>
 					<span v-html="feedback.main.msg"></span>
 				</p>
 
-				<Button
+				<UiButton
 					type="submit"
 					class="w-100"
 					btnType="primary"
 					:disabled="submitDisabled"
 				>
 					{{ submitBtn ? submitBtn : 'Submit' }}
-				</Button>
+				</UiButton>
 			</section>
 		</form>
-	</MemberCard>
+	</CardsMember>
 </template>

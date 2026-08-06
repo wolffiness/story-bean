@@ -29,20 +29,20 @@ const setHeading = (el: Element | ComponentPublicInstance | null) => {
 	<section class="w-100 d-flex flex-col gap-1">
 		<h3 :ref="setHeading">Account Information</h3>
 
-		<SettingInput label="Username" value="story_bean" />
-		<SettingInput label="E-mail" value="*********@protonmail.com" />
+		<UiInputSetting label="Username" value="story_bean" />
+		<UiInputSetting label="E-mail" value="*********@protonmail.com" />
 	</section>
 
 	<section class="w-100 d-flex flex-col gap-1">
 		<h3 :ref="setHeading">Password & Security</h3>
 
-		<SettingInput label="Password" />
+		<UiInputSetting label="Password" />
 	</section>
 
 	<section class="w-100 d-flex flex-col gap-1">
 		<h3 :ref="setHeading">Actions</h3>
 
-		<SettingInput label="Log out" />
-		<SettingInput label="Delete account" />
+		<UiInputSetting label="Log out" />
+		<UiInputSetting label="Delete account" />
 	</section>
 </template>
