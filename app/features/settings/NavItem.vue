@@ -62,7 +62,7 @@ const handleClick = () => {
 	</UiButton>
 	<ul v-if="isShown" class="d-flex flex-col gap-025 m-0 px-1 list-none">
 		<li v-for="subHeading in Object.keys(subHeadings)">
-			{{ subHeading }}
+			<a :href="`#${subHeading}`"> {{ subHeading }} </a>
 		</li>
 	</ul>
 </template>
