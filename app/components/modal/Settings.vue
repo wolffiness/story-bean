@@ -10,26 +10,9 @@ const { logOut } = useAccount()
 </script>
 
 <template>
-	<dialog closedby="any" popover>
+	<dialog closedby="any" open popover>
 		<section class="d-flex flex-col gap-05">
-			<div class="d-flex flex-col gap-025">
-				<button class="setting-category active d-flex gap-05 align-center">
-					<span class="icon">account_box</span>
-					<span>Account</span>
-				</button>
-				<ul class="d-flex flex-col gap-025 m-0 px-1 list-none">
-					<li v-for="heading in headings">{{ heading }}</li>
-				</ul>
-			</div>
-			<div class="d-flex flex-col gap-025">
-				<button
-					@click="logOut"
-					class="setting-category d-flex gap-05 align-center"
-				>
-					<span class="icon">account_box</span>
-					<span>Log out</span>
-				</button>
-			</div>
+			<slot></slot>
 		</section>
 
 		<section class="d-flex flex-col gap-1 align-center">
