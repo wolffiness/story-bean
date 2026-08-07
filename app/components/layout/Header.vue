@@ -16,9 +16,9 @@ function toggleCollapse() {
 							<NuxtLink to="/"><span class="icon">home</span></NuxtLink>
 						</li>
 						<li>
-							<button @click="toggleCollapse">
+							<UiButton @click="toggleCollapse">
 								<span class="icon">dock_to_right</span>
-							</button>
+							</UiButton>
 						</li>
 					</div>
 				</div>
