@@ -3,7 +3,7 @@ import headings from '~/config/settings'
 
 const { activeHeading } = useSettings()
 const entries = computed(() => {
-	return Object.entries(headings[activeHeading.value])
+	return Object.entries(headings[activeHeading.value].subheadings)
 })
 </script>
 
@@ -17,7 +17,7 @@ const entries = computed(() => {
 		<h3>{{ subHeading }}</h3>
 		<UiInputSetting
 			v-if="settings"
-			v-for="[label, setting] in Object.entries(settings)"
+			v-for="[label, options] in Object.entries(settings)"
 			:label="label"
 			value="story_bean"
 		/>

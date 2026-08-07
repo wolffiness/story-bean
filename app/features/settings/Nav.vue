@@ -1,25 +1,24 @@
 <script setup lang="ts">
 import headings from '~/config/settings'
-import type { Headings } from '~/composables/useSettings'
+import type { Heading } from '~/types/settings'
+import type { HeadingKeys } from '~/composables/useSettings'
 
-const entries = Object.entries(headings) as [
-	Headings,
-	(typeof headings)[Headings],
-][]
+const entries = Object.entries(headings) as [HeadingKeys, Heading][]
 
 const { activeHeading } = useSettings()
 </script>
 
 <template>
 	<div
-		v-for="[heading, subHeadings] in entries"
+		v-for="[heading, options] in entries"
 		:key="heading"
 		class="d-flex flex-col gap-025"
 	>
 		<SettingsNavItem
 			:heading="heading"
 			:activeHeading="activeHeading"
-			:subHeadings="subHeadings"
+			:subHeadings="options.subheadings"
+			:icon="options.icon || null"
 		/>
 	</div>
 </template>

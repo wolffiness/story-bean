@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { SubHeading } from '~/types/settings'
-import type { Headings } from '~/composables/useSettings'
+import type { HeadingKeys } from '~/composables/useSettings'
 
 const props = defineProps<{
-	heading: Headings
-	activeHeading: Headings
+	heading: HeadingKeys
+	activeHeading: HeadingKeys
 	subHeadings: SubHeading
+	icon: string | null
 }>()
 
 const { setActiveHeading } = useSettings()
@@ -25,7 +26,7 @@ const btnClass = computed(() => {
 		btn-type="setting-category"
 		:class="btnClass"
 	>
-		<span class="icon">account_box</span>
+		<span v-if="icon" class="icon">{{ icon }}</span>
 		<span>{{ heading }}</span>
 	</UiButton>
 	<ul v-if="isActive" class="d-flex flex-col gap-025 m-0 px-1 list-none">
