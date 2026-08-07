@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import type { btnType, btnState } from '~/types/btn'
+
 const props = defineProps<{
-	btnType?: 'primary' | 'secondary' | 'tertiary' | 'icon' | 'setting-category'
+	btnType?: btnType
+	btnState?: btnState
 }>()
 
-const classes = props.btnType !== undefined ? `btn-${props.btnType}` : ''
+const btnType = props.btnType !== undefined ? `btn-${props.btnType}` : ''
+const btnState = props.btnState !== undefined ? `state-${props.btnState}` : ''
+
+const classes = `${btnType} ${btnState}`
 </script>
 
 <template>

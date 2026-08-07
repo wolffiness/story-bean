@@ -16,6 +16,7 @@ const { activeHeading } = useSettings()
 	>
 		<SettingsNavItem
 			:heading="heading"
+			:options="options"
 			:activeHeading="activeHeading"
 			:subHeadings="options.subheadings"
 			:icon="options.icon || null"

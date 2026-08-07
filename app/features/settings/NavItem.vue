@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import type { SubHeading } from '~/types/settings'
+import type { SubHeading, Heading } from '~/types/settings'
 import type { HeadingKeys } from '~/composables/useSettings'
 
 const props = defineProps<{
 	heading: HeadingKeys
+	options: Heading
 	activeHeading: HeadingKeys
 	subHeadings: SubHeading
 	icon: string | null
@@ -11,6 +12,10 @@ const props = defineProps<{
 
 const { setActiveHeading } = useSettings()
 const { logOut } = useAccount()
+const btnSettings =
+	props.options.isButton && props.subHeadings.Btn
+		? props.subHeadings.Btn[props.heading]
+		: false
 
 const isActive = computed(() => {
 	return props.heading == props.activeHeading
@@ -18,27 +23,46 @@ const isActive = computed(() => {
 const btnClass = computed(() => {
 	return `${isActive.value ? 'active' : ''} d-flex gap-05 align-center`
 })
+const isShown = computed(() => {
+	return (
+		isActive.value && props.options.hasSubheadings && !props.options.isButton
+	)
+})
+
+const handleClick = () => {
+	if (!btnSettings) {
+		setActiveHeading(props.heading)
+		return
+	}
+
+	if (btnSettings.click == 'logOut') {
+		logOut()
+		return
+	}
+
+	return
+}
 </script>
 
 <template>
 	<UiButton
-		@click="setActiveHeading(props.heading)"
-		btn-type="setting-category"
+		@click="handleClick"
+		:btn-type="
+			btnSettings && btnSettings.btnType
+				? btnSettings.btnType
+				: 'setting-category'
+		"
+		:btn-state="
+			btnSettings && btnSettings.btnState ? btnSettings.btnState : 'default'
+		"
 		:class="btnClass"
 	>
 		<span v-if="icon" class="icon">{{ icon }}</span>
 		<span>{{ heading }}</span>
 	</UiButton>
-	<ul v-if="isActive" class="d-flex flex-col gap-025 m-0 px-1 list-none">
+	<ul v-if="isShown" class="d-flex flex-col gap-025 m-0 px-1 list-none">
 		<li v-for="subHeading in Object.keys(subHeadings)">
 			{{ subHeading }}
 		</li>
 	</ul>
-	<!-- <button
-		@click="logOut"
-		class="btn-setting-category d-flex gap-05 align-center"
-	>
-		<span class="icon">account_box</span>
-		<span>Log out</span>
-	</button> -->
 </template>

@@ -97,5 +97,10 @@ button {
 	&:hover {
 		background-color: var(--bg);
 		box-shadow: var(--shadow-md);
+		font-weight: bold;
 	}
+}
+
+.state-error {
+	color: var(--error-lightest);
 }

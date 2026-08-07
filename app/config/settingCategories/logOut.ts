@@ -1,11 +1,13 @@
 import type { SubHeading, Setting } from '~/types/settings'
 
 const content: Setting = {
-	'log-out': {
-		type: 'edit-val',
+	'Log Out': {
+		btnType: 'setting-category',
+		btnState: 'error',
+		click: 'logOut',
 	},
 }
 
 export const logOut = <SubHeading>{
-	Empty: content,
+	Btn: content,
 }
