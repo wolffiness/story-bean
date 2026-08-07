@@ -4,6 +4,6 @@ export type Setting = {
 	}
 }
 
-export type SubHeading = { [key in string]?: Setting[] }
+export type SubHeading = { [key in string]?: Setting }
 
-export type Heading = { [key in string]?: SubHeading }
+export type Heading = { [key in string]: SubHeading }

@@ -1,18 +1,14 @@
 <script setup lang="ts">
-const headings = ref<string[]>([])
-
 const props = defineProps<{
 	title?: string
 	modalId?: string
 }>()
-
-const { logOut } = useAccount()
 </script>
 
 <template>
 	<dialog closedby="any" open popover>
 		<section class="d-flex flex-col gap-05">
-			<slot></slot>
+			<slot name="nav"></slot>
 		</section>
 
 		<section class="d-flex flex-col gap-1 align-center">
@@ -25,7 +21,7 @@ const { logOut } = useAccount()
 			</form>
 
 			<form class="w-100 d-flex flex-col gap-2 align-center">
-				<SettingsCategoriesAccount v-model:headings="headings" />
+				<slot name="content"></slot>
 			</form>
 		</section>
 	</dialog>
