@@ -43,5 +43,5 @@ function toggleCollapse() {
 			</ul>
 		</nav>
 	</header>
-	<ModalsSettings id="settings" modalId="settings" />
+	<ModalSettings id="settings" modalId="settings" />
 </template>

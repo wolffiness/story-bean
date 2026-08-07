@@ -16,7 +16,7 @@ const submitDisabled = computed(() =>
 </script>
 
 <template>
-	<CardsMember class="aspect">
+	<CardMember class="aspect">
 		<form
 			@submit.prevent="
 				() => {
@@ -81,5 +81,5 @@ const submitDisabled = computed(() =>
 				</UiButton>
 			</section>
 		</form>
-	</CardsMember>
+	</CardMember>
 </template>
