@@ -26,6 +26,34 @@ label {
 	font-weight: bold;
 }
 
+.setting-field {
+	input,
+	.input {
+		border: 2px solid transparent;
+		border-radius: var(--border-circle);
+		background-color: unset;
+		padding: 0.5em 1em;
+		font-family: unset;
+		font-size: unset;
+		transition: var(--transition);
+	}
+
+	.input:hover {
+		cursor: pointer;
+		border-color: var(--text);
+	}
+
+	input {
+		border-color: var(--text);
+	}
+
+	label,
+	.label {
+		font-size: unset;
+		font-weight: bold;
+	}
+}
+
 .form-feedback {
 	display: flex;
 	gap: 0.75em;

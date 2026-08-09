@@ -1,26 +1,34 @@
 import type { SubHeading, Setting } from '~/types/settings'
 
 const accountInformation: Setting = {
-	username: {
+	Username: {
 		type: 'edit-val',
+		val: 'story_bean',
 	},
-	email: {
+	'E-mail': {
 		type: 'edit-val',
+		val: 'story_bean@protonmail.com',
 	},
 }
 
 const passwordSecurity: Setting = {
-	password: {
-		type: 'edit-val',
+	Password: {
+		type: 'edit',
 	},
 }
 
 const actions: Setting = {
-	'log-out': {
-		type: 'edit-val',
+	'Log out': {
+		type: 'btn',
+		btnType: 'secondary',
+		btnState: 'error',
+		val: 'Log out',
 	},
-	'delete-account': {
-		type: 'edit-val',
+	'Delete account': {
+		type: 'btn',
+		btnType: 'primary',
+		btnState: 'error',
+		val: 'Delete account',
 	},
 }
 

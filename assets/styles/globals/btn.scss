@@ -40,6 +40,22 @@ button {
 			box-shadow: none;
 		}
 	}
+
+	&.state-error {
+		background-color: var(--error-dark);
+		border-color: var(--error-light);
+		color: light-dark(var(--bg), var(--text));
+
+		&:hover {
+			background-color: var(--error-light);
+		}
+
+		&:disabled {
+			background-color: var(--error-disabled);
+
+			color: light-darl(var(--bg-disabled), var(--text-disabled));
+		}
+	}
 }
 
 .btn-secondary {
@@ -60,6 +76,16 @@ button {
 		&:hover {
 			cursor: default;
 			box-shadow: none;
+		}
+	}
+
+	&.state-error {
+		background-color: var(--error-30);
+		border-color: var(--error-light);
+		color: light-dark(var(--bg), var(--text));
+
+		&:hover {
+			background-color: var(--error);
 		}
 	}
 }

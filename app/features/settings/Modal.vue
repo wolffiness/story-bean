@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import headings from '~/config/settings'
-
 const props = defineProps<{
 	title?: string
 	modalId?: string

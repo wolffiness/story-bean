@@ -1,12 +1,15 @@
 import type { btnType, btnState } from '~/types/btn'
 
+export type SettingOptions = {
+	type?: 'edit-val' | 'btn' | 'edit'
+	btnType?: btnType
+	btnState?: btnState
+	click?: 'logOut'
+	val?: string
+}
+
 export type Setting = {
-	[key in string]?: {
-		type?: 'edit-val'
-		btnType?: btnType
-		btnState?: btnState
-		click?: 'logOut'
-	}
+	[key in string]?: SettingOptions
 }
 
 export type SubHeading = { [key in string]?: Setting }

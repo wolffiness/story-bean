@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import headings from '~/config/settings'
+import settings from '~/config/settings'
+import type { Setting } from '~/types/settings'
 
 const { activeHeading } = useSettings()
 const hasSubheadings = computed(() => {
-	return headings[activeHeading.value].hasSubheadings
+	return settings[activeHeading.value].hasSubheadings
 })
 const entries = computed(() => {
-	return Object.entries(headings[activeHeading.value].subheadings)
+	return Object.entries(settings[activeHeading.value].subheadings)
 })
 </script>
 
@@ -24,7 +25,7 @@ const entries = computed(() => {
 			v-if="settings"
 			v-for="[label, options] in Object.entries(settings)"
 			:label="label"
-			value="story_bean"
+			:options="options"
 		/>
 	</section>
 </template>

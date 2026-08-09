@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import headings from '~/config/settings'
+import settings from '~/config/settings'
 import type { Heading } from '~/types/settings'
 import type { HeadingKeys } from '~/composables/useSettings'
 
-const entries = Object.entries(headings) as [HeadingKeys, Heading][]
+const entries = Object.entries(settings) as [HeadingKeys, Heading][]
 
 const { activeHeading } = useSettings()
 </script>

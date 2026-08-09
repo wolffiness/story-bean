@@ -1,8 +1,8 @@
-import headings from '~/config/settings'
+import settings from '~/config/settings'
 
-export type HeadingKeys = keyof typeof headings
+export type HeadingKeys = keyof typeof settings
 
-const activeHeading = ref<HeadingKeys>(Object.keys(headings)[0] as HeadingKeys)
+const activeHeading = ref<HeadingKeys>(Object.keys(settings)[0] as HeadingKeys)
 
 export const useSettings = () => {
 	const setActiveHeading = (newHeading: HeadingKeys) => {
