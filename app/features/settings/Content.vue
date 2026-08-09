@@ -17,7 +17,7 @@ const entries = computed(() => {
 		:key="subHeading"
 		class="w-100 d-flex flex-col gap-1"
 	>
-		<h3 v-if="hasSubheadings">
+		<h3 v-if="hasSubheadings" :id="subHeading">
 			{{ subHeading }}
 		</h3>
 		<UiInputSetting
