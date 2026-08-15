@@ -1,11 +1,19 @@
+import type { Component } from 'vue'
 import type { btnType, btnState } from '~/types/btn'
+import type { iconName } from '~/types/icon'
 
 export type SettingOptions = {
-	type?: 'edit-val' | 'btn' | 'edit'
+	type?: 'edit-val' | 'btn' | 'edit' | 'modal'
 	btnType?: btnType
 	btnState?: btnState
 	click?: 'logOut'
 	val?: string
+	component?: {
+		component: Component
+		props?: {
+			[key in string]?: string | boolean
+		}
+	}
 }
 
 export type Setting = {
@@ -15,12 +23,11 @@ export type Setting = {
 export type SubHeading = { [key in string]?: Setting }
 
 export type Heading = {
-	[key in string]: any
-} & {
 	hasSubheadings: boolean
 	subheadings: SubHeading
 	isButton?: boolean
-	icon?: string
+	icon?: iconName
+	hasPreview?: boolean
 }
 
 export type AllHeadings = {

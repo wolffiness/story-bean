@@ -21,6 +21,7 @@ export default {
 		hasSubheadings: true,
 		subheadings: appearance,
 		icon: 'palette',
+		hasPreview: true,
 	},
 	'Language & Time': {
 		hasSubheadings: true,

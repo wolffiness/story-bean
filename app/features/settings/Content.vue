@@ -1,18 +1,25 @@
 <script setup lang="ts">
 import settings from '~/config/settings'
-import type { Setting } from '~/types/settings'
 
 const { activeHeading } = useSettings()
+const currentHeading = computed(() => {
+	return settings[activeHeading.value]
+})
 const hasSubheadings = computed(() => {
-	return settings[activeHeading.value].hasSubheadings
+	return currentHeading.value.hasSubheadings
+})
+const hasPreview = computed(() => {
+	return 'hasPreview' in currentHeading.value && currentHeading.value.hasPreview
 })
 const entries = computed(() => {
-	return Object.entries(settings[activeHeading.value].subheadings)
+	return Object.entries(currentHeading.value.subheadings)
 })
 </script>
 
 <template>
 	<h2>{{ activeHeading }}</h2>
+	<CanvasAppearance v-if="hasPreview" />
+
 	<section
 		v-for="[subHeading, settings] in entries"
 		:key="subHeading"
