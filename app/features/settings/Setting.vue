@@ -6,18 +6,26 @@ const props = defineProps<{
 	options?: SettingOptions
 }>()
 
-let isEditing = ref(false)
+// let isEditing = ref(false)
 
-function toggleEdit() {
-	isEditing.value = isEditing.value ? false : true
-}
+// function toggleEdit() {
+// 	isEditing.value = isEditing.value ? false : true
+// }
 </script>
 
 <template>
 	<fieldset class="setting-field d-flex flex-col gap-1">
+		<UiInputModal
+			v-if="options?.type == 'modal'"
+			:component="options.component"
+			:modalId="options.modalId"
+			:label="label"
+			:val="options.val"
+		/>
+
 		<!-- View -->
-		<div v-if="!isEditing" class="d-flex justify-between align-center gap-1">
-			<p class="label">{{ label }}</p>
+		<!-- <div v-if="!isEditing" class="d-flex justify-between align-center gap-1"> -->
+		<!-- <p class="label">{{ label }}</p>
 
 			<div v-if="options?.type == 'edit-val'" class="d-flex justify-between align-center gap-05">
 				<UiButton class="input d-flex align-center gap-1" @click="toggleEdit">{{ options.val }}</UiButton>
@@ -29,11 +37,12 @@ function toggleEdit() {
 
 			<div v-if="options?.type == 'btn'" class="d-flex justify-between align-center gap-05">
 				<UiButton :btn-type="options?.btnType" :btn-state="options?.btnState">{{ options?.val }}</UiButton>
-			</div>
-		</div>
+			</div> -->
+
+		<!-- </div> -->
 
 		<!-- Edit -->
-		<div v-if="isEditing" class="d-flex justify-between align-center gap-1">
+		<!-- <div v-if="isEditing" class="d-flex justify-between align-center gap-1">
 			<label v-if="label">{{ label }}</label>
 
 			<div v-if="options?.type == 'edit-val'" class="d-flex justify-between align-center gap-05">
@@ -46,6 +55,6 @@ function toggleEdit() {
 			<div v-if="options?.type == 'edit'" class="d-flex justify-between align-center gap-05">
 				<UiButton @click="toggleEdit">{{ options }}</UiButton>
 			</div>
-		</div>
+		</div> -->
 	</fieldset>
 </template>

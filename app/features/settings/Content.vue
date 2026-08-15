@@ -28,9 +28,10 @@ const entries = computed(() => {
 		<h3 v-if="hasSubheadings" :id="subHeading">
 			{{ subHeading }}
 		</h3>
-		<UiInputSetting
+		<SettingsSetting
 			v-if="settings"
 			v-for="[label, options] in Object.entries(settings)"
+			:key="label"
 			:label="label"
 			:options="options"
 		/>

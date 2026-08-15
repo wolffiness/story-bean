@@ -6,7 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-	<dialog closedby="any" open popover>
+	<dialog closedby="any" open>
 		<section class="d-flex flex-col gap-05">
 			<slot name="nav"></slot>
 		</section>

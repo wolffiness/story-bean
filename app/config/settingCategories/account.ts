@@ -1,19 +1,32 @@
 import type { SubHeading, Setting } from '~/types/settings'
+import ModalModal from '~/components/modal/Modal.vue'
 
 const accountInformation: Setting = {
 	Username: {
-		type: 'edit-val',
+		type: 'modal',
+		modalId: 'account-information-username',
 		val: 'story_bean',
+		component: {
+			component: ModalModal,
+		},
 	},
 	'E-mail': {
-		type: 'edit-val',
+		type: 'modal',
+		modalId: 'account-information-email',
 		val: 'story_bean@protonmail.com',
+		component: {
+			component: ModalModal,
+		},
 	},
 }
 
 const passwordSecurity: Setting = {
 	Password: {
-		type: 'edit',
+		type: 'modal',
+		modalId: 'password-security-password',
+		component: {
+			component: ModalModal,
+		},
 	},
 }
 

@@ -2,19 +2,36 @@ import type { Component } from 'vue'
 import type { btnType, btnState } from '~/types/btn'
 import type { iconName } from '~/types/icon'
 
-export type SettingOptions = {
-	type?: 'edit-val' | 'btn' | 'edit' | 'modal'
-	btnType?: btnType
-	btnState?: btnState
-	click?: 'logOut'
+type BaseSettingOptions = {
 	val?: string
-	component?: {
+}
+
+type GenericTypeOptions = BaseSettingOptions & {
+	type: 'edit-val' | 'edit'
+}
+
+type ModalTypeOptions = BaseSettingOptions & {
+	type: 'modal'
+	modalId: string
+	component: {
 		component: Component
 		props?: {
 			[key in string]?: string | boolean
 		}
 	}
 }
+
+type BtnTypeOptions = BaseSettingOptions & {
+	type: 'btn'
+	btnType: btnType
+	btnState?: btnState
+	click?: 'logOut'
+}
+
+export type SettingOptions =
+	| GenericTypeOptions
+	| ModalTypeOptions
+	| BtnTypeOptions
 
 export type Setting = {
 	[key in string]?: SettingOptions
