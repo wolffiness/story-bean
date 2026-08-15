@@ -28,7 +28,8 @@ p {
 	white-space: nowrap;
 	direction: ltr;
 
-	&:hover {
+	&:hover,
+	&.active {
 		font-variation-settings: 'FILL' 1;
 	}
 }

@@ -23,6 +23,9 @@ const isActive = computed(() => {
 const btnClass = computed(() => {
 	return `${isActive.value ? 'active' : ''} d-flex gap-05 align-center`
 })
+const iconClass = computed(() => {
+	return `${isActive.value ? 'active' : ''} icon`
+})
 const isShown = computed(() => {
 	return (
 		isActive.value && props.options.hasSubheadings && !props.options.isButton
@@ -57,7 +60,7 @@ const handleClick = () => {
 		"
 		:class="btnClass"
 	>
-		<span v-if="icon" class="icon">{{ icon }}</span>
+		<span v-if="icon" :class="iconClass">{{ icon }}</span>
 		<span>{{ heading }}</span>
 	</UiButton>
 	<ul v-if="isShown" class="d-flex flex-col gap-025 m-0 px-1 list-none">
