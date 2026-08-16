@@ -10,13 +10,21 @@ type GenericTypeOptions = BaseSettingOptions & {
 	type: 'edit-val' | 'edit'
 }
 
-type ModalTypeOptions = BaseSettingOptions & {
+export type ModalTypeOptions = BaseSettingOptions & {
 	type: 'modal'
 	modalId: string
 	component: {
-		component: Component
-		props?: {
-			[key in string]?: string | boolean
+		parent: {
+			component: Component
+			props?: {
+				[key in string]?: any
+			}
+		}
+		child?: {
+			component: Component
+			props?: {
+				[key in string]?: any
+			}
 		}
 	}
 }

@@ -1,15 +1,11 @@
 <script setup lang="ts">
-const props = defineProps<{
-	modalId: string
-	label?: string
-	val?: string
-	component?: {
-		component: Component
-		props?: {
-			[key in string]?: string | boolean
-		}
+import type { ModalTypeOptions } from '~/types/settings'
+
+const props = defineProps<
+	ModalTypeOptions & {
+		label?: string
 	}
-}>()
+>()
 </script>
 
 <template>
@@ -19,14 +15,22 @@ const props = defineProps<{
 		<div class="d-flex justify-between align-center gap-05">
 			<component
 				v-if="component"
-				:is="component.component"
+				:is="component.parent.component"
 				:modalId="modalId"
-				v-bind="component.props"
-			/>
+				v-bind="component.parent.props"
+			>
+				<component
+					v-if="component.child"
+					:is="component.child.component"
+					:inputs="component.child.props?.inputs"
+					v-bind="component.child.props"
+				/>
+			</component>
 
 			<UiButton v-if="val" class="input d-flex align-center gap-1">
 				{{ val }}
 			</UiButton>
+
 			<UiButton
 				v-if="val"
 				command="show-modal"

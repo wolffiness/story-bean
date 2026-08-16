@@ -20,9 +20,9 @@ const props = defineProps<{
 				</UiButton>
 			</form>
 
-			<form class="w-100 d-flex flex-col gap-2 align-center">
+			<div class="w-100 d-flex flex-col gap-2 align-center">
 				<slot name="content"></slot>
-			</form>
+			</div>
 		</section>
 	</dialog>
 </template>

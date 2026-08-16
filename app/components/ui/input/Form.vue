@@ -1,19 +1,10 @@
 <script setup lang="ts">
-import type { HTMLInputTypeAttribute } from '~/types/form'
-import type { FeedbackKeys } from '~/types/form'
+import type { FormFieldProps } from '~/types/form'
 
 const { feedback, updateFeedback, passwordFeedback, handleValidatePassword } =
 	useFormValidation()
 
-const props = defineProps<{
-	type: HTMLInputTypeAttribute
-	id: string
-	placeholder?: string
-	required?: boolean
-	label?: string
-	feedbackKey: FeedbackKeys
-	excludePasswordEval?: boolean
-}>()
+const props = defineProps<FormFieldProps>()
 
 const model = defineModel<string>()
 

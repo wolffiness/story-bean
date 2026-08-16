@@ -17,6 +17,7 @@ const props = defineProps<{
 	<fieldset class="setting-field d-flex flex-col gap-1">
 		<UiInputModal
 			v-if="options?.type == 'modal'"
+			:type="options.type"
 			:component="options.component"
 			:modalId="options.modalId"
 			:label="label"

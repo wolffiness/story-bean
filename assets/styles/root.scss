@@ -71,10 +71,10 @@ $xl: 75em;
 		system-ui, sans-serif;
 
 	// Font size
-	--typescale: 1.333;
+	--typescale: 1.25;
 
 	@media only screen and (min-width: $md) {
-		--typescale: 1.333;
+		--typescale: 1.25;
 	}
 	--size-text: 16px;
 	--size-icon: 1.5em;

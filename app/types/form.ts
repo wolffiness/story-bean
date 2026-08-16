@@ -23,3 +23,13 @@ export type HTMLInputTypeAttribute =
 	| 'week'
 
 export type FeedbackKeys = 'email' | 'password' | 'main' | 'captcha'
+
+export type FormFieldProps = {
+	type: HTMLInputTypeAttribute
+	id: string
+	placeholder?: string
+	required?: boolean
+	label?: string
+	feedbackKey: FeedbackKeys
+	excludePasswordEval?: boolean
+}
