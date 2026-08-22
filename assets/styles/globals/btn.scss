@@ -53,7 +53,7 @@ button {
 		&:disabled {
 			background-color: var(--error-disabled);
 
-			color: light-darl(var(--bg-disabled), var(--text-disabled));
+			color: light-dark(var(--bg-disabled), var(--text-disabled));
 		}
 	}
 }

@@ -4,7 +4,7 @@ const { verificationEmail, signUp } = useAccount()
 
 <template>
 	<p v-if="verificationEmail">
-		Almost there! We've sent a verfication email to
+		Almost there! We've sent a verification email to
 		<strong>{{ verificationEmail }}</strong
 		>. If you don't see it, you may need to
 		<strong>check your spam</strong> folder.

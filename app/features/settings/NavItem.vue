@@ -33,7 +33,7 @@ const isShown = computed(() => {
 })
 
 const handleClick = () => {
-	if (!btnSettings) {
+	if (!btnSettings || btnSettings.type !== 'btn') {
 		setActiveHeading(props.heading)
 		return
 	}
@@ -51,12 +51,14 @@ const handleClick = () => {
 	<UiButton
 		@click="handleClick"
 		:btn-type="
-			btnSettings && btnSettings.btnType
+			btnSettings && btnSettings.type == 'btn' && btnSettings.btnType
 				? btnSettings.btnType
 				: 'setting-category'
 		"
 		:btn-state="
-			btnSettings && btnSettings.btnState ? btnSettings.btnState : 'default'
+			btnSettings && btnSettings.type == 'btn' && btnSettings.btnState
+				? btnSettings.btnState
+				: 'default'
 		"
 		:class="btnClass"
 	>
