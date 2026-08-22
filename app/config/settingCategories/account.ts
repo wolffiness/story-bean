@@ -28,11 +28,15 @@ const accountInformation: Setting = {
 							type: 'email',
 							id: 'email-current',
 							label: 'Current e-mail',
+							feedbackKey: 'email-current',
+							required: true,
 						},
 						{
 							type: 'email',
 							id: 'email-new',
 							label: 'New e-mail',
+							feedbackKey: 'email-new',
+							required: true,
 						},
 						{
 							type: 'submit',
@@ -65,11 +69,16 @@ const passwordSecurity: Setting = {
 							type: 'password',
 							id: 'password-current',
 							label: 'Current password',
+							feedbackKey: 'password-current',
+							required: true,
+							excludePasswordEval: true,
 						},
 						{
 							type: 'password',
 							id: 'password-new',
 							label: 'New password',
+							feedbackKey: 'password-new',
+							required: true,
 						},
 						{
 							type: 'submit',

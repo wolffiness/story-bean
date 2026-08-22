@@ -22,7 +22,11 @@ export type HTMLInputTypeAttribute =
 	| 'url'
 	| 'week'
 
-export type FeedbackKeys = 'email' | 'password' | 'main' | 'captcha'
+export type FeedbackKeys =
+	| `email${string}`
+	| `password${string}`
+	| `main${string}`
+	| `captcha${string}`
 
 export type FormFieldProps = {
 	type: HTMLInputTypeAttribute

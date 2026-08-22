@@ -2,7 +2,27 @@
 import type { FormFieldProps } from '~/types/form'
 
 const props = defineProps<{ inputs: [FormFieldProps, ...FormFieldProps[]] }>()
-const submitDisabled = computed(() => true)
+const inputVals = ref<Record<string, string>>({})
+
+const updateRef = (e: Event) => {
+	if (!e.target) return
+
+	const name = (e.target as HTMLInputElement).name
+	const val = (e.target as HTMLInputElement).value
+
+	inputVals.value[name] = val
+}
+
+const submitDisabled = computed(() => {
+	let incomplete = false
+	props.inputs.forEach((input) => {
+		if (input.type !== 'submit') {
+			if (!inputVals.value[input.id]) incomplete = true
+		}
+	})
+
+	return incomplete
+})
 </script>
 
 <template>
@@ -10,6 +30,7 @@ const submitDisabled = computed(() => true)
 		<template v-for="input in props.inputs">
 			<UiInputForm
 				v-if="input.type !== 'submit'"
+				@input="updateRef"
 				:type="input.type"
 				:id="input.id"
 				:placeholder="input.placeholder"

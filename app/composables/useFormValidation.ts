@@ -2,8 +2,6 @@ import feedbackConfig from '~/config/form.json'
 import type { FeedbackKeys } from '~/types/form'
 
 export const useFormValidation = () => {
-	const feedbackKeys = ['email', 'password', 'main', 'captcha']
-
 	type Feedback = {
 		[key in FeedbackKeys]?: {
 			msg: string | null
@@ -24,7 +22,7 @@ export const useFormValidation = () => {
 			}
 		}
 
-		if (input.validationMessage && feedbackKeys.includes(input.id)) {
+		if (input.validationMessage) {
 			feedback.value[input.id as FeedbackKeys] = {
 				msg: input.validationMessage,
 			}
@@ -56,10 +54,8 @@ export const useFormValidation = () => {
 			}
 		}
 
-		if (feedbackKeys.includes(input.id)) {
-			feedback.value[input.id as FeedbackKeys] = {
-				msg: null,
-			}
+		feedback.value[input.id as FeedbackKeys] = {
+			msg: null,
 		}
 	}
 
