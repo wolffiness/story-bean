@@ -16,7 +16,8 @@ const accountInformation: Setting = {
 				component: ModalModal,
 				props: {
 					title: 'Change your e-mail address',
-					description: 'Enter a new e-mail address and your existing password.',
+					description:
+						'Enter a new e-mail address and verify your existing e-mail.',
 				},
 			},
 			child: {
@@ -27,6 +28,15 @@ const accountInformation: Setting = {
 							type: 'email',
 							id: 'email-current',
 							label: 'Current e-mail',
+						},
+						{
+							type: 'email',
+							id: 'email-new',
+							label: 'New e-mail',
+						},
+						{
+							type: 'submit',
+							label: 'Change e-mail',
 						},
 					],
 				},
@@ -45,6 +55,27 @@ const passwordSecurity: Setting = {
 				props: {
 					title: 'Change your password',
 					description: 'Enter your existing password and a new password.',
+				},
+			},
+			child: {
+				component: ModalChangeAccInfo,
+				props: {
+					inputs: [
+						{
+							type: 'password',
+							id: 'password-current',
+							label: 'Current password',
+						},
+						{
+							type: 'password',
+							id: 'password-new',
+							label: 'New password',
+						},
+						{
+							type: 'submit',
+							label: 'Change password',
+						},
+					],
 				},
 			},
 		},
