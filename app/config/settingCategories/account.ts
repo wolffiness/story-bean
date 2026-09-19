@@ -108,6 +108,6 @@ const actions: Setting = {
 
 export const account = <SubHeading>{
 	'Account Information': accountInformation,
-	'Password & Security': passwordSecurity,
-	Actions: actions,
+	// 'Password & Security': passwordSecurity,
+	// Actions: actions,
 }
