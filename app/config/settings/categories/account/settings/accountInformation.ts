@@ -15,7 +15,7 @@ export const accountInformation = (user: User | null) => {
 			val: user?.email,
 			component: {
 				parent: {
-					component: ModalModal,
+					component: markRaw(ModalModal),
 					props: {
 						title: 'Change your e-mail address',
 						description:
@@ -23,7 +23,7 @@ export const accountInformation = (user: User | null) => {
 					},
 				},
 				child: {
-					component: ModalChangeAccInfo,
+					component: markRaw(ModalChangeAccInfo),
 					props: {
 						inputs: [
 							{

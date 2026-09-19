@@ -7,7 +7,7 @@ import type { User } from '@supabase/supabase-js'
 export const account = (user: User | null) => {
 	const result: SubHeading = {
 		'Account Information': accountInformation(user),
-		// 'Password & Security': passwordSecurity(),
+		'Password & Security': passwordSecurity(),
 		// Actions: actions,
 	}
 

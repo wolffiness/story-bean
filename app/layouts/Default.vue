@@ -4,9 +4,9 @@ const { getUser } = useAccount()
 
 const user = await getUser()
 
-if (import.meta.client) {
+onMounted(() => {
 	setSettings(user)
-}
+})
 </script>
 
 <template>
