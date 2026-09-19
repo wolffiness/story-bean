@@ -10,7 +10,7 @@
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare",
-		"update-types": "npx supabase gen types --lang=typescript --project-id \"akmcfrrwrektzkthwzsu\" > app/types/database.types.ts"
+		"update-types": "npx supabase gen types --lang=typescript --project-id \"akmcfrrwrektzkthwzsu\" --schema auth > app/types/database.types.ts"
 	},
 	"repository": {
 		"type": "git",
