@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import settings from '~/config/settings'
-
-const { activeHeading } = useSettings()
+const { settings, activeHeading } = useSettings()
 const currentHeading = computed(() => {
-	return settings[activeHeading.value]
+	if (!activeHeading.value) return null
+
+	return settings.value?.[activeHeading.value]
 })
 const hasSubheadings = computed(() => {
+	if (!currentHeading.value) return null
 	return currentHeading.value.hasSubheadings
 })
 const hasPreview = computed(() => {
+	if (!currentHeading.value) return null
 	return 'hasPreview' in currentHeading.value && currentHeading.value.hasPreview
 })
 const entries = computed(() => {
+	if (!currentHeading.value) return null
 	return Object.entries(currentHeading.value.subheadings)
 })
 </script>

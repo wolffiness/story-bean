@@ -5,7 +5,7 @@ import type { HeadingKeys } from '~/composables/useSettings'
 const props = defineProps<{
 	heading: HeadingKeys
 	options: Heading
-	activeHeading: HeadingKeys
+	activeHeading: HeadingKeys | null
 	subHeadings: SubHeading
 	icon: string | null
 }>()

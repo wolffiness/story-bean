@@ -1,6 +1,20 @@
+import type { User } from '@supabase/supabase-js'
+
 export const useAccount = () => {
 	const supabase = useSupabaseClient()
 	const { submitMsgs } = useFormValidation()
+
+	const user = useState<User | null>('user', () => null)
+
+	const getUser = async () => {
+		if (!user.value) {
+			const { data } = await supabase.auth.getUser()
+
+			user.value = data.user
+		}
+
+		return user.value
+	}
 
 	const verificationEmail = useState<string | null>(
 		'verification_email',
@@ -50,6 +64,7 @@ export const useAccount = () => {
 	}
 
 	return {
+		getUser,
 		verificationEmail,
 		signUp,
 		logIn,
