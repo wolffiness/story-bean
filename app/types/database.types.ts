@@ -1299,6 +1299,52 @@ export type Database = {
 			[_ in never]: never
 		}
 	}
+	public: {
+		Tables: {
+			profiles: {
+				Row: {
+					bio: string | null
+					created_at: string
+					display_name: string | null
+					pronouns: string | null
+					updated_at: string | null
+					user_id: string
+					username: string
+				}
+				Insert: {
+					bio?: string | null
+					created_at?: string
+					display_name?: string | null
+					pronouns?: string | null
+					updated_at?: string | null
+					user_id: string
+					username: string
+				}
+				Update: {
+					bio?: string | null
+					created_at?: string
+					display_name?: string | null
+					pronouns?: string | null
+					updated_at?: string | null
+					user_id?: string
+					username?: string
+				}
+				Relationships: []
+			}
+		}
+		Views: {
+			[_ in never]: never
+		}
+		Functions: {
+			[_ in never]: never
+		}
+		Enums: {
+			[_ in never]: never
+		}
+		CompositeTypes: {
+			[_ in never]: never
+		}
+	}
 }
 
 type DatabaseWithoutInternals = Omit<Database, '__InternalSupabase'>
@@ -1438,5 +1484,8 @@ export const Constants = {
 				'phone_change_token',
 			],
 		},
+	},
+	public: {
+		Enums: {},
 	},
 } as const
