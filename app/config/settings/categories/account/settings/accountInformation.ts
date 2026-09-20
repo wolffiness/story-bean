@@ -1,7 +1,8 @@
 import type { Setting } from '~/types/settings'
-import ModalModal from '~/components/modal/Modal.vue'
-import ModalChangeAccInfo from '~/components/modal/ChangeAccInfo.vue'
 import type { User } from '@supabase/supabase-js'
+import ModalModal from '~/components/modal/Modal.vue'
+import ModalForm from '~/components/modal/Form.vue'
+import { useAccount } from '#imports'
 
 export const accountInformation = (user: User | null) => {
 	const settings: Setting = {
@@ -23,7 +24,7 @@ export const accountInformation = (user: User | null) => {
 					},
 				},
 				child: {
-					component: markRaw(ModalChangeAccInfo),
+					component: markRaw(ModalForm),
 					props: {
 						inputs: [
 							{
@@ -45,6 +46,11 @@ export const accountInformation = (user: User | null) => {
 								label: 'Change e-mail',
 							},
 						],
+						onSubmit: (submitData: SubmitEventInit) => {
+							const { getUser } = useAccount()
+							const user = getUser()
+							console.log(submitData)
+						},
 					},
 				},
 			},

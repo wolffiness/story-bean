@@ -1,6 +1,6 @@
 import type { Setting } from '~/types/settings'
 import ModalModal from '~/components/modal/Modal.vue'
-import ModalChangeAccInfo from '~/components/modal/ChangeAccInfo.vue'
+import ModalForm from '~/components/modal/Form.vue'
 
 export const passwordSecurity = () => {
 	const result: Setting = {
@@ -16,7 +16,7 @@ export const passwordSecurity = () => {
 					},
 				},
 				child: {
-					component: markRaw(ModalChangeAccInfo),
+					component: markRaw(ModalForm),
 					props: {
 						inputs: [
 							{

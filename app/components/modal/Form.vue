@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import type { FormFieldProps } from '~/types/form'
 
-const props = defineProps<{ inputs: [FormFieldProps, ...FormFieldProps[]] }>()
+const props = defineProps<{
+	inputs: [FormFieldProps, ...FormFieldProps[]]
+	onSubmit?: (values: any) => void
+}>()
 const inputVals = ref<Record<string, string>>({})
 
 const updateRef = (e: Event) => {
@@ -27,7 +30,14 @@ const submitDisabled = computed(() => {
 
 <template>
 	<section class="d-flex flex-col gap-05">
-		<template v-for="input in props.inputs">
+		<form
+			@submit.prevent="
+				(submitData: SubmitEventInit) => {
+					if (onSubmit) onSubmit(submitData)
+				}
+			"
+			v-for="input in props.inputs"
+		>
 			<UiInputForm
 				v-if="input.type !== 'submit'"
 				@input="updateRef"
@@ -49,6 +59,6 @@ const submitDisabled = computed(() => {
 			>
 				{{ input.label ? input.label : 'Submit' }}
 			</UiButton>
-		</template>
+		</form>
 	</section>
 </template>
