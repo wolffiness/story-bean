@@ -46,10 +46,22 @@ export const accountInformation = (user: User | null) => {
 								label: 'Change e-mail',
 							},
 						],
-						onSubmit: (submitData: SubmitEventInit) => {
+						onSubmit: async (submitData: SubmitEvent) => {
+							const supabase = useSupabaseClient()
+
+							const form = submitData.target as HTMLFormElement
+							const formData = new FormData(form)
+
 							const { getUser } = useAccount()
-							const user = getUser()
-							console.log(submitData)
+							const user = await getUser()
+
+							if (formData.get('email-current') !== user?.email) {
+								return
+							}
+
+							const { data } = await supabase.auth.updateUser({
+								email: formData.get('email-new') as string,
+							})
 						},
 					},
 				},
