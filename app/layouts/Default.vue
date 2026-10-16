@@ -1,8 +1,10 @@
 <script setup lang="ts">
 const { setSettings } = useSettings()
 const { getUser } = useAccount()
+const { getOwnProfile } = useProfile()
 
 const user = await getUser()
+const profile = await getOwnProfile(user?.id)
 
 onMounted(() => {
 	setSettings(user)
@@ -12,7 +14,7 @@ onMounted(() => {
 <template>
 	<div class="page w-100 d-flex flex-col align-center my-2">
 		<div class="w-page m-page d-grid fr-col gap-gutter">
-			<LayoutHeader />
+			<LayoutHeader :profileId="profile?.profile_id" />
 			<main>
 				<slot></slot>
 			</main>

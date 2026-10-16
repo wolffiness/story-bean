@@ -1,6 +1,10 @@
 <script setup lang="ts">
 let isCollapsed = ref(false)
 
+const props = defineProps<{
+	profileId?: string
+}>()
+
 function toggleCollapse() {
 	isCollapsed.value = isCollapsed.value ? false : true
 }
@@ -27,7 +31,7 @@ function toggleCollapse() {
 					<li class="p-05 flex-grow b-rad">
 						<NuxtLink
 							class="h-100 d-flex gap-025 align-center"
-							:to="{ name: 'profile-id', params: { id: 1 } }"
+							:to="{ name: 'profile-id', params: { id: props.profileId } }"
 						>
 							<img src="@img/placeholder_pfp.png" />
 							<span>You</span>
