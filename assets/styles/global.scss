@@ -14,17 +14,6 @@
 @forward './globals/modals.scss';
 @forward './globals/text.scss';
 
-// PAGES
-@forward './pages/website.scss';
-
-// COMPONENTS
-@forward './components/cards/member-card.scss';
-
-@forward './components/layout/header.scss';
-@forward './components/layout/page.scss';
-
-@forward './components/modals/settings.scss';
-
 // IMPORT ICONS
 @font-face {
 	font-family: 'Material Symbols Outlined';

@@ -47,3 +47,81 @@ function toggleCollapse() {
 		<SettingsModal />
 	</div>
 </template>
+
+<style lang="scss">
+.sidebar {
+	--col-span: 3;
+	--1-col-width: calc(var(--max-width) / var(--col) - var(--gutter));
+	position: fixed;
+	grid-column: 1 / span calc(var(--col) / 4);
+	width: calc(
+		var(--1-col-width) * var(--col-span) + var(--gutter) * (var(--col-span) - 1)
+	);
+	background-color: var(--bg);
+	border: var(--border-size) solid light-dark(var(--bg-dark), var(--bg-light));
+	border-radius: var(--border-sketch);
+	height: calc(100vh - 4em);
+	transition: ease-in-out 300ms;
+
+	&.collapsed {
+		--col-span: 1;
+
+		.controls {
+			justify-content: center;
+
+			li:first-of-type {
+				display: none;
+			}
+		}
+
+		.profile {
+			display: none;
+		}
+	}
+
+	ul {
+		list-style-type: none;
+
+		.controls {
+			justify-content: space-between;
+
+			li:last-of-type button {
+				padding: 0;
+				background-color: transparent;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+
+		.profile {
+			background-color: light-dark(var(--bg-dark), var(--bg-light));
+
+			li {
+				transition: var(--transition);
+				overflow: hidden;
+				text-wrap: nowrap;
+				text-overflow: ellipsis;
+
+				&:hover {
+					background-color: light-dark(var(--bg), var(--bg-lightest));
+				}
+
+				a {
+					img {
+						width: 2em;
+						aspect-ratio: 1 / 1;
+						border-radius: 50%;
+					}
+
+					span {
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+			}
+		}
+	}
+}
+</style>

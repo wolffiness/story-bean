@@ -19,3 +19,10 @@ onMounted(() => {
 		</div>
 	</div>
 </template>
+
+<style lang="scss">
+.page main {
+	grid-column: calc(var(--col) / 4 + 1) / span
+		calc(var(--col) - (var(--col) / 4));
+}
+</style>

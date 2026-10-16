@@ -33,3 +33,42 @@ definePageMeta({
 		</section>
 	</main>
 </template>
+
+<style lang="scss">
+#website {
+	#hero {
+		padding: 3em 0;
+
+		> div {
+			img {
+				height: 5em;
+			}
+
+			h1,
+			p {
+				color: var(--bg);
+				text-align: center;
+			}
+
+			p {
+				font-size: var(--size-h5);
+			}
+
+			> div div:last-of-type {
+				.btn-secondary {
+					background-color: transparent;
+					border-color: transparent;
+					text-decoration: underline;
+					color: var(--bg);
+
+					&:hover {
+						background-color: var(--secondary);
+						border-color: var(--secondary);
+						color: var(--text);
+					}
+				}
+			}
+		}
+	}
+}
+</style>

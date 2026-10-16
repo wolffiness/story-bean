@@ -4,12 +4,22 @@ export default defineNuxtConfig({
 
 	alias: {
 		assets: import.meta.dirname + '/',
+		'@styles': import.meta.dirname + '/assets/styles',
 		'@img': import.meta.dirname + '/assets/img',
 	},
 
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
 	css: [import.meta.dirname + '/assets/styles/global.scss'],
+	vite: {
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: '@use "@styles/root.scss" as *;',
+				},
+			},
+		},
+	},
 
 	components: [
 		{
