@@ -9,23 +9,12 @@
 <style lang="scss">
 .member-card {
 	position: relative;
-	background-color: var(--secondary-lightest);
 	overflow: hidden;
-
-	&::before {
-		content: '';
-		position: absolute;
-		top: -80%;
-		left: -25%;
-		width: 200%;
-		height: 100%;
-		background-color: var(--primary-30);
-		transform: rotate(-25deg);
-	}
-
-	// &.aspect {
-	// 	aspect-ratio: 2 / 1;
-	// }
+	background: linear-gradient(
+		-25deg,
+		var(--secondary-lightest) 50%,
+		color-mix(in oklch, var(--secondary-lightest), var(--primary) 30%) 50%
+	);
 
 	&.set-width {
 		grid-column: 2 / span calc(var(--col) - 2);

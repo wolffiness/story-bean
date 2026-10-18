@@ -17,7 +17,7 @@ const profile = await getProfile(profileId)
 			<p class="sm-text">{{ profile?.username }} • {{ profile?.pronouns }}</p>
 		</div>
 
-		<p class="w-100">{{ profile?.bio }}</p>
+		<p class="bio w-100">{{ profile?.bio }}</p>
 
 		<div class="w-100 d-flex flex-col center">
 			<p class="sm-text bold">Member since</p>
@@ -40,5 +40,9 @@ const profile = await getProfile(profileId)
 	aspect-ratio: 1 / 1;
 	border-radius: var(--border-circle);
 	background-color: var(--accent);
+}
+
+.bio {
+	white-space: pre-line;
 }
 </style>
