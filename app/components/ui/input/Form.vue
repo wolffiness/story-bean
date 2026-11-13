@@ -31,7 +31,7 @@ const handleChange = (e: Event) => {
 			"
 			@blur="updateFeedback"
 			@input="handleChange"
-		>
+		/>
 
 		<!-- Form validation -->
 		<section>
@@ -40,7 +40,7 @@ const handleChange = (e: Event) => {
 				class="form-feedback"
 			>
 				<span class="icon">error</span>
-				<span v-html="feedback[feedbackKey]?.msg"/>
+				<span v-html="feedback[feedbackKey]?.msg" />
 			</p>
 
 			<p
@@ -49,7 +49,7 @@ const handleChange = (e: Event) => {
 				"
 				class="form-feedback password-feedback"
 			>
-				<span v-html="passwordFeedback[feedbackKey]?.msg"/>
+				<span v-html="passwordFeedback[feedbackKey]?.msg" />
 			</p>
 		</section>
 	</fieldset>

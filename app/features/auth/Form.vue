@@ -27,7 +27,7 @@ const submitDisabled = computed(() =>
 		>
 			<section class="flex-grow d-grid fr-2 gap-1">
 				<section class="d-flex flex-col center gap-1">
-					<img src="@img/logo.svg" height="64" >
+					<img src="@img/logo.svg" height="64" />
 					<h2>{{ h2 }}</h2>
 				</section>
 
@@ -59,7 +59,7 @@ const submitDisabled = computed(() =>
 							class="form-feedback"
 						>
 							<span class="icon">error</span>
-							<span v-html="feedback.captcha.msg"/>
+							<span v-html="feedback.captcha.msg" />
 						</p>
 					</section>
 				</section>
@@ -68,7 +68,7 @@ const submitDisabled = computed(() =>
 			<section class="w-100 d-flex flex-col center gap-1">
 				<p v-if="feedback.main && feedback.main.msg" class="form-feedback">
 					<span class="icon">error</span>
-					<span v-html="feedback.main.msg"/>
+					<span v-html="feedback.main.msg" />
 				</p>
 
 				<UiButton

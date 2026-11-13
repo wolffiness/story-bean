@@ -13,5 +13,5 @@ onMounted(() => {
 </script>
 
 <template>
-	<canvas id="appearance" ref="canvas" class="w-100"/>
+	<canvas id="appearance" ref="canvas" class="w-100" />
 </template>

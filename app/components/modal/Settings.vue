@@ -8,7 +8,7 @@ const props = defineProps<{
 <template>
 	<dialog closedby="any" open>
 		<section class="d-flex flex-col gap-05">
-			<slot name="nav"/>
+			<slot name="nav" />
 		</section>
 
 		<section class="d-flex flex-col gap-1 align-center">
@@ -21,7 +21,7 @@ const props = defineProps<{
 			</form>
 
 			<div class="w-100 d-flex flex-col gap-2 align-center">
-				<slot name="content"/>
+				<slot name="content" />
 			</div>
 		</section>
 	</dialog>

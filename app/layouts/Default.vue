@@ -16,7 +16,7 @@ onMounted(() => {
 		<div class="w-page m-page d-grid fr-col gap-gutter">
 			<LayoutHeader :profile-id="profile?.profile_id" />
 			<main>
-				<slot/>
+				<slot />
 			</main>
 		</div>
 	</div>

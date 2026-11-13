@@ -7,6 +7,10 @@
 	"scripts": {
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
+		"format": "prettier -c .",
+		"format:fix": "prettier -w .",
+		"lint-format": "npm run lint && npm run format",
+		"lint-format:fix": "npm run lint:fix && npm run format:fix",
 		"build": "nuxt build",
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",

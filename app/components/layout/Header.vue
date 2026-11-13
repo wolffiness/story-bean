@@ -33,13 +33,17 @@ function toggleCollapse() {
 							class="h-100 d-flex gap-025 align-center"
 							:to="{ name: 'profile-id', params: { id: props.profileId } }"
 						>
-							<img src="@img/placeholder_pfp.png" >
+							<img src="@img/placeholder_pfp.png" />
 							<span>You</span>
 						</NuxtLink>
 					</li>
 
 					<div class="d-flex gap-025 center">
-						<UiButton btn-type="icon" command="show-modal" command-for="settings">
+						<UiButton
+							btn-type="icon"
+							command="show-modal"
+							command-for="settings"
+						>
 							<span class="icon">settings</span>
 						</UiButton>
 					</div>
