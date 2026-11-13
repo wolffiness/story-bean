@@ -30,7 +30,8 @@ const props = defineProps<{
 <style lang="scss">
 #settings {
 	width: var(--max-width);
-	height: calc(100vh - (4em + 4em)); // margin + padding
+	// margin + padding
+	height: calc(100vh - (4em + 4em));
 	margin-top: 2em;
 	margin-bottom: 2em;
 	grid-template-columns: calc(2em - var(--gutter)) repeat(var(--col), 1fr) calc(

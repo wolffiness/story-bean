@@ -14,6 +14,7 @@ $xl: 75em;
 	--xl: 75em;
 
 	--col: 4;
+
 	@media only screen and (min-width: $sm) {
 		--col: 8;
 	}
@@ -52,9 +53,7 @@ $xl: 75em;
 
 	--border-rad: 5px;
 	--border-circle: 360px;
-	--border-sketch: var(--border-circle) var(--border-rad) var(--border-circle)
-		var(--border-rad) / var(--border-rad) var(--border-circle) var(--border-rad)
-		var(--border-circle);
+	--border-sketch: var(--border-circle) var(--border-rad) var(--border-circle) var(--border-rad) / var(--border-rad) var(--border-circle) var(--border-rad) var(--border-circle);
 	--border-size: 3px;
 
 	// TRANSITION SPEED
@@ -63,12 +62,22 @@ $xl: 75em;
 
 	// TYPOGRAPHY
 	// Font family
-	--font-h:
-		'Libre Baskerville', Inter, Roboto, 'Helvetica Neue', 'Nimbus Sans', Arial,
-		system-ui, sans-serif;
-	--font-text:
-		'Quicksand', Inter, Roboto, 'Helvetica Neue', 'Nimbus Sans', Arial,
-		system-ui, sans-serif;
+	--font-h: 'Libre Baskerville',
+	Inter,
+	Roboto,
+	'Helvetica Neue',
+	'Nimbus Sans',
+	Arial,
+	system-ui,
+	sans-serif;
+	--font-text: 'Quicksand',
+	Inter,
+	Roboto,
+	'Helvetica Neue',
+	'Nimbus Sans',
+	Arial,
+	system-ui,
+	sans-serif;
 
 	// Font size
 	--typescale: 1.25;
@@ -76,8 +85,9 @@ $xl: 75em;
 	@media only screen and (min-width: $md) {
 		--typescale: 1.25;
 	}
+
 	--size-text: 16px;
-	--size-icon: 1.5em;
+	--size-icon: 2cap;
 
 	--size-sm: calc(var(--size-text) / var(--typescale));
 	--size-tiny: calc(var(--size-sm) / var(--typescale));
@@ -92,8 +102,13 @@ $xl: 75em;
 	// COLORS
 	color-scheme: light dark;
 	// Base
-	--text: light-dark(#241d17, #ede3da);
 	--bg: light-dark(#ede3da, #241d17);
+	--text: light-dark(#241d17, #ede3da);
+
+	@supports (color: contrast-color(var(--bg))) {
+		--text: contrast-color(var(--bg));
+	}
+
 	--primary: light-dark(#48301a, #e5ceb8);
 	--secondary: light-dark(#e6c299, #664219);
 	--accent: light-dark(#404f24, #404f24);
@@ -115,31 +130,11 @@ $xl: 75em;
 	--s-disabled: 20;
 
 	@mixin color-shades($base) {
-		--#{$base}-disabled: hsl(
-			from var(--#{$base}) h
-				clamp(var(--clamp-low), calc(s - var(--s-disabled)), var(--clamp-high))
-				clamp(var(--clamp-low), calc(l + var(--l-disabled)), var(--clamp-high))
-		);
-		--#{$base}-dark: hsl(
-			from var(--#{$base}) h
-				clamp(var(--clamp-low), calc(s - var(--s-increment)), var(--clamp-high))
-				clamp(var(--clamp-low), calc(l - var(--l-increment)), var(--clamp-high))
-		);
-		--#{$base}-darkest: hsl(
-			from var(--#{$base}-dark) h
-				clamp(var(--clamp-low), calc(s - var(--s-increment)), var(--clamp-high))
-				clamp(var(--clamp-low), calc(l - var(--l-increment)), var(--clamp-high))
-		);
-		--#{$base}-light: hsl(
-			from var(--#{$base}) h
-				clamp(var(--clamp-low), calc(s + var(--s-increment)), var(--clamp-high))
-				clamp(var(--clamp-low), calc(l + var(--l-increment)), var(--clamp-high))
-		);
-		--#{$base}-lightest: hsl(
-			from var(--#{$base}-light) h
-				clamp(var(--clamp-low), calc(s + var(--s-increment)), var(--clamp-high))
-				clamp(var(--clamp-low), calc(l + var(--l-increment)), var(--clamp-high))
-		);
+		--#{$base}-disabled: hsl(from var(--#{$base}) h clamp(var(--clamp-low), calc(s - var(--s-disabled)), var(--clamp-high)) clamp(var(--clamp-low), calc(l + var(--l-disabled)), var(--clamp-high)));
+		--#{$base}-dark: hsl(from var(--#{$base}) h clamp(var(--clamp-low), calc(s - var(--s-increment)), var(--clamp-high)) clamp(var(--clamp-low), calc(l - var(--l-increment)), var(--clamp-high)));
+		--#{$base}-darkest: hsl(from var(--#{$base}-dark) h clamp(var(--clamp-low), calc(s - var(--s-increment)), var(--clamp-high)) clamp(var(--clamp-low), calc(l - var(--l-increment)), var(--clamp-high)));
+		--#{$base}-light: hsl(from var(--#{$base}) h clamp(var(--clamp-low), calc(s + var(--s-increment)), var(--clamp-high)) clamp(var(--clamp-low), calc(l + var(--l-increment)), var(--clamp-high)));
+		--#{$base}-lightest: hsl(from var(--#{$base}-light) h clamp(var(--clamp-low), calc(s + var(--s-increment)), var(--clamp-high)) clamp(var(--clamp-low), calc(l + var(--l-increment)), var(--clamp-high)));
 		--#{$base}-30: color-mix(in srgb, var(--#{$base}) 30%, transparent);
 	}
 
@@ -156,10 +151,10 @@ $xl: 75em;
 	--shadow-color-30: color-mix(in srgb, var(--shadow) 30%, transparent);
 	--shadow-color-15: color-mix(in srgb, var(--shadow) 15%, transparent);
 
-	--shadow-sm:
-		0 2px 4px 0 var(--shadow-color-30), 0 4px 6px 0 var(--shadow-color-15);
-	--shadow-md:
-		0 6px 8px 0 var(--shadow-color-30), 0 8px 10px 0 var(--shadow-color-15);
-	--shadow-lg:
-		0 8px 10px 0 var(--shadow-color-30), 0 8px 12px 0 var(--shadow-color-15);
+	--shadow-sm: 0 2px 4px 0 var(--shadow-color-30),
+	0 4px 6px 0 var(--shadow-color-15);
+	--shadow-md: 0 6px 8px 0 var(--shadow-color-30),
+	0 8px 10px 0 var(--shadow-color-15);
+	--shadow-lg: 0 8px 10px 0 var(--shadow-color-30),
+	0 8px 12px 0 var(--shadow-color-15);
 }

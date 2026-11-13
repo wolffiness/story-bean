@@ -47,6 +47,9 @@ definePageMeta({
 			h1,
 			p {
 				color: var(--bg);
+				@supports (color: contrast-color(var(--accent))) {
+					color: contrast-color(var(--accent));
+				}
 				text-align: center;
 			}
 
@@ -60,6 +63,9 @@ definePageMeta({
 					border-color: transparent;
 					text-decoration: underline;
 					color: var(--bg);
+					@supports (color: contrast-color(var(--accent))) {
+						color: contrast-color(var(--accent));
+					}
 
 					&:hover {
 						background-color: var(--secondary);
