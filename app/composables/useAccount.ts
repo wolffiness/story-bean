@@ -63,11 +63,20 @@ export const useAccount = () => {
 		location.reload()
 	}
 
+	const deleteAccount = async () => {
+		const { error } = await supabase.functions.invoke('delete-user')
+
+		if (error) console.log(error)
+
+		location.reload()
+	}
+
 	return {
 		getUser,
 		verificationEmail,
 		signUp,
 		logIn,
 		logOut,
+		deleteAccount,
 	}
 }

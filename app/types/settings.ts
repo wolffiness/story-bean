@@ -29,11 +29,11 @@ export type ModalTypeOptions = BaseSettingOptions & {
 	}
 }
 
-type BtnTypeOptions = BaseSettingOptions & {
+export type BtnTypeOptions = BaseSettingOptions & {
 	type: 'btn'
 	btnType: btnType
 	btnState?: btnState
-	click?: 'logOut'
+	click?: 'logOut' | 'deleteAccount'
 }
 
 export type SettingOptions =

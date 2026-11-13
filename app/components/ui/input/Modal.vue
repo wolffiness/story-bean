@@ -41,7 +41,7 @@ const props = defineProps<
 			</UiButton>
 
 			<UiButton
-				v-else="val"
+				v-else
 				command="show-modal"
 				:commandFor="modalId"
 				btn-type="secondary"

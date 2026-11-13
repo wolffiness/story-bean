@@ -8,7 +8,7 @@ export const account = (user: User | null) => {
 	const result: SubHeading = {
 		'Account Information': accountInformation(user),
 		'Password & Security': passwordSecurity(),
-		// Actions: actions,
+		Actions: actions(),
 	}
 
 	return result

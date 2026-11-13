@@ -28,7 +28,7 @@ function toggleCollapse() {
 				</div>
 
 				<div class="profile p-05 d-flex gap-05 center">
-					<li class="p-05 flex-grow b-rad">
+					<li v-if="props.profileId" class="p-05 flex-grow b-rad">
 						<NuxtLink
 							class="h-100 d-flex gap-025 align-center"
 							:to="{ name: 'profile-id', params: { id: props.profileId } }"
