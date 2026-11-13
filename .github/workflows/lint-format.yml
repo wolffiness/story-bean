@@ -1,0 +1,13 @@
+on: [pull_request]
+
+jobs:
+  lint:
+    name: Run linter
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run lint
+  format:
+    name: Run formatter
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run format
