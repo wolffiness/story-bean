@@ -10,21 +10,21 @@ const props = defineProps<{
 <template>
 	<fieldset class="setting-field d-flex flex-col gap-1">
 		<UiInputModal
-			v-if="options?.type == 'modal'"
-			:type="options.type"
-			:component="options.component"
-			:modal-id="options.modalId"
-			:label="label"
-			:val="options.val"
+			v-if="props.options?.type == 'modal'"
+			:type="props.options.type"
+			:component="props.options.component"
+			:modal-id="props.options.modalId"
+			:label="props.label"
+			:val="props.options.val"
 		/>
 
 		<UiInputButton
-			v-if="options?.type == 'btn'"
-			:label="label"
-			:type="options.type"
-			:btn-type="options.btnType"
-			:btn-state="options?.btnState"
-			:click="options?.click"
+			v-if="props.options?.type == 'btn'"
+			:label="props.label"
+			:type="props.options.type"
+			:btn-type="props.options.btnType"
+			:btn-state="props.options?.btnState"
+			:click="props.options?.click"
 		/>
 	</fieldset>
 </template>

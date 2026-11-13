@@ -10,7 +10,7 @@ const props = defineProps<
 
 <template>
 	<div class="d-flex justify-between align-center gap-1">
-		<p class="label">{{ label }}</p>
+		<p class="label">{{ props.label }}</p>
 
 		<div class="d-flex justify-between align-center gap-05">
 			<component

@@ -1,9 +1,9 @@
 import type { AllHeadings } from '~/types/settings'
 import { account } from '~/config/settings/categories/account/account'
-import { dataPrivacy } from '~/config/settings/categories/dataPrivacy'
-import { appearance } from '~/config/settings/categories/appearance'
-import { languageTime } from '~/config/settings/categories/languageTime'
-import { aboutUs } from '~/config/settings/categories/aboutUs'
+// import { dataPrivacy } from '~/config/settings/categories/dataPrivacy'
+// import { appearance } from '~/config/settings/categories/appearance'
+// import { languageTime } from '~/config/settings/categories/languageTime'
+// import { aboutUs } from '~/config/settings/categories/aboutUs'
 import { logOut } from '~/config/settings/categories/logOut'
 import type { User } from '@supabase/supabase-js'
 

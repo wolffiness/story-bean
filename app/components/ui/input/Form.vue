@@ -40,7 +40,11 @@ const handleChange = (e: Event) => {
 				class="form-feedback"
 			>
 				<span class="icon">error</span>
-				<span v-html="feedback[feedbackKey]?.msg" />
+				<!-- eslint-disable vue/no-v-html -- see cleanHtml() -->
+				<span
+					v-html="cleanHtml(feedback[feedbackKey]?.msg?.toString() ?? '')"
+				/>
+				<!-- eslint-enable vue/no-v-html -->
 			</p>
 
 			<p
@@ -49,7 +53,13 @@ const handleChange = (e: Event) => {
 				"
 				class="form-feedback password-feedback"
 			>
-				<span v-html="passwordFeedback[feedbackKey]?.msg" />
+				<!-- eslint-disable vue/no-v-html -- see cleanHtml() -->
+				<span
+					v-html="
+						cleanHtml(passwordFeedback[feedbackKey]?.msg?.toString() ?? '')
+					"
+				/>
+				<!-- eslint-enable vue/no-v-html -->
 			</p>
 		</section>
 	</fieldset>

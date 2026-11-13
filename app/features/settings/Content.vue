@@ -24,7 +24,7 @@ const entries = computed(() => {
 	<CanvasAppearance v-if="hasPreview" />
 
 	<section
-		v-for="[subHeading, settings] in entries"
+		v-for="[subHeading, entrySettings] in entries"
 		:key="subHeading"
 		class="w-100 d-flex flex-col gap-1"
 	>
@@ -32,8 +32,7 @@ const entries = computed(() => {
 			{{ subHeading }}
 		</h3>
 		<SettingsSetting
-			v-for="[label, options] in Object.entries(settings)"
-			v-if="settings"
+			v-for="[label, options] in Object.entries(entrySettings ?? {})"
 			:key="label"
 			:label="label"
 			:options="options"

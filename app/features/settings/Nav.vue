@@ -8,10 +8,9 @@ const entries = computed(() => {
 })
 </script>
 
-<template>
+<template v-if="settings">
 	<div
 		v-for="[heading, options] in entries"
-		v-if="settings"
 		:key="heading"
 		class="d-flex flex-col gap-025"
 	>

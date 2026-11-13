@@ -17,13 +17,13 @@ export type ModalTypeOptions = BaseSettingOptions & {
 		parent: {
 			component: Component
 			props?: {
-				[key in string]?: any
+				[key in string]?: unknown
 			}
 		}
 		child?: {
 			component: Component
 			props?: {
-				[key in string]?: any
+				[key in string]?: unknown
 			}
 		}
 	}

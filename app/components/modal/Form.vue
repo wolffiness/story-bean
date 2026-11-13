@@ -41,6 +41,7 @@ const submitDisabled = computed(() => {
 				<UiInputForm
 					v-if="input.type !== 'submit'"
 					:id="input.id"
+					:key="input.id"
 					:type="input.type"
 					:placeholder="input.placeholder"
 					:required="input.required"
@@ -52,6 +53,7 @@ const submitDisabled = computed(() => {
 
 				<UiButton
 					v-else
+					:key="input.label ? input.label : 'Submit'"
 					type="submit"
 					class="w-100 mt-1"
 					btn-type="primary"

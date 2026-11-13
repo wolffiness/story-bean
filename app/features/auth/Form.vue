@@ -28,7 +28,7 @@ const submitDisabled = computed(() =>
 			<section class="flex-grow d-grid fr-2 gap-1">
 				<section class="d-flex flex-col center gap-1">
 					<img src="@img/logo.svg" height="64" />
-					<h2>{{ h2 }}</h2>
+					<h2>{{ props?.h2 }}</h2>
 				</section>
 
 				<section class="grid-col-2 d-flex flex-col center gap-05">
@@ -59,7 +59,9 @@ const submitDisabled = computed(() =>
 							class="form-feedback"
 						>
 							<span class="icon">error</span>
+							<!-- eslint-disable vue/no-v-html -- see cleanHtml() -->
 							<span v-html="feedback.captcha.msg" />
+							<!-- eslint-enable vue/no-v-html -->
 						</p>
 					</section>
 				</section>
@@ -68,7 +70,9 @@ const submitDisabled = computed(() =>
 			<section class="w-100 d-flex flex-col center gap-1">
 				<p v-if="feedback.main && feedback.main.msg" class="form-feedback">
 					<span class="icon">error</span>
+					<!-- eslint-disable vue/no-v-html -- see cleanHtml() -->
 					<span v-html="feedback.main.msg" />
+					<!-- eslint-enable vue/no-v-html -->
 				</p>
 
 				<UiButton

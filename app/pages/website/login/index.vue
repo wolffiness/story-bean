@@ -5,11 +5,13 @@ definePageMeta({
 </script>
 
 <template>
-	<LayoutWebsiteHeader />
+	<body>
+		<LayoutWebsiteHeader />
 
-	<main id="sign-up">
-		<div class="w-page d-grid fr-col gap-gutter">
-			<AuthLogIn />
-		</div>
-	</main>
+		<main id="sign-up">
+			<div class="w-page d-grid fr-col gap-gutter">
+				<AuthLogIn />
+			</div>
+		</main>
+	</body>
 </template>

@@ -59,7 +59,7 @@ export const accountInformation = (user: User | null) => {
 								return
 							}
 
-							const { data } = await supabase.auth.updateUser({
+							await supabase.auth.updateUser({
 								email: formData.get('email-new') as string,
 							})
 						},
