@@ -14,9 +14,9 @@ onMounted(() => {
 <template>
 	<div class="page w-100 d-flex flex-col align-center my-2">
 		<div class="w-page m-page d-grid fr-col gap-gutter">
-			<LayoutHeader :profileId="profile?.profile_id" />
+			<LayoutHeader :profile-id="profile?.profile_id" />
 			<main>
-				<slot></slot>
+				<slot/>
 			</main>
 		</div>
 	</div>

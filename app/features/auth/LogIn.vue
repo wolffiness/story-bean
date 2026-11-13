@@ -6,11 +6,11 @@ const { logIn } = useAccount()
 	<AuthForm
 		class="set-width"
 		h2="Welcome back!"
-		submitBtn="Log in"
+		submit-btn="Log in"
 		:submit-function="
 			(email: string, password: string, token: string) =>
 				logIn(email, password, token)
 		"
-		:excludePasswordEval="true"
+		:exclude-password-eval="true"
 	/>
 </template>

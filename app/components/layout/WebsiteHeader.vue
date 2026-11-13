@@ -3,7 +3,7 @@
 		<nav class="w-page">
 			<NuxtLink class="d-flex flex-center" to="/website"
 				><img src="@img/logo.svg" height="32"
-			/></NuxtLink>
+			></NuxtLink>
 		</nav>
 	</header>
 </template>

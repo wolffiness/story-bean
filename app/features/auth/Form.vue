@@ -18,38 +18,38 @@ const submitDisabled = computed(() =>
 <template>
 	<CardMember class="aspect">
 		<form
+			class="w-100 h-100 d-flex flex-col center gap-2"
 			@submit.prevent="
 				() => {
 					if (submitFunction) submitFunction(email, password, token)
 				}
 			"
-			class="w-100 h-100 d-flex flex-col center gap-2"
 		>
 			<section class="flex-grow d-grid fr-2 gap-1">
 				<section class="d-flex flex-col center gap-1">
-					<img src="@img/logo.svg" height="64" />
+					<img src="@img/logo.svg" height="64" >
 					<h2>{{ h2 }}</h2>
 				</section>
 
 				<section class="grid-col-2 d-flex flex-col center gap-05">
 					<UiInputForm
-						type="email"
 						id="email"
-						placeholder="storybean@protonmail.com"
 						v-model="email"
+						type="email"
+						placeholder="storybean@protonmail.com"
 						:required="true"
 						label="E-mail"
-						feedbackKey="email"
+						feedback-key="email"
 					/>
 
 					<UiInputForm
-						type="password"
 						id="password"
 						v-model="password"
+						type="password"
 						:required="true"
 						label="Password"
-						feedbackKey="password"
-						:excludePasswordEval="excludePasswordEval"
+						feedback-key="password"
+						:exclude-password-eval="excludePasswordEval"
 					/>
 
 					<section class="w-100 d-flex flex-col gap-05">
@@ -59,7 +59,7 @@ const submitDisabled = computed(() =>
 							class="form-feedback"
 						>
 							<span class="icon">error</span>
-							<span v-html="feedback.captcha.msg"></span>
+							<span v-html="feedback.captcha.msg"/>
 						</p>
 					</section>
 				</section>
@@ -68,13 +68,13 @@ const submitDisabled = computed(() =>
 			<section class="w-100 d-flex flex-col center gap-1">
 				<p v-if="feedback.main && feedback.main.msg" class="form-feedback">
 					<span class="icon">error</span>
-					<span v-html="feedback.main.msg"></span>
+					<span v-html="feedback.main.msg"/>
 				</p>
 
 				<UiButton
 					type="submit"
 					class="w-100"
-					btnType="primary"
+					btn-type="primary"
 					:disabled="submitDisabled"
 				>
 					{{ submitBtn ? submitBtn : 'Submit' }}

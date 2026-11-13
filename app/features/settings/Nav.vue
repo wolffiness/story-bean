@@ -10,16 +10,16 @@ const entries = computed(() => {
 
 <template>
 	<div
-		v-if="settings"
 		v-for="[heading, options] in entries"
+		v-if="settings"
 		:key="heading"
 		class="d-flex flex-col gap-025"
 	>
 		<SettingsNavItem
 			:heading="heading"
 			:options="options"
-			:activeHeading="activeHeading"
-			:subHeadings="options.subheadings || null"
+			:active-heading="activeHeading"
+			:sub-headings="options.subheadings || null"
 			:icon="options.icon || null"
 		/>
 	</div>

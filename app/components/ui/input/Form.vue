@@ -19,19 +19,19 @@ const handleChange = (e: Event) => {
 	<fieldset class="w-100 d-flex flex-col gap-05">
 		<label v-if="label" :for="id">{{ label }}</label>
 		<input
+			:id="id"
 			v-model="model"
 			:type="type"
-			:id="id"
 			:name="id"
 			:placeholder="placeholder"
-			@blur="updateFeedback"
-			@input="handleChange"
 			:required="required"
 			:class="{ 'user-invalid': !!feedback[feedbackKey]?.msg }"
 			:data-password-eval="
 				type == 'password' && excludePasswordEval ? false : true
 			"
-		/>
+			@blur="updateFeedback"
+			@input="handleChange"
+		>
 
 		<!-- Form validation -->
 		<section>
@@ -40,7 +40,7 @@ const handleChange = (e: Event) => {
 				class="form-feedback"
 			>
 				<span class="icon">error</span>
-				<span v-html="feedback[feedbackKey]?.msg"></span>
+				<span v-html="feedback[feedbackKey]?.msg"/>
 			</p>
 
 			<p
@@ -49,7 +49,7 @@ const handleChange = (e: Event) => {
 				"
 				class="form-feedback password-feedback"
 			>
-				<span v-html="passwordFeedback[feedbackKey]?.msg"></span>
+				<span v-html="passwordFeedback[feedbackKey]?.msg"/>
 			</p>
 		</section>
 	</fieldset>

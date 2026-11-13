@@ -13,7 +13,7 @@ const props = defineProps<{
 			v-if="options?.type == 'modal'"
 			:type="options.type"
 			:component="options.component"
-			:modalId="options.modalId"
+			:modal-id="options.modalId"
 			:label="label"
 			:val="options.val"
 		/>
@@ -22,8 +22,8 @@ const props = defineProps<{
 			v-if="options?.type == 'btn'"
 			:label="label"
 			:type="options.type"
-			:btnType="options.btnType"
-			:btnState="options?.btnState"
+			:btn-type="options.btnType"
+			:btn-state="options?.btnState"
 			:click="options?.click"
 		/>
 	</fieldset>

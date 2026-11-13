@@ -13,7 +13,7 @@ const { verificationEmail, signUp } = useAccount()
 	<AuthForm
 		class="set-width"
 		h2="Come on in!"
-		submitBtn="Create account"
+		submit-btn="Create account"
 		:submit-function="
 			(email: string, password: string, token: string) =>
 				signUp(email, password, token)

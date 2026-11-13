@@ -49,7 +49,6 @@ const handleClick = () => {
 
 <template>
 	<UiButton
-		@click="handleClick"
 		:btn-type="
 			btnSettings && btnSettings.type == 'btn' && btnSettings.btnType
 				? btnSettings.btnType
@@ -61,6 +60,7 @@ const handleClick = () => {
 				: 'default'
 		"
 		:class="btnClass"
+		@click="handleClick"
 	>
 		<span v-if="icon" :class="iconClass">{{ icon }}</span>
 		<span>{{ heading }}</span>

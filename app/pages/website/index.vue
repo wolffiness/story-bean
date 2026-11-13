@@ -11,7 +11,7 @@ definePageMeta({
 			class="w-100 d-flex flex-col align-center shadow-md bg-accent"
 		>
 			<div class="w-max d-flex flex-col align-center">
-				<img src="@img/logo.svg" />
+				<img src="@img/logo.svg" >
 
 				<div class="d-flex flex-col align-center gap-2">
 					<div class="d-flex flex-col gap-05">
@@ -20,11 +20,11 @@ definePageMeta({
 					</div>
 
 					<div class="d-flex gap-1">
-						<UiButton btnType="primary">
+						<UiButton btn-type="primary">
 							<NuxtLink to="/website/signup">Sign up</NuxtLink>
 						</UiButton>
 
-						<UiButton btnType="secondary">
+						<UiButton btn-type="secondary">
 							<NuxtLink to="/website/login">Log in</NuxtLink>
 						</UiButton>
 					</div>

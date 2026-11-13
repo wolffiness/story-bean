@@ -30,9 +30,9 @@ const handleClick = () => {
 
 		<div class="d-flex justify-between align-center gap-05">
 			<UiButton
+				:btn-type="props.btnType"
+				:btn-state="props.btnState"
 				@click="handleClick"
-				:btnType="props.btnType"
-				:btnState="props.btnState"
 			>
 				{{ label }}
 			</UiButton>

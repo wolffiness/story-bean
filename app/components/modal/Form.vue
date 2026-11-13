@@ -40,21 +40,21 @@ const submitDisabled = computed(() => {
 			<template v-for="input in props.inputs">
 				<UiInputForm
 					v-if="input.type !== 'submit'"
-					@input="updateRef"
-					:type="input.type"
 					:id="input.id"
+					:type="input.type"
 					:placeholder="input.placeholder"
 					:required="input.required"
 					:label="input.label"
-					:feedbackKey="input.feedbackKey"
-					:excludePasswordEval="input.excludePasswordEval"
+					:feedback-key="input.feedbackKey"
+					:exclude-password-eval="input.excludePasswordEval"
+					@input="updateRef"
 				/>
 
 				<UiButton
 					v-else
 					type="submit"
 					class="w-100 mt-1"
-					btnType="primary"
+					btn-type="primary"
 					:disabled="submitDisabled"
 				>
 					{{ input.label ? input.label : 'Submit' }}

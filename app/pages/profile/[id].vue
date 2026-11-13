@@ -12,7 +12,7 @@ const profile = await getProfile(profileId)
 <template>
 	<CardMember class="w-100">
 		<div class="w-100 d-flex flex-col center">
-			<div class="temp-img"></div>
+			<div class="temp-img"/>
 			<h1>{{ profile?.display_name }}</h1>
 			<p class="sm-text">{{ profile?.username }} • {{ profile?.pronouns }}</p>
 		</div>

@@ -6,7 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-	<ModalSettings id="settings" modalId="settings">
+	<ModalSettings id="settings" modal-id="settings">
 		<template #nav>
 			<SettingsNav />
 		</template>

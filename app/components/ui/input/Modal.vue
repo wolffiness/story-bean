@@ -14,14 +14,14 @@ const props = defineProps<
 
 		<div class="d-flex justify-between align-center gap-05">
 			<component
-				v-if="component"
 				:is="component.parent.component"
-				:modalId="modalId"
+				v-if="component"
+				:modal-id="modalId"
 				v-bind="component.parent.props"
 			>
 				<component
-					v-if="component.child"
 					:is="component.child.component"
+					v-if="component.child"
 					:inputs="component.child.props?.inputs"
 					v-bind="component.child.props"
 				/>
@@ -34,7 +34,7 @@ const props = defineProps<
 			<UiButton
 				v-if="val"
 				command="show-modal"
-				:commandFor="modalId"
+				:command-for="modalId"
 				btn-type="secondary"
 			>
 				<span class="icon">edit</span>
@@ -43,7 +43,7 @@ const props = defineProps<
 			<UiButton
 				v-else
 				command="show-modal"
-				:commandFor="modalId"
+				:command-for="modalId"
 				btn-type="secondary"
 			>
 				Edit

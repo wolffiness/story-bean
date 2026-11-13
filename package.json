@@ -5,6 +5,8 @@
 	"version": "0.0.1.",
 	"description": "Story Bean is a social webapp where creative writers can work together and keep track of their writing.",
 	"scripts": {
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
 		"build": "nuxt build",
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",

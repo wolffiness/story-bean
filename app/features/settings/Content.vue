@@ -32,8 +32,8 @@ const entries = computed(() => {
 			{{ subHeading }}
 		</h3>
 		<SettingsSetting
-			v-if="settings"
 			v-for="[label, options] in Object.entries(settings)"
+			v-if="settings"
 			:key="label"
 			:label="label"
 			:options="options"

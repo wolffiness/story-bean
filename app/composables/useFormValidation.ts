@@ -10,8 +10,8 @@ export const useFormValidation = () => {
 	type msgInput = {
 		[key in FeedbackKeys]?: string
 	}
-	let feedback = useState<Feedback>('feedback', () => ({}))
-	let passwordFeedback = useState<Feedback>('passwordFeedback', () => ({}))
+	const feedback = useState<Feedback>('feedback', () => ({}))
+	const passwordFeedback = useState<Feedback>('passwordFeedback', () => ({}))
 
 	const updateFeedback = (e: Event) => {
 		const input = e.target as HTMLInputElement
