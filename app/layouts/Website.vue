@@ -1,9 +1,7 @@
 <template>
-	<body>
-		<LayoutWebsiteHeader />
+	<LayoutWebsiteHeader />
 
-		<main>
-			<slot />
-		</main>
-	</body>
+	<main>
+		<slot />
+	</main>
 </template>
