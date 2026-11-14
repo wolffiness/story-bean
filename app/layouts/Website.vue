@@ -1,5 +1,9 @@
 <template>
-	<div>
-		<slot />
-	</div>
+	<body>
+		<LayoutWebsiteHeader />
+
+		<main>
+			<slot />
+		</main>
+	</body>
 </template>

@@ -9,13 +9,7 @@ useHead({
 </script>
 
 <template>
-	<body>
-		<LayoutWebsiteHeader />
-
-		<main id="sign-up">
-			<div class="w-page d-grid fr-col gap-gutter">
-				<AuthSignUp />
-			</div>
-		</main>
-	</body>
+	<div class="w-page d-grid fr-col gap-gutter">
+		<AuthSignUp />
+	</div>
 </template>

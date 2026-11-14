@@ -2,7 +2,7 @@
 import logoImg from '@img/logo.svg'
 
 definePageMeta({
-	layout: 'website',
+	layout: 'website-no-header',
 })
 
 useHead({
@@ -26,12 +26,16 @@ useHead({
 					</div>
 
 					<div class="d-flex gap-1">
-						<UiButton type="button" btn-type="primary">
-							<NuxtLink to="/website/signup">Sign up</NuxtLink>
+						<UiButton :is-link="true" href="/website/signup" btn-type="primary">
+							Sign up
 						</UiButton>
 
-						<UiButton type="button" btn-type="secondary" is-link="true">
-							<NuxtLink to="/website/login">Log in</NuxtLink>
+						<UiButton
+							:is-link="true"
+							href="/website/login"
+							btn-type="secondary"
+						>
+							Log in
 						</UiButton>
 					</div>
 				</div>
