@@ -49,6 +49,7 @@ const handleClick = () => {
 
 <template>
 	<UiButton
+		type="button"
 		:btn-type="
 			btnSettings && btnSettings.type == 'btn' && btnSettings.btnType
 				? btnSettings.btnType

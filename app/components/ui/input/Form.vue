@@ -16,7 +16,7 @@ const handleChange = (e: Event) => {
 </script>
 
 <template>
-	<fieldset class="w-100 d-flex flex-col gap-05">
+	<div class="input-group w-100 d-flex flex-col gap-05">
 		<label v-if="label" :for="id">{{ label }}</label>
 		<input
 			:id="id"
@@ -62,5 +62,5 @@ const handleChange = (e: Event) => {
 				<!-- eslint-enable vue/no-v-html -->
 			</p>
 		</section>
-	</fieldset>
+	</div>
 </template>

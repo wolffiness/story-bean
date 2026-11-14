@@ -5,7 +5,7 @@ const { logIn } = useAccount()
 <template>
 	<AuthForm
 		class="set-width"
-		h2="Welcome back!"
+		h1="Welcome back!"
 		submit-btn="Log in"
 		:submit-function="
 			(email: string, password: string, token: string) =>

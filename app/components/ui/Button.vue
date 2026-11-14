@@ -1,24 +1,60 @@
 <script setup lang="ts">
 import type { btnType, btnState } from '~/types/btn'
 
-const props = defineProps<{
+type BaseProps = {
 	btnType?: btnType
 	btnState?: btnState
-}>()
+}
+
+type LinkProps = BaseProps & {
+	href: string
+	isLink: true
+}
+
+type ButtonProps = BaseProps & {
+	type: 'reset' | 'button' | 'submit' | undefined
+	isLink?: false
+}
+
+const props = defineProps<ButtonProps | LinkProps>()
 
 const btnType = props.btnType !== undefined ? `btn-${props.btnType}` : ''
 const btnState = props.btnState !== undefined ? `state-${props.btnState}` : ''
 
-const classes = `${btnType} ${btnState}`
+const classes = `btn ${btnType} ${btnState}`
 </script>
 
 <template>
-	<button :class="classes">
+	<NuxtLink v-if="props.isLink" :to="props.href" :class="classes">
+		<slot />
+	</NuxtLink>
+
+	<button v-else :type="props.type" :class="classes">
 		<slot />
 	</button>
 </template>
 
 <style lang="scss">
+a {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+button,
+.btn {
+	font-family: var(--font-text);
+	font-size: var(--size-text);
+	border: var(--border-size) solid transparent;
+	border-radius: var(--border-sketch);
+	padding: 0.5em 1em;
+
+	transition: var(--transition);
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
 .btn-primary {
 	background-color: var(--primary);
 	border-color: var(--primary-dark);

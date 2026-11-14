@@ -27,7 +27,11 @@ const props = defineProps<
 				/>
 			</component>
 
-			<UiButton v-if="val" class="input d-flex align-center gap-1">
+			<UiButton
+				v-if="val"
+				type="button"
+				class="input d-flex align-center gap-1"
+			>
 				{{ val }}
 			</UiButton>
 
@@ -35,6 +39,7 @@ const props = defineProps<
 				v-if="val"
 				command="show-modal"
 				:command-for="modalId"
+				type="button"
 				btn-type="secondary"
 			>
 				<span class="icon">edit</span>
@@ -44,6 +49,7 @@ const props = defineProps<
 				v-else
 				command="show-modal"
 				:command-for="modalId"
+				type="button"
 				btn-type="secondary"
 			>
 				Edit

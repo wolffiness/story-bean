@@ -13,7 +13,7 @@ const props = defineProps<{
 
 		<section class="d-flex flex-col gap-1 align-center">
 			<form class="align-self-right" method="dialog">
-				<UiButton class="btn-header">
+				<UiButton type="button" class="btn-header">
 					<span :commandFor="props.modalId" command="close" class="icon">
 						close
 					</span>
