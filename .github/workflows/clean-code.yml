@@ -22,6 +22,7 @@ jobs:
 
       - run: npm run format
   validate-html:
+    name: Validate HTML
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
