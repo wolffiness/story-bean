@@ -25,8 +25,8 @@ jobs:
     name: Validate HTML
     runs-on: ubuntu-latest
     env:
-      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-      SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+      SUPABASE_URL: https://example.supabase.co
+      SUPABASE_KEY: dummy-key
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
