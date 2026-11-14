@@ -5,13 +5,28 @@ jobs:
     name: Run linter
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Set up node
+        run: npm ci
+
       - run: npm run lint
   format:
     name: Run formatter
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Set up node
+        run: npm ci
+
       - run: npm run format
   validate-html:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Set up node
+        run: npm ci
+
       - run: npx nuxt generate
