@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import placeholderPfp from '@img/placeholder_pfp.png'
 const isCollapsed = ref(false)
 
 const props = defineProps<{
@@ -20,7 +21,7 @@ function toggleCollapse() {
 							<NuxtLink to="/"><span class="icon">home</span></NuxtLink>
 						</li>
 						<li>
-							<UiButton @click="toggleCollapse">
+							<UiButton type="button" @click="toggleCollapse">
 								<span class="icon">dock_to_right</span>
 							</UiButton>
 						</li>
@@ -33,13 +34,14 @@ function toggleCollapse() {
 							class="h-100 d-flex gap-025 align-center"
 							:to="{ name: 'profile-id', params: { id: props.profileId } }"
 						>
-							<img src="@img/placeholder_pfp.png" />
+							<UiImg alt="placeholder alt" :src="placeholderPfp" />
 							<span>You</span>
 						</NuxtLink>
 					</li>
 
 					<div class="d-flex gap-025 center">
 						<UiButton
+							type="button"
 							btn-type="icon"
 							command="show-modal"
 							command-for="settings"
