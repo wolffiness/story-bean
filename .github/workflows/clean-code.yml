@@ -11,3 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: npm run format
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npx nuxt generate
