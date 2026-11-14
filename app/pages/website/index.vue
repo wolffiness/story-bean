@@ -2,6 +2,10 @@
 definePageMeta({
 	layout: 'website',
 })
+
+useHead({
+	title: 'Story Bean',
+})
 </script>
 
 <template>

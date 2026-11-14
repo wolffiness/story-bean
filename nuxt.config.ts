@@ -17,6 +17,16 @@ export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
 	css: [import.meta.dirname + '/assets/styles/global.scss'],
+
+	app: {
+		head: {
+			title: 'Story Bean',
+			htmlAttrs: {
+				lang: 'en',
+			},
+		},
+	},
+
 	vite: {
 		css: {
 			preprocessorOptions: {
