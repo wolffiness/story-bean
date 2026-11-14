@@ -16,7 +16,7 @@ const props = defineProps<{
 				<p class="sm-text">{{ description }}</p>
 			</div>
 			<form method="dialog">
-				<UiButton class="btn-header">
+				<UiButton type="button" class="btn-header">
 					<span :commandFor="props.modalId" command="close" class="icon">
 						close
 					</span>

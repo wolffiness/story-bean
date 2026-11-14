@@ -1,0 +1,36 @@
+on: [pull_request]
+
+jobs:
+  lint:
+    name: Run linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Set up node
+        run: npm ci
+
+      - run: npm run lint
+  format:
+    name: Run formatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Set up node
+        run: npm ci
+
+      - run: npm run format
+  validate-html:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_URL: https://example.supabase.co
+      SUPABASE_KEY: dummy-key
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Set up node
+        run: npm ci
+
+      - run: npx nuxt generate

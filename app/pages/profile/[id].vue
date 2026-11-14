@@ -7,6 +7,10 @@ const profileId = Array.isArray(route.params.id)
 	: route.params.id
 
 const profile = await getProfile(profileId)
+
+useHead({
+	title: `Story Bean | ${profile?.display_name}`,
+})
 </script>
 
 <template>
@@ -23,7 +27,7 @@ const profile = await getProfile(profileId)
 			<p class="sm-text bold">Member since</p>
 			<p>
 				{{
-					new Date(profile?.created_at).toLocaleDateString('en-US', {
+					new Date(profile?.created_at ?? '').toLocaleDateString('en-US', {
 						day: 'numeric',
 						month: 'short',
 						year: 'numeric',

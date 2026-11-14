@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import logoImg from '@img/logo.svg'
+
 const props = defineProps<{
 	h2?: string
 	submitFunction?: (email: string, password: string, token: string) => void
@@ -27,7 +29,7 @@ const submitDisabled = computed(() =>
 		>
 			<section class="flex-grow d-grid fr-2 gap-1">
 				<section class="d-flex flex-col center gap-1">
-					<img src="@img/logo.svg" height="64" />
+					<UiImg alt="Logo" :src="logoImg" height="64" />
 					<h2>{{ props?.h2 }}</h2>
 				</section>
 
