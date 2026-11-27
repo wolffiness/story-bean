@@ -1,48 +1,49 @@
 {
-  "name": "story-bean",
-  "type": "module",
-  "private": true,
-  "version": "0.0.1.",
-  "description": "Story Bean is a social webapp where creative writers can work together and keep track of their writing.",
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier -c .",
-    "format:fix": "prettier -w .",
-    "lint-format": "npm run lint && npm run format",
-    "lint-format:fix": "npm run lint:fix && npm run format:fix",
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wolffiness/story-bean.git"
-  },
-  "author": "Wolffiness",
-  "license": "GPL-3.0-only",
-  "dependencies": {
-    "@nuxt/scripts": "^1.3.2",
-    "@nuxtjs/html-validator": "^2.1.0",
-    "@nuxtjs/supabase": "^2.0.9",
-    "@nuxtjs/turnstile": "^1.1.3",
-    "@supabase/supabase-js": "^2.108.2",
-    "@vueuse/nuxt": "^14.3.0",
-    "nuxt": "^4.6.4",
-    "sass": "^1.101.0",
-    "vue": "^3.5.38",
-    "vue-router": "^5.1.0"
-  },
-  "devDependencies": {
-    "@nuxt/eslint": "^1.15.2",
-    "@types/cloudflare-turnstile": "^0.2.2",
-    "prettier": "^3.8.4",
-    "supabase": "^2.108.0"
-  },
-  "allowScripts": {
-    "@parcel/watcher@2.5.6": true,
-    "esbuild@0.28.2": true
-  }
+	"name": "story-bean",
+	"type": "module",
+	"private": true,
+	"version": "0.0.1.",
+	"description": "Story Bean is a social webapp where creative writers can work together and keep track of their writing.",
+	"scripts": {
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier -c .",
+		"format:fix": "prettier -w .",
+		"lint-format": "npm run lint && npm run format",
+		"lint-format:fix": "npm run lint:fix && npm run format:fix",
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"update-types": "npx supabase gen types --lang=typescript --project-id \"akmcfrrwrektzkthwzsu\" > app/types/database.types.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wolffiness/story-bean.git"
+	},
+	"author": "Wolffiness",
+	"license": "GPL-3.0-only",
+	"dependencies": {
+		"@nuxt/scripts": "^1.3.2",
+		"@nuxtjs/html-validator": "^2.1.0",
+		"@nuxtjs/supabase": "^2.0.9",
+		"@nuxtjs/turnstile": "^1.1.3",
+		"@supabase/supabase-js": "^2.108.2",
+		"@vueuse/nuxt": "^14.3.0",
+		"nuxt": "^4.6.4",
+		"sass": "^1.101.0",
+		"vue": "^3.5.38",
+		"vue-router": "^5.1.0"
+	},
+	"devDependencies": {
+		"@nuxt/eslint": "^1.15.2",
+		"@types/cloudflare-turnstile": "^0.2.2",
+		"prettier": "^3.8.4",
+		"supabase": "^2.108.0"
+	},
+	"allowScripts": {
+		"@parcel/watcher@2.5.6": true,
+		"esbuild@0.28.2": true
+	}
 }

@@ -1,0 +1,24 @@
+// ROOT
+@forward './root.scss';
+
+// GLOBALS
+@forward './globals/background.scss';
+@forward './globals/box-model.scss';
+@forward './globals/flexbox.scss';
+@forward './globals/forms.scss';
+@forward './globals/gap.scss';
+@forward './globals/grid.scss';
+@forward './globals/layout.scss';
+@forward './globals/lists.scss';
+@forward './globals/modals.scss';
+@forward './globals/text.scss';
+
+// IMPORT ICONS
+@font-face {
+	font-family: 'Material Symbols Outlined';
+	font-style: normal;
+	src: url(../font/MaterialSymbolsOutlined.woff2) format('woff');
+}
+
+// IMPORT FONTS
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&display=swap');

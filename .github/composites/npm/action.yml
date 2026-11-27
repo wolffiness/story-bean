@@ -1,0 +1,13 @@
+name: Install Node and npm
+description: Setup Node and npm install with a cache for performance
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        cache: npm
+    - name: Npm ci
+      run: npm ci
+      shell: bash

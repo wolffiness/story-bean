@@ -1,0 +1,172 @@
+// BREAKPOINTS (For media queries)
+$xs: 30em;
+$sm: 36em;
+$md: 48em;
+$lg: 62em;
+$xl: 75em;
+
+:root {
+	// BREAKPOINTS (do not use SCSS vars, just keep them equal)
+	--xs: 22em; // min-width of page, not breakpoint
+	--sm: 36em;
+	--md: 48em;
+	--lg: 62em;
+	--xl: 75em;
+
+	--col: 4;
+
+	@media only screen and (min-width: $sm) {
+		--col: 8;
+	}
+
+	@media only screen and (min-width: $md) {
+		--col: 12;
+	}
+
+	--gutter: 1em;
+
+	// Size
+	--max-width: calc(100vw - (var(--margin) * 2));
+
+	@media only screen and (min-width: $sm) {
+		--max-width: calc(var(--sm) - (var(--margin) * 2));
+	}
+
+	@media only screen and (min-width: $md) {
+		--max-width: calc(var(--md) - (var(--margin) * 2));
+	}
+
+	@media only screen and (min-width: $lg) {
+		--max-width: calc(var(--lg) - (var(--margin) * 2));
+	}
+
+	@media only screen and (min-width: $xl) {
+		--max-width: calc(var(--xl) - (var(--margin) * 2));
+	}
+
+	// Box model
+	--margin: 2em;
+
+	@media only screen and (min-width: $xs) {
+		--margin: 4em;
+	}
+
+	--border-rad: 5px;
+	--border-circle: 360px;
+	--border-sketch: var(--border-circle) var(--border-rad) var(--border-circle)
+		var(--border-rad) / var(--border-rad) var(--border-circle) var(--border-rad)
+		var(--border-circle);
+	--border-size: 3px;
+
+	// TRANSITION SPEED
+	--trans-speed: 300ms;
+	--transition: var(--trans-speed) ease-in-out;
+
+	// TYPOGRAPHY
+	// Font family
+	--font-h:
+		'Libre Baskerville', Inter, Roboto, 'Helvetica Neue', 'Nimbus Sans', Arial,
+		system-ui, sans-serif;
+	--font-text:
+		'Quicksand', Inter, Roboto, 'Helvetica Neue', 'Nimbus Sans', Arial,
+		system-ui, sans-serif;
+
+	// Font size
+	--typescale: 1.25;
+
+	@media only screen and (min-width: $md) {
+		--typescale: 1.25;
+	}
+
+	--size-text: 16px;
+	--size-icon: 2cap;
+
+	--size-sm: calc(var(--size-text) / var(--typescale));
+	--size-tiny: calc(var(--size-sm) / var(--typescale));
+
+	--size-h5: calc(var(--size-text) * var(--typescale));
+	--size-h4: calc(var(--size-h5) * var(--typescale));
+	--size-h3: calc(var(--size-h4) * var(--typescale));
+	--size-h2: calc(var(--size-h3) * var(--typescale));
+	--size-h1: calc(var(--size-h2) * var(--typescale));
+	--size-xl: calc(var(--size-h1) * var(--typescale));
+
+	// COLORS
+	color-scheme: light dark;
+	// Base
+	--bg: light-dark(#ede3da, #241d17);
+	--text: light-dark(#241d17, #ede3da);
+
+	@supports (color: contrast-color(var(--bg))) {
+		--text: contrast-color(var(--bg));
+	}
+
+	--primary: light-dark(#48301a, #e5ceb8);
+	--secondary: light-dark(#e6c299, #664219);
+	--accent: light-dark(#404f24, #404f24);
+
+	// UI States
+	--error: #741b1b;
+	// --warning: #e4d854;
+	--success: #97c443;
+	// --info: #19437c;
+
+	// Shades
+	--clamp-low: 5;
+	--clamp-high: 95;
+
+	--l-increment: 5;
+	--s-increment: 5;
+
+	--l-disabled: 10;
+	--s-disabled: 20;
+
+	@mixin color-shades($base) {
+		--#{$base}-disabled: hsl(
+			from var(--#{$base}) h
+				clamp(var(--clamp-low), calc(s - var(--s-disabled)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l + var(--l-disabled)), var(--clamp-high))
+		);
+		--#{$base}-dark: hsl(
+			from var(--#{$base}) h
+				clamp(var(--clamp-low), calc(s - var(--s-increment)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l - var(--l-increment)), var(--clamp-high))
+		);
+		--#{$base}-darkest: hsl(
+			from var(--#{$base}-dark) h
+				clamp(var(--clamp-low), calc(s - var(--s-increment)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l - var(--l-increment)), var(--clamp-high))
+		);
+		--#{$base}-light: hsl(
+			from var(--#{$base}) h
+				clamp(var(--clamp-low), calc(s + var(--s-increment)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l + var(--l-increment)), var(--clamp-high))
+		);
+		--#{$base}-lightest: hsl(
+			from var(--#{$base}-light) h
+				clamp(var(--clamp-low), calc(s + var(--s-increment)), var(--clamp-high))
+				clamp(var(--clamp-low), calc(l + var(--l-increment)), var(--clamp-high))
+		);
+		--#{$base}-30: color-mix(in srgb, var(--#{$base}) 30%, transparent);
+	}
+
+	@include color-shades(text);
+	@include color-shades(bg);
+	@include color-shades(primary);
+	@include color-shades(secondary);
+	@include color-shades(accent);
+	@include color-shades(error);
+	@include color-shades(success);
+
+	// SHADOWS
+	--shadow: light-dark(var(--text-darkest), var(--bg-darkest));
+	--shadow-color-30: color-mix(in srgb, var(--shadow) 30%, transparent);
+	--shadow-color-15: color-mix(in srgb, var(--shadow) 15%, transparent);
+
+	--shadow-sm:
+		0 2px 4px 0 var(--shadow-color-30), 0 4px 6px 0 var(--shadow-color-15);
+	--shadow-md:
+		0 6px 8px 0 var(--shadow-color-30), 0 8px 10px 0 var(--shadow-color-15);
+	--shadow-lg:
+		0 8px 10px 0 var(--shadow-color-30), 0 8px 12px 0 var(--shadow-color-15);
+}

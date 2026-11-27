@@ -1,0 +1,67 @@
+@use '../root' as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	font-family: var(--font-h);
+}
+
+h1 {
+	font-size: var(--size-h1);
+}
+
+h2 {
+	font-size: var(--size-h2);
+}
+
+h3 {
+	font-size: var(--size-h3);
+}
+
+h4 {
+	font-size: var(--size-h4);
+}
+
+h5 {
+	font-size: var(--size-h5);
+}
+
+h6 {
+	font-size: var(--size-h6);
+}
+
+p {
+	margin: 0;
+
+	&.sm-text {
+		font-size: var(--size-sm);
+	}
+}
+
+.icon {
+	// See https://developers.google.com/fonts/docs/material_symbols#use_in_web
+	font-family: 'Material Symbols Outlined';
+	font-weight: normal;
+	font-style: normal;
+	font-size: var(--size-icon);
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+
+	&:hover,
+	&.active {
+		font-variation-settings: 'FILL' 1;
+	}
+}
+
+.bold {
+	font-weight: bold;
+}

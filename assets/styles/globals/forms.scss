@@ -1,0 +1,130 @@
+@use '../root' as *;
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+input {
+	border: none;
+	border-radius: var(--border-circle);
+	background-color: var(--bg-lightest);
+	padding: 0.5em 1em;
+	font-family: var(--font-text);
+	font-size: var(--size-text);
+
+	&:user-invalid,
+	&.user-invalid {
+		box-shadow: inset 0 0 0 3px var(--error);
+		background-color: var(--error-dark);
+	}
+}
+
+label {
+	font-size: var(--size-sm);
+	font-weight: bold;
+}
+
+.setting-field {
+	input,
+	.input {
+		border: 2px solid transparent;
+		border-radius: var(--border-circle);
+		background-color: unset;
+		padding: 0.5em 1em;
+		font-family: unset;
+		font-size: unset;
+		transition: var(--transition);
+	}
+
+	.input:hover {
+		cursor: pointer;
+		border-color: var(--text);
+	}
+
+	input {
+		border-color: var(--text);
+	}
+
+	label,
+	.label {
+		font-size: unset;
+		font-weight: bold;
+	}
+}
+
+.form-feedback {
+	display: flex;
+	gap: 0.75em;
+	align-items: center;
+	background-color: var(--error-dark);
+	padding: 0.5em 0.75em;
+	border-radius: var(--border-rad);
+	color: light-dark(var(--bg), var(--text));
+	font-size: var(--size-sm);
+	box-shadow: var(--shadow-sm);
+	width: fit-content;
+
+	span:last-of-type::first-letter {
+		text-transform: capitalize;
+	}
+
+	&.password-feedback {
+		background-color: light-dark(var(--bg), var(--text-dark));
+		box-shadow: unset;
+	}
+
+	&:not(.password-feedback) .rule-invalid {
+		font-weight: unset;
+		color: var(--text);
+	}
+
+	.icon {
+		font-size: var(--size-text);
+
+		&:hover {
+			cursor: auto;
+		}
+	}
+
+	ul {
+		margin: 0.25em 0 0 0;
+		padding: 0 0 0 1em;
+		list-style: initial;
+	}
+}
+
+.rule-valid {
+	display: flex;
+	align-items: center;
+	gap: 0.25em;
+	list-style-type: none;
+	margin-left: -1em;
+	color: var(--success-darkest);
+	font-weight: bold;
+	transition: var(--transition);
+
+	&::before {
+		content: 'check';
+		font-family: 'Material Symbols Outlined';
+		font-size: var(--size-text);
+	}
+}
+
+.rule-invalid {
+	display: flex;
+	align-items: center;
+	gap: 0.25em;
+	list-style-type: none;
+	margin-left: -1em;
+	color: var(--error);
+	font-weight: bold;
+	transition: var(--transition);
+
+	&::before {
+		content: 'close';
+		font-family: 'Material Symbols Outlined';
+		font-size: var(--size-text);
+	}
+}

@@ -1,4 +1,9 @@
-on: [pull_request]
+name: Lint, format, and validate-html
+
+on:
+  pull_request:
+  push:
+    branches: [main]
 
 jobs:
   lint:
@@ -6,9 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      - name: Set up node
-        run: npm ci
+      - uses: ./.github/composites/npm
 
       - run: npm run lint
   format:
@@ -16,9 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      - name: Set up node
-        run: npm ci
+      - uses: ./.github/composites/npm
 
       - run: npm run format
   validate-html:
@@ -29,8 +30,6 @@ jobs:
       SUPABASE_KEY: dummy-key
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      - name: Set up node
-        run: npm ci
+      - uses: ./.github/composites/npm
 
       - run: npx nuxt generate
