@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/composite/npm
+      - uses: ./.github/composites/npm
 
       - run: npm run lint
   format:
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/composite/npm
+      - uses: ./.github/composites/npm
 
       - run: npm run format
   validate-html:
@@ -30,6 +30,6 @@ jobs:
       SUPABASE_KEY: dummy-key
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/composite/npm
+      - uses: ./.github/composites/npm
 
       - run: npx nuxt generate
