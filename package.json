@@ -29,7 +29,7 @@
 		"@nuxtjs/html-validator": "^2.1.0",
 		"@nuxtjs/supabase": "^2.0.9",
 		"@nuxtjs/turnstile": "^1.1.3",
-		"@supabase/supabase-js": "^2.108.2",
+		"@supabase/supabase-js": "^2.119.2",
 		"@vueuse/nuxt": "^14.3.0",
 		"nuxt": "^4.6.4",
 		"sass": "^1.101.0",
