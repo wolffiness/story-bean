@@ -25,6 +25,9 @@ jobs:
   validate-html:
     name: Validate HTML
     runs-on: ubuntu-latest
+    env:
+      SUPABASE_URL: https://example.supabase.co
+      SUPABASE_KEY: dummy-key
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/composite/npm
